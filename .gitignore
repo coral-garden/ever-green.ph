@@ -1,0 +1,9 @@
+.DS_Store
+*.log
+
+# Scraped static mirror of the original Wix site — reference only, contains
+# third-party bundles; not part of the published redesign.
+mirror/
+
+# Generated build artifact — rebuild with redesign/build_standalone.py
+redesign/index.standalone.html
