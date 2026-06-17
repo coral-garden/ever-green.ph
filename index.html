@@ -9,407 +9,16 @@
 <meta property="og:description" content="Solar systems engineered for island living. Grid-tied, off-grid, and hybrid installs across the Philippine islands." />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://www.ever-green.ph" />
+<meta property="og:image" content="https://www.ever-green.ph/assets/logo-full.png" />
+
+<link rel="icon" type="image/png" href="assets/favicon.png" />
+<link rel="apple-touch-icon" href="assets/logo.png" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Hanken+Grotesk:wght@400;500;600;700&family=Azeret+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
 
-<style>
-  /* ============================================================
-     EVERGREEN SOLAR — design tokens
-     ============================================================ */
-  :root {
-    /* Palette derived from the Evergreen Solar mark: a pinwheel cycling
-       from deep forest green through to electric lime. Pure green — the
-       lime IS the energy accent (no gold). */
-    --panel:    #07190F;  /* near-black forest — dominant dark      */
-    --panel-2:  #0C2417;  /* raised surface on dark                 */
-    --panel-3:  #1B3D29;  /* hairline / border on dark              */
-    --foliage:  #0B5A30;  /* tropical jungle green — 2nd brand      */
-    --foliage-2:#0A4827;
-    --lime:     #7DC23E;  /* electric lime — primary accent / energy*/
-    --lime-deep:#5AA62B;  /* deeper lime for gradient + hover       */
-    --leaf:     #339646;  /* mid leaf green (from logo mid-blades)  */
-    --sky:      #DCEBB8;  /* pale lime tint (light accent)          */
-    --paper:    #EDF2E6;  /* cool faint-green off-white (light bg)  */
-    --paper-2:  #F4F8EE;  /* raised card on light                   */
-    --ink:      #07190F;  /* primary text on light                  */
-    --mist:     #5E7068;  /* muted secondary text                   */
-    --mist-d:   #8AA593;  /* muted text on dark                     */
-    --line:     #D9E1CE;  /* hairline on light                      */
-
-    --font-display: "Bricolage Grotesque", system-ui, sans-serif;
-    --font-body: "Hanken Grotesk", system-ui, sans-serif;
-    --font-mono: "Azeret Mono", ui-monospace, monospace;
-
-    --shell: 1240px;
-    --gutter: clamp(20px, 5vw, 64px);
-    --radius: 14px;
-
-    --ease: cubic-bezier(.2, .7, .2, 1);
-  }
-
-  /* ---------- reset ---------- */
-  *, *::before, *::after { box-sizing: border-box; }
-  html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
-  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
-  body {
-    margin: 0;
-    font-family: var(--font-body);
-    background: var(--paper);
-    color: var(--ink);
-    line-height: 1.55;
-    -webkit-font-smoothing: antialiased;
-    text-rendering: optimizeLegibility;
-    overflow-x: hidden;
-  }
-  img { display: block; max-width: 100%; }
-  a { color: inherit; text-decoration: none; }
-  button { font: inherit; cursor: pointer; }
-  h1, h2, h3 { margin: 0; font-family: var(--font-display); font-weight: 800; line-height: 0.98; letter-spacing: -0.02em; }
-  p { margin: 0; }
-  ::selection { background: var(--lime); color: var(--panel); }
-
-  :focus-visible { outline: 3px solid var(--lime); outline-offset: 3px; border-radius: 4px; }
-
-  .shell { width: 100%; max-width: var(--shell); margin-inline: auto; padding-inline: var(--gutter); }
-
-  /* ---------- shared utility: mono eyebrow / "readout" voice ---------- */
-  .tag {
-    font-family: var(--font-mono);
-    font-size: 12px;
-    font-weight: 500;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-  }
-  .tag-dot::before {
-    content: "";
-    display: inline-block;
-    width: 7px; height: 7px;
-    margin-right: 9px;
-    border-radius: 50%;
-    background: var(--lime);
-    vertical-align: middle;
-    transform: translateY(-1px);
-  }
-
-  /* ---------- buttons ---------- */
-  .btn {
-    display: inline-flex; align-items: center; gap: 10px;
-    padding: 14px 24px;
-    font-family: var(--font-mono);
-    font-size: 13px; font-weight: 600;
-    letter-spacing: 0.12em; text-transform: uppercase;
-    border-radius: 999px;
-    border: 1px solid transparent;
-    transition: transform .25s var(--ease), background .25s var(--ease), box-shadow .25s var(--ease), color .25s var(--ease);
-    will-change: transform;
-  }
-  .btn svg { width: 15px; height: 15px; transition: transform .3s var(--ease); }
-  .btn:hover svg { transform: translateX(4px); }
-  .btn-lime {
-    background: var(--lime); color: var(--panel);
-    box-shadow: 0 1px 0 rgba(255,255,255,.4) inset, 0 10px 24px -10px rgba(90,166,43,.8);
-  }
-  .btn-lime:hover { background: var(--lime-deep); transform: translateY(-2px); }
-  .btn-ghost { border-color: currentColor; color: var(--ink); }
-  .btn-ghost:hover { background: var(--ink); color: var(--paper); transform: translateY(-2px); }
-  .btn-ghost-light { border-color: rgba(255,255,255,.35); color: #fff; }
-  .btn-ghost-light:hover { background: #fff; color: var(--panel); transform: translateY(-2px); }
-
-  /* ============================================================
-     NAV
-     ============================================================ */
-  .nav {
-    position: fixed; inset: 0 0 auto 0; z-index: 50;
-    transition: background .35s var(--ease), border-color .35s var(--ease), backdrop-filter .35s var(--ease);
-    border-bottom: 1px solid transparent;
-  }
-  .nav.scrolled {
-    background: rgba(7,25,15,.82);
-    backdrop-filter: blur(12px) saturate(1.2);
-    border-bottom-color: var(--panel-3);
-  }
-  .nav-inner { display: flex; align-items: center; gap: 28px; height: 76px; }
-  .brand { display: flex; align-items: center; gap: 11px; color: #fff; }
-  .brand img { width: 40px; height: 40px; }
-  .brand b { font-family: var(--font-display); font-weight: 800; font-size: 18px; letter-spacing: -0.01em; }
-  .brand span { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.2em; color: var(--lime); display: block; line-height: 1; margin-top: 2px; }
-  .nav-links { display: flex; gap: 4px; margin-left: auto; }
-  .nav-links a {
-    color: rgba(255,255,255,.82); font-size: 14px; font-weight: 500;
-    padding: 9px 14px; border-radius: 8px; transition: color .2s, background .2s;
-  }
-  .nav-links a:hover { color: #fff; background: rgba(255,255,255,.08); }
-  .nav-cta { display: flex; align-items: center; gap: 14px; }
-  .nav-toggle { display: none; background: none; border: 0; color: #fff; padding: 8px; }
-  .nav-toggle svg { width: 26px; height: 26px; }
-
-  @media (max-width: 900px) {
-    .nav-links, .nav-cta .btn { display: none; }
-    .nav-toggle { display: inline-flex; }
-  }
-
-  /* mobile menu */
-  .mobile-menu {
-    position: fixed; inset: 0; z-index: 60;
-    background: var(--panel);
-    display: flex; flex-direction: column; padding: 24px var(--gutter);
-    transform: translateY(-100%); transition: transform .4s var(--ease);
-    visibility: hidden;
-  }
-  .mobile-menu.open { transform: translateY(0); visibility: visible; }
-  .mobile-menu .mm-top { display: flex; align-items: center; justify-content: space-between; height: 52px; }
-  .mobile-menu .mm-close { background: none; border: 0; color: #fff; padding: 8px; }
-  .mobile-menu .mm-close svg { width: 28px; height: 28px; }
-  .mobile-menu nav { display: flex; flex-direction: column; gap: 6px; margin-top: 40px; }
-  .mobile-menu nav a {
-    color: #fff; font-family: var(--font-display); font-weight: 700; font-size: 38px;
-    padding: 10px 0; border-bottom: 1px solid var(--panel-3);
-  }
-  .mobile-menu .mm-foot { margin-top: auto; color: var(--mist-d); font-family: var(--font-mono); font-size: 12px; letter-spacing: .08em; }
-
-  /* ============================================================
-     HERO  — sun-path arc + island install photo
-     ============================================================ */
-  .hero {
-    position: relative;
-    background: var(--panel);
-    color: #fff;
-    padding-top: 150px;
-    padding-bottom: 150px;
-    overflow: hidden;
-  }
-  /* ambient sun-glow bleeding from upper area */
-  .hero::before {
-    content: "";
-    position: absolute; top: -22%; left: 8%; width: 60%; height: 80%;
-    background: radial-gradient(circle, rgba(125,194,62,.20), rgba(125,194,62,0) 62%);
-    pointer-events: none;
-  }
-  /* curved section seams — each color split is an island horizon with its own motif */
-  .seam { position: absolute; top: 0; left: 0; width: 100%; transform: translateY(-99%); z-index: 5; pointer-events: none; line-height: 0; }
-  .seam-fill { width: 100%; height: clamp(46px, 6vw, 82px); display: block; }
-  /* a lime medallion straddling the border line */
-  .seam-badge {
-    position: absolute; left: 50%; top: 0; transform: translate(-50%, -50%);
-    width: clamp(46px, 5vw, 58px); height: clamp(46px, 5vw, 58px);
-    filter: drop-shadow(0 6px 14px rgba(7,25,15,.30));
-  }
-
-  .hero-grid {
-    position: relative; z-index: 2;
-    display: grid; grid-template-columns: 1.15fr 0.85fr; gap: clamp(28px, 5vw, 72px);
-    align-items: center;
-  }
-  .hero-eyebrow { color: var(--lime); margin-bottom: 26px; }
-  .hero h1 {
-    font-size: clamp(56px, 11.5vw, 150px);
-    line-height: 0.9;
-    letter-spacing: -0.04em;
-  }
-  .hero h1 .l2 { display: block; color: transparent; -webkit-text-stroke: 1.4px var(--lime); }
-  .hero-sub {
-    margin-top: 28px; max-width: 30em;
-    font-size: clamp(16px, 1.9vw, 20px); color: rgba(255,255,255,.78);
-  }
-  .hero-actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 38px; }
-
-  /* hero photo card with corner ticks */
-  .hero-photo { position: relative; }
-  .hero-photo .frame {
-    position: relative; border-radius: var(--radius); overflow: hidden;
-    border: 1px solid var(--panel-3);
-    box-shadow: 0 40px 80px -40px rgba(0,0,0,.7);
-    aspect-ratio: 4 / 5;
-  }
-  .hero-photo img { width: 100%; height: 100%; object-fit: cover; }
-  .hero-photo .frame::after {
-    content: ""; position: absolute; inset: 0;
-    background: linear-gradient(180deg, rgba(7,25,15,0) 45%, rgba(7,25,15,.55));
-  }
-  .hero-photo .cap {
-    position: absolute; left: 16px; bottom: 16px; z-index: 2;
-    color: #fff; font-family: var(--font-mono); font-size: 11px; letter-spacing: .12em;
-    text-transform: uppercase;
-  }
-  .hero-photo .cap b { display: block; font-weight: 600; }
-  .hero-photo .cap span { color: var(--mist-d); }
-  .tick { position: absolute; width: 18px; height: 18px; z-index: 3; }
-  .tick::before, .tick::after { content: ""; position: absolute; background: var(--lime); }
-  .tick::before { width: 100%; height: 2px; top: 0; } .tick::after { width: 2px; height: 100%; left: 0; }
-  .tick.tl { top: -1px; left: -1px; }
-  .tick.br { bottom: -1px; right: -1px; transform: rotate(180deg); }
-
-  /* SVG sun-path arc layer */
-  .sunpath { position: absolute; inset: 0; z-index: 1; pointer-events: none; width: 100%; height: 100%; }
-  .sunpath .arc { fill: none; stroke: rgba(255,255,255,.14); stroke-width: 1.5; stroke-dasharray: 5 7; }
-  .sunpath .arc-lit { fill: none; stroke: var(--lime); stroke-width: 2; opacity: .55; }
-  .sunpath .htick { stroke: rgba(255,255,255,.18); stroke-width: 1.5; }
-  .sunpath text { fill: var(--mist-d); font-family: var(--font-mono); font-size: 11px; letter-spacing: .1em; }
-  .sun-dot { fill: var(--lime); filter: drop-shadow(0 0 10px rgba(125,194,62,.9)); }
-
-  /* hero readout strip */
-  .readout {
-    position: relative; z-index: 2;
-    margin-top: 64px; padding-top: 22px;
-    border-top: 1px solid var(--panel-3);
-    display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;
-  }
-  .readout .r { }
-  .readout .k { font-family: var(--font-mono); font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--lime); }
-  .readout .v { font-family: var(--font-display); font-weight: 700; font-size: clamp(17px, 2vw, 21px); margin-top: 8px; color: #fff; }
-  .readout .d { font-size: 13px; color: var(--mist-d); margin-top: 2px; }
-
-  @media (max-width: 860px) {
-    .hero-grid { grid-template-columns: 1fr; }
-    .hero-photo { max-width: 420px; }
-    .readout { grid-template-columns: 1fr 1fr; gap: 26px 20px; }
-  }
-
-  /* ============================================================
-     SECTION SCAFFOLD
-     ============================================================ */
-  .section { padding-block: clamp(72px, 11vw, 132px); position: relative; }
-  .section-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 28px; flex-wrap: wrap; margin-bottom: 56px; }
-  .section-head .lead { max-width: 17em; }
-  .section-head .tag { color: var(--foliage); margin-bottom: 18px; }
-  .section-head h2 { font-size: clamp(32px, 5vw, 56px); }
-  .section-head p.kicker { color: var(--mist); max-width: 30em; font-size: 17px; }
-
-  /* services header: copy stacks under the headline, illustration sits top-right */
-  .section-head--systems { align-items: center; flex-wrap: nowrap; }
-  .section-head--systems .lead { max-width: 20em; }
-  .section-head--systems .lead .kicker { margin-top: 20px; }
-  .roof-art { margin: 0; width: min(400px, 44%); flex: none; }
-  .roof-art svg { width: 100%; height: auto; display: block; }
-  .ra-glow { transform-box: fill-box; transform-origin: center; animation: raPulse 4.5s var(--ease) infinite; }
-  @keyframes raPulse { 0%,100% { opacity: .14; transform: scale(.92); } 50% { opacity: .26; transform: scale(1.08); } }
-  @media (max-width: 820px) {
-    .section-head--systems { flex-wrap: wrap; align-items: flex-end; }
-    .roof-art { width: 100%; max-width: 360px; order: -1; }
-  }
-  @media (prefers-reduced-motion: reduce) { .ra-glow { animation: none; } }
-
-  /* thin sun-arc divider echo */
-  .arc-divider { display: block; width: 100%; height: 40px; color: var(--line); }
-  .arc-divider path { fill: none; stroke: currentColor; stroke-width: 1.5; stroke-dasharray: 4 6; }
-  .arc-divider circle { fill: var(--lime); }
-
-  /* ============================================================
-     SERVICES — three system architectures (a real typed set → numbered)
-     ============================================================ */
-  .systems { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
-  .sys {
-    position: relative; background: var(--paper-2); border: 1px solid var(--line);
-    border-radius: var(--radius); padding: 30px 26px 26px; overflow: hidden;
-    transition: transform .35s var(--ease), box-shadow .35s var(--ease), border-color .35s var(--ease);
-  }
-  .sys:hover { transform: translateY(-6px); box-shadow: 0 30px 50px -34px rgba(7,25,15,.45); border-color: var(--foliage); }
-  .sys-no { font-family: var(--font-mono); font-size: 12px; letter-spacing: .2em; color: var(--mist); }
-  .sys-ico { width: 46px; height: 46px; margin: 22px 0 22px; color: var(--foliage); }
-  .sys:hover .sys-ico { color: var(--lime-deep); }
-  .sys h3 { font-size: 25px; letter-spacing: -0.01em; }
-  .sys .for { font-family: var(--font-mono); font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--foliage); margin-top: 16px; }
-  .sys .desc { color: var(--mist); margin-top: 7px; font-size: 15.5px; }
-  .sys-glow { position: absolute; top: -40px; right: -40px; width: 120px; height: 120px; border-radius: 50%; background: radial-gradient(circle, rgba(125,194,62,.16), transparent 70%); opacity: 0; transition: opacity .35s; }
-  .sys:hover .sys-glow { opacity: 1; }
-  @media (max-width: 820px) { .systems { grid-template-columns: 1fr; } }
-
-  /* ============================================================
-     ABOUT — foliage-green band
-     ============================================================ */
-  .about { background: var(--foliage); color: #fff; }
-  .about .arc-divider { color: rgba(255,255,255,.25); }
-  .about-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: clamp(32px, 6vw, 80px); align-items: center; }
-  .about .tag { color: var(--lime); margin-bottom: 22px; }
-  .about h2 { font-size: clamp(30px, 4.4vw, 50px); max-width: 13em; }
-  .about-copy { margin-top: 26px; display: grid; gap: 16px; max-width: 34em; color: rgba(255,255,255,.86); font-size: 17px; }
-  .about-copy .promise { color: #fff; font-weight: 600; font-size: 19px; }
-  .about-actions { margin-top: 34px; }
-  .about-photo { position: relative; border-radius: var(--radius); overflow: hidden; aspect-ratio: 5/6; border: 1px solid rgba(255,255,255,.18); }
-  .about-photo img { width: 100%; height: 100%; object-fit: cover; }
-  .about-photo .badge {
-    position: absolute; left: 16px; bottom: 16px; right: 16px;
-    display: flex; align-items: center; gap: 12px;
-    background: rgba(7,25,15,.74); backdrop-filter: blur(6px);
-    border: 1px solid var(--panel-3); border-radius: 10px; padding: 12px 14px;
-    font-family: var(--font-mono); font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: #fff;
-  }
-  .about-photo .badge b { color: var(--lime); }
-  @media (max-width: 820px) { .about-grid { grid-template-columns: 1fr; } .about-photo { max-width: 420px; } }
-
-  /* ============================================================
-     PROJECTS — editorial photo grid (the proof)
-     ============================================================ */
-  .proj-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 16px; }
-  .proj {
-    position: relative; border-radius: var(--radius); overflow: hidden; background: var(--panel);
-    border: 1px solid var(--line);
-  }
-  .proj img { width: 100%; height: 100%; object-fit: cover; transition: transform .7s var(--ease); }
-  .proj:hover img { transform: scale(1.05); }
-  .proj::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 40%, rgba(7,25,15,.78)); }
-  .proj .meta { position: absolute; left: 18px; right: 18px; bottom: 16px; z-index: 2; color: #fff; }
-  .proj .meta .loc { font-family: var(--font-mono); font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--lime); }
-  .proj .meta .ttl { font-family: var(--font-display); font-weight: 700; font-size: 19px; margin-top: 4px; }
-  .proj.big { grid-column: span 3; grid-row: span 3; aspect-ratio: auto; }
-  .proj.small { grid-column: span 3; aspect-ratio: 16/9; }
-  @media (max-width: 820px) {
-    .proj-grid { grid-template-columns: 1fr 1fr; }
-    .proj.big, .proj.small { grid-column: span 1; grid-row: auto; aspect-ratio: 4/3; }
-  }
-
-  /* ============================================================
-     QUOTE CTA band
-     ============================================================ */
-  /* glow as a background (clips to the box) so the seam above isn't cut off by overflow */
-  .quote { position: relative; color: #fff;
-    background: radial-gradient(58% 90% at 88% 28%, rgba(125,194,62,.18), transparent 60%), var(--panel); }
-  .quote-inner { position: relative; z-index: 2; display: grid; grid-template-columns: 1.3fr 0.7fr; gap: 40px; align-items: center; }
-  .quote .tag { color: var(--lime); margin-bottom: 22px; }
-  .quote h2 { font-size: clamp(32px, 5.2vw, 62px); max-width: 13em; }
-  .quote .contacts { display: grid; gap: 16px; }
-  .quote .contacts a, .quote .contacts span {
-    display: flex; align-items: center; gap: 12px;
-    font-family: var(--font-mono); font-size: 14px; letter-spacing: .04em; color: rgba(255,255,255,.86);
-  }
-  .quote .contacts svg { width: 17px; height: 17px; color: var(--lime); flex: none; }
-  .quote .contacts a:hover { color: var(--lime); }
-  .quote-actions { margin-top: 36px; }
-  @media (max-width: 820px) { .quote-inner { grid-template-columns: 1fr; } }
-
-  /* ============================================================
-     FOOTER
-     ============================================================ */
-  .footer { background: #061410; color: var(--mist-d); padding-block: 72px 32px; }
-  .foot-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 40px; }
-  .foot-brand .brand { margin-bottom: 18px; }
-  .foot-brand p { color: var(--mist-d); font-size: 14.5px; max-width: 26em; }
-  .foot-col h4 { font-family: var(--font-mono); font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: var(--lime); margin: 0 0 16px; font-weight: 500; }
-  .foot-col a, .foot-col p { display: block; color: rgba(255,255,255,.78); font-size: 14.5px; padding: 5px 0; margin: 0; }
-  .foot-col a:hover { color: var(--lime); }
-  .foot-bottom {
-    margin-top: 56px; padding-top: 22px; border-top: 1px solid var(--panel-3);
-    display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap;
-    font-family: var(--font-mono); font-size: 11.5px; letter-spacing: .06em; color: var(--mist-d);
-  }
-  .foot-bottom .legal { display: flex; gap: 22px; flex-wrap: wrap; }
-  .foot-bottom a:hover { color: var(--lime); }
-  @media (max-width: 820px) { .foot-grid { grid-template-columns: 1fr 1fr; gap: 32px; } }
-  @media (max-width: 480px) { .foot-grid { grid-template-columns: 1fr; } }
-
-  /* ============================================================
-     scroll reveal
-     ============================================================ */
-  /* only hide-for-reveal when JS is present, so the page degrades gracefully */
-  .js .reveal { opacity: 0; transform: translateY(26px); transition: opacity .8s var(--ease), transform .8s var(--ease); }
-  .js .reveal.in { opacity: 1; transform: none; }
-  @media (prefers-reduced-motion: reduce) {
-    .reveal { opacity: 1; transform: none; transition: none; }
-    .sun-dot, .proj img, .btn, .sys { transition: none !important; }
-  }
-</style>
+<link rel="stylesheet" href="assets/site.css" />
 </head>
 <body>
 
@@ -425,12 +34,13 @@
       </a>
       <nav class="nav-links" aria-label="Primary">
         <a href="#systems">Services</a>
+        <a href="estimate.html">Estimate</a>
         <a href="#projects">Projects</a>
         <a href="#about">About</a>
         <a href="#contact">Contact</a>
       </nav>
       <div class="nav-cta">
-        <a class="btn btn-lime" href="#contact">Get a quote
+        <a class="btn btn-lime" href="estimate.html">Get a quote
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         </a>
         <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
@@ -450,6 +60,7 @@
     </div>
     <nav>
       <a href="#systems">Services</a>
+      <a href="estimate.html">Estimate</a>
       <a href="#projects">Projects</a>
       <a href="#about">About</a>
       <a href="#contact">Contact</a>
@@ -479,7 +90,7 @@
         <h1 class="reveal">Powering<span class="l2">islands</span></h1>
         <p class="hero-sub reveal">High-performance solar systems engineered for reliability, long-term savings, and dependable energy — built for life on the islands.</p>
         <div class="hero-actions reveal">
-          <a class="btn btn-lime" href="#contact">Get a quote
+          <a class="btn btn-lime" href="estimate.html">Get a quote
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
           </a>
           <a class="btn btn-ghost-light" href="#systems">See our systems</a>
@@ -716,7 +327,7 @@
         <div class="tag tag-dot">Get a quote</div>
         <h2>Let's plan your upcoming project</h2>
         <div class="quote-actions">
-          <a class="btn btn-lime" href="mailto:simonphconsult@gmail.com">Start your quote
+          <a class="btn btn-lime" href="estimate.html">Start your quote
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
           </a>
         </div>
@@ -754,6 +365,7 @@
         <div class="foot-col">
           <h4>Navigation</h4>
           <a href="#systems">Services</a>
+          <a href="estimate.html">Estimate</a>
           <a href="#projects">Projects</a>
           <a href="#about">About us</a>
           <a href="#contact">Contact</a>

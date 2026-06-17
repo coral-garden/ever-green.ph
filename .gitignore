@@ -4,5 +4,5 @@
 # Scraped static mirror of the original Wix site — reference only.
 original/mirror/
 
-# Generated build artifact — rebuild with build_standalone.py
-index.standalone.html
+# Generated build artifacts — rebuild with build_standalone.py
+*.standalone.html
