@@ -142,25 +142,23 @@
 </head>
 <body>
 
+  <!-- @partial:header -->
   <!-- ===================== NAV ===================== -->
   <header class="nav" id="nav">
     <div class="shell nav-inner">
       <a class="brand" href="index.html" aria-label="Evergreen Solar home">
         <img src="assets/logo.png" alt="" />
-        <span style="display:flex;flex-direction:column;">
-          <b>Evergreen Solar</b>
-          <span>MINDANAO · PH</span>
-        </span>
+        <b>Evergreen Solar</b>
       </a>
       <nav class="nav-links" aria-label="Primary">
         <a href="services.html">Services</a>
-        <a href="estimate.html" aria-current="page">Estimate</a>
+        <a href="estimate.html">Estimate</a>
         <a href="index.html#projects">Projects</a>
         <a href="index.html#about">About</a>
         <a href="index.html#contact">Contact</a>
       </nav>
       <div class="nav-cta">
-        <a class="btn btn-lime" href="#estimator">Build estimate
+        <a class="btn btn-lime" href="estimate.html">Get a quote
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         </a>
         <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
@@ -187,6 +185,7 @@
     </nav>
     <div class="mm-foot">Nova Tierra, Davao City · 0966 305 1461</div>
   </div>
+  <!-- @endpartial:header -->
 
   <main id="top">
   <!-- ===================== HERO ===================== -->
@@ -395,6 +394,7 @@
   </section>
   </main>
 
+  <!-- @partial:footer -->
   <!-- ===================== FOOTER ===================== -->
   <footer class="footer">
     <div class="shell">
@@ -428,13 +428,14 @@
       <div class="foot-bottom">
         <span>© 2026 Evergreen Solar Mindanao</span>
         <div class="legal">
-          <a href="#">Terms &amp; Conditions</a>
-          <a href="#">Privacy Policy</a>
-          <a href="#">Accessibility</a>
+          <a href="terms.html">Terms &amp; Conditions</a>
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="accessibility.html">Accessibility</a>
         </div>
       </div>
     </div>
   </footer>
+  <!-- @endpartial:footer -->
 
 <script>
   document.documentElement.classList.add('js');

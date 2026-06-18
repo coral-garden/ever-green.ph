@@ -22,22 +22,20 @@
 </head>
 <body>
 
+  <!-- @partial:header -->
   <!-- ===================== NAV ===================== -->
   <header class="nav" id="nav">
     <div class="shell nav-inner">
-      <a class="brand" href="#top" aria-label="Evergreen Solar home">
+      <a class="brand" href="index.html" aria-label="Evergreen Solar home">
         <img src="assets/logo.png" alt="" />
-        <span style="display:flex;flex-direction:column;">
-          <b>Evergreen Solar</b>
-          <span>MINDANAO · PH</span>
-        </span>
+        <b>Evergreen Solar</b>
       </a>
       <nav class="nav-links" aria-label="Primary">
         <a href="services.html">Services</a>
         <a href="estimate.html">Estimate</a>
-        <a href="#projects">Projects</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
+        <a href="index.html#projects">Projects</a>
+        <a href="index.html#about">About</a>
+        <a href="index.html#contact">Contact</a>
       </nav>
       <div class="nav-cta">
         <a class="btn btn-lime" href="estimate.html">Get a quote
@@ -53,7 +51,7 @@
   <!-- mobile menu -->
   <div class="mobile-menu" id="mobileMenu">
     <div class="mm-top">
-      <a class="brand" href="#top"><img src="assets/logo.png" alt="" /><b>Evergreen Solar</b></a>
+      <a class="brand" href="index.html"><img src="assets/logo.png" alt="" /><b>Evergreen Solar</b></a>
       <button class="mm-close" id="mmClose" aria-label="Close menu">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6L6 18"/></svg>
       </button>
@@ -61,12 +59,13 @@
     <nav>
       <a href="services.html">Services</a>
       <a href="estimate.html">Estimate</a>
-      <a href="#projects">Projects</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
+      <a href="index.html#projects">Projects</a>
+      <a href="index.html#about">About</a>
+      <a href="index.html#contact">Contact</a>
     </nav>
     <div class="mm-foot">Nova Tierra, Davao City · 0966 305 1461</div>
   </div>
+  <!-- @endpartial:header -->
 
   <!-- ===================== HERO ===================== -->
   <main id="top">
@@ -327,7 +326,7 @@
         <div class="tag tag-dot">Get a quote</div>
         <h2>Let's plan your upcoming project</h2>
         <div class="quote-actions">
-          <a class="btn btn-lime" href="estimate.html">Start your quote
+          <a class="btn btn-lime" href="estimate.html">Get a quote
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
           </a>
         </div>
@@ -354,21 +353,22 @@
   </section>
   </main>
 
+  <!-- @partial:footer -->
   <!-- ===================== FOOTER ===================== -->
   <footer class="footer">
     <div class="shell">
       <div class="foot-grid">
         <div class="foot-brand">
-          <a class="brand" href="#top"><img src="assets/logo.png" alt="" style="width:42px;height:42px;" /><b style="font-family:var(--font-display);font-size:19px;color:#fff;">Evergreen Solar</b></a>
+          <a class="brand" href="index.html"><img src="assets/logo.png" alt="" style="width:42px;height:42px;" /><b style="font-family:var(--font-display);font-size:19px;color:#fff;">Evergreen Solar</b></a>
           <p>Top-tier solar systems engineered for island living — grid-tied, off-grid, and hybrid installs across Mindanao.</p>
         </div>
         <div class="foot-col">
           <h4>Navigation</h4>
           <a href="services.html">Services</a>
           <a href="estimate.html">Estimate</a>
-          <a href="#projects">Projects</a>
-          <a href="#about">About us</a>
-          <a href="#contact">Contact</a>
+          <a href="index.html#projects">Projects</a>
+          <a href="index.html#about">About us</a>
+          <a href="index.html#contact">Contact</a>
         </div>
         <div class="foot-col">
           <h4>Head office</h4>
@@ -387,13 +387,14 @@
       <div class="foot-bottom">
         <span>© 2026 Evergreen Solar Mindanao</span>
         <div class="legal">
-          <a href="#">Terms &amp; Conditions</a>
-          <a href="#">Privacy Policy</a>
-          <a href="#">Accessibility</a>
+          <a href="terms.html">Terms &amp; Conditions</a>
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="accessibility.html">Accessibility</a>
         </div>
       </div>
     </div>
   </footer>
+  <!-- @endpartial:footer -->
 
 <script>
   // mark JS available so .reveal elements opt into the hidden→shown transition

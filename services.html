@@ -24,21 +24,6 @@
   /* ============================================================
      SERVICES PAGE (page-specific)
      ============================================================ */
-  .page-hero {
-    position: relative; overflow: hidden; color: #fff;
-    padding-top: 124px; padding-bottom: 116px;
-    background: radial-gradient(58% 90% at 84% 22%, rgba(125,194,62,.20), transparent 60%), var(--panel);
-  }
-  .page-hero > .shell { position: relative; z-index: 2; }
-  .hero-watermark {
-    position: absolute; top: -22%; right: -9%; z-index: 0;
-    width: min(720px, 66%); height: auto;
-    opacity: .09; pointer-events: none; user-select: none;
-  }
-  .page-hero .tag { color: var(--lime); margin-bottom: 20px; }
-  .page-hero h1 { font-size: clamp(40px, 7.4vw, 84px); line-height: 0.94; letter-spacing: -0.03em; max-width: 13em; }
-  .page-hero .hero-sub { margin-top: 22px; max-width: 38em; font-size: clamp(16px, 1.9vw, 20px); color: rgba(255,255,255,.78); }
-
   .services-sec { background: var(--paper); position: relative; padding-top: clamp(22px, 2.6vw, 34px); }
   .services-sec .section-head { margin-bottom: clamp(28px, 3.5vw, 44px); }
 
@@ -61,18 +46,16 @@
 </head>
 <body>
 
+  <!-- @partial:header -->
   <!-- ===================== NAV ===================== -->
   <header class="nav" id="nav">
     <div class="shell nav-inner">
       <a class="brand" href="index.html" aria-label="Evergreen Solar home">
         <img src="assets/logo.png" alt="" />
-        <span style="display:flex;flex-direction:column;">
-          <b>Evergreen Solar</b>
-          <span>MINDANAO · PH</span>
-        </span>
+        <b>Evergreen Solar</b>
       </a>
       <nav class="nav-links" aria-label="Primary">
-        <a href="services.html" aria-current="page">Services</a>
+        <a href="services.html">Services</a>
         <a href="estimate.html">Estimate</a>
         <a href="index.html#projects">Projects</a>
         <a href="index.html#about">About</a>
@@ -106,6 +89,7 @@
     </nav>
     <div class="mm-foot">Nova Tierra, Davao City · 0966 305 1461</div>
   </div>
+  <!-- @endpartial:header -->
 
   <main id="top">
   <!-- ===================== HERO ===================== -->
@@ -255,7 +239,7 @@
         <h2>Get an estimate for your upcoming project</h2>
         <p>Size your system and savings in 30 seconds, or talk it through with our island-based team.</p>
         <div class="cta-actions">
-          <a class="btn btn-lime" href="estimate.html">Build your estimate
+          <a class="btn btn-lime" href="estimate.html">Get a quote
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
           </a>
           <a class="btn btn-ghost-light" href="index.html#contact">Talk to our team</a>
@@ -265,6 +249,7 @@
   </section>
   </main>
 
+  <!-- @partial:footer -->
   <!-- ===================== FOOTER ===================== -->
   <footer class="footer">
     <div class="shell">
@@ -298,13 +283,14 @@
       <div class="foot-bottom">
         <span>© 2026 Evergreen Solar Mindanao</span>
         <div class="legal">
-          <a href="#">Terms &amp; Conditions</a>
-          <a href="#">Privacy Policy</a>
-          <a href="#">Accessibility</a>
+          <a href="terms.html">Terms &amp; Conditions</a>
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="accessibility.html">Accessibility</a>
         </div>
       </div>
     </div>
   </footer>
+  <!-- @endpartial:footer -->
 
 <script>
   document.documentElement.classList.add('js');

@@ -116,7 +116,7 @@
   .nav-inner { display: flex; align-items: center; gap: 28px; height: 76px; }
   .brand { display: flex; align-items: center; gap: 11px; color: #fff; }
   .brand img { width: 40px; height: 40px; }
-  .brand b { font-family: var(--font-display); font-weight: 800; font-size: 18px; letter-spacing: -0.01em; }
+  .brand b { font-family: var(--font-display); font-weight: 800; font-size: 20px; letter-spacing: -0.01em; }
   .brand span { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.2em; color: var(--lime); display: block; line-height: 1; margin-top: 2px; }
   .nav-links { display: flex; gap: 4px; margin-left: auto; }
   .nav-links a {
@@ -392,3 +392,35 @@
     .reveal { opacity: 1; transform: none; transition: none; }
     .sun-dot, .proj img, .btn, .sys { transition: none !important; }
   }
+
+  /* ============================================================
+     SHARED PAGE HERO (services / legal / sub-pages)
+     ============================================================ */
+  .page-hero {
+    position: relative; overflow: hidden; color: #fff;
+    padding-top: 124px; padding-bottom: 116px;
+    background: radial-gradient(58% 90% at 84% 22%, rgba(125,194,62,.20), transparent 60%), var(--panel);
+  }
+  .page-hero > .shell { position: relative; z-index: 2; }
+  .hero-watermark {
+    position: absolute; top: -22%; right: -9%; z-index: 0;
+    width: min(720px, 66%); height: auto;
+    opacity: .09; pointer-events: none; user-select: none;
+  }
+  .page-hero .tag { color: var(--lime); margin-bottom: 20px; }
+  .page-hero h1 { font-size: clamp(40px, 7.4vw, 84px); line-height: 0.94; letter-spacing: -0.03em; max-width: 13em; }
+  .page-hero .hero-sub { margin-top: 22px; max-width: 38em; font-size: clamp(16px, 1.9vw, 20px); color: rgba(255,255,255,.78); }
+
+  /* ============================================================
+     PROSE (terms / privacy / accessibility long-form copy)
+     ============================================================ */
+  .prose-sec { background: var(--paper); position: relative; padding-top: clamp(22px, 2.6vw, 34px); }
+  .prose { max-width: 46em; }
+  .prose .meta { font-family: var(--font-mono); font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--mist); margin-bottom: 30px; }
+  .prose h2 { font-size: clamp(21px, 2.8vw, 28px); margin: 42px 0 12px; color: var(--ink); }
+  .prose h2:first-of-type { margin-top: 0; }
+  .prose p { color: var(--mist); font-size: 16.5px; line-height: 1.7; margin-bottom: 14px; }
+  .prose ul { color: var(--mist); font-size: 16.5px; line-height: 1.7; margin: 0 0 14px; padding-left: 1.25em; }
+  .prose li { margin-bottom: 7px; }
+  .prose strong, .prose b { color: var(--ink); font-weight: 600; }
+  .prose a { color: var(--foliage); font-weight: 600; }
