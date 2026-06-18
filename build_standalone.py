@@ -15,7 +15,7 @@ from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
 PAGES = ["index.html", "estimate.html", "services.html", "about.html",
-         "terms.html", "privacy.html", "accessibility.html"]
+         "projects.html", "terms.html", "privacy.html", "accessibility.html"]
 
 
 def inline_images(html, cache):

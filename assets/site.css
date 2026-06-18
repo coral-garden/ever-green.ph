@@ -424,3 +424,14 @@
   .prose li { margin-bottom: 7px; }
   .prose strong, .prose b { color: var(--ink); font-weight: 600; }
   .prose a { color: var(--foliage); font-weight: 600; }
+
+  /* ============================================================
+     SHARED DARK CTA BAND (about / projects)
+     ============================================================ */
+  .cta-band { position: relative; color: #fff; text-align: center;
+    background: radial-gradient(60% 120% at 50% 8%, rgba(125,194,62,.18), transparent 60%), var(--panel); }
+  .cta-band .shell { position: relative; z-index: 2; }
+  .cta-band .tag { color: var(--lime); margin-bottom: 20px; }
+  .cta-band h2 { font-size: clamp(30px, 5vw, 58px); max-width: 16em; margin-inline: auto; }
+  .cta-band p { margin: 18px auto 0; max-width: 34em; color: rgba(255,255,255,.78); font-size: 17px; }
+  .cta-band .cta-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-top: 38px; }
