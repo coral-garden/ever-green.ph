@@ -14,7 +14,7 @@ import re
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
-PAGES = ["index.html", "estimate.html", "services.html",
+PAGES = ["index.html", "estimate.html", "services.html", "about.html",
          "terms.html", "privacy.html", "accessibility.html"]
 
 
