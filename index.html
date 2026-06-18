@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Evergreen Solar — Powering islands</title>
-<meta name="description" content="High-performance solar systems engineered for reliability, long-term savings, and dependable energy built for island living. Grid-tied, off-grid, and hybrid installs across Mindanao, Davao, and Siargao." />
+<meta name="description" content="High-performance solar systems engineered for reliability, long-term savings, and dependable energy — built for island living on Siargao. Grid-tied, off-grid, and hybrid solar installs across Siargao Island." />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Evergreen Solar" />
 <meta property="og:locale" content="en_PH" />
@@ -35,25 +35,59 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  "name": "Evergreen Solar Mindanao",
-  "description": "Premium grid-tied, off-grid, and hybrid solar systems engineered for island living across Mindanao, Davao, and Siargao.",
-  "url": "https://www.ever-green.ph",
-  "logo": "https://www.ever-green.ph/assets/logo-full.png",
-  "image": "https://www.ever-green.ph/assets/og-cover.png",
-  "telephone": "+639663051461",
-  "email": "simonphconsult@gmail.com",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "Nova Tierra",
-    "addressLocality": "Davao City",
-    "addressRegion": "Davao del Sur",
-    "addressCountry": "PH"
-  },
-  "areaServed": ["Mindanao", "Davao", "Siargao"],
-  "sameAs": [
-    "https://www.facebook.com/evergreen.solar.mindanao/",
-    "https://www.instagram.com/evergreensolar.siargao/"
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://www.ever-green.ph/#org",
+      "name": "Evergreen Solar",
+      "description": "Premium grid-tied, off-grid, and hybrid solar systems engineered for island living on Siargao.",
+      "url": "https://www.ever-green.ph",
+      "logo": "https://www.ever-green.ph/assets/logo-full.png",
+      "image": "https://www.ever-green.ph/assets/og-cover.png",
+      "email": "simonphconsult@gmail.com",
+      "telephone": ["+639663051461", "+639771275822"],
+      "areaServed": ["Siargao Island", "Surigao del Norte"],
+      "sameAs": [
+        "https://www.facebook.com/evergreen.solar.mindanao/",
+        "https://www.instagram.com/evergreensolar.siargao/"
+      ]
+    },
+    {
+      "@type": "LocalBusiness",
+      "@id": "https://www.ever-green.ph/#siargao",
+      "name": "Evergreen Solar — Siargao",
+      "parentOrganization": { "@id": "https://www.ever-green.ph/#org" },
+      "url": "https://www.ever-green.ph",
+      "image": "https://www.ever-green.ph/assets/og-cover.png",
+      "telephone": ["+639663051461", "+639771275822"],
+      "email": "simonphconsult@gmail.com",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Burgos",
+        "addressRegion": "Surigao del Norte",
+        "addressCountry": "PH"
+      },
+      "geo": { "@type": "GeoCoordinates", "latitude": 10.0407276, "longitude": 126.0705929 },
+      "hasMap": "https://maps.app.goo.gl/td1LZpCJpKA7Vks69",
+      "areaServed": "Siargao Island"
+    },
+    {
+      "@type": "LocalBusiness",
+      "@id": "https://www.ever-green.ph/#davao",
+      "name": "Evergreen Solar — Davao",
+      "parentOrganization": { "@id": "https://www.ever-green.ph/#org" },
+      "url": "https://www.ever-green.ph",
+      "image": "https://www.ever-green.ph/assets/og-cover.png",
+      "telephone": ["+639663051461", "+639771275822"],
+      "email": "simonphconsult@gmail.com",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Nova Tierra",
+        "addressLocality": "Davao City",
+        "addressRegion": "Davao del Sur",
+        "addressCountry": "PH"
+      }
+    }
   ]
 }
 </script>
@@ -101,7 +135,7 @@
       <a href="about.html">About</a>
       <a href="index.html#contact">Contact</a>
     </nav>
-    <div class="mm-foot">Nova Tierra, Davao City · 0966 305 1461</div>
+    <div class="mm-foot">Burgos, Siargao · 0966 305 1461</div>
   </div>
   <!-- @endpartial:header -->
 
@@ -147,7 +181,7 @@
     <div class="shell readout reveal">
       <div class="r"><div class="k">System types</div><div class="v">Grid-tied · Off-grid · Hybrid</div><div class="d">Sized to your load and roof</div></div>
       <div class="r"><div class="k">Built for</div><div class="v">Outage-prone islands</div><div class="d">Reliable power when the grid drops</div></div>
-      <div class="r"><div class="k">Coverage</div><div class="v">Mindanao · Davao · Siargao</div><div class="d">Local crews, on-island service</div></div>
+      <div class="r"><div class="k">Coverage</div><div class="v">General Luna · Dapa · Burgos</div><div class="d">Island-wide, on-site Siargao crews</div></div>
       <div class="r"><div class="k">What you get</div><div class="v">Top-tier panels + expert install</div><div class="d">Simple. Reliable. Sustainable.</div></div>
     </div>
   </section>
@@ -319,15 +353,15 @@
         </a>
         <a class="proj small reveal" href="#contact">
           <img src="assets/project-coastal-roof.jpg" alt="Solar panels on a coastal town rooftop" />
-          <div class="meta"><div class="loc">Davao coast · Grid-tied</div><div class="ttl">Seaside rooftop</div></div>
+          <div class="meta"><div class="loc">Dapa, Siargao · Grid-tied</div><div class="ttl">Seaside rooftop</div></div>
         </a>
         <a class="proj small reveal" href="#contact">
           <img src="assets/project-palms.jpg" alt="Rooftop solar panels among coconut palms" />
-          <div class="meta"><div class="loc">Mindanao · Hybrid</div><div class="ttl">Among the palms</div></div>
+          <div class="meta"><div class="loc">General Luna, Siargao · Hybrid</div><div class="ttl">Among the palms</div></div>
         </a>
         <a class="proj small reveal" href="#contact">
           <img src="assets/project-hillside.jpg" alt="Crew installing a solar array on a green island hillside" />
-          <div class="meta"><div class="loc">Mindanao hills · Off-grid</div><div class="ttl">Hillside array</div></div>
+          <div class="meta"><div class="loc">Burgos, Siargao · Off-grid</div><div class="ttl">Hillside array</div></div>
         </a>
       </div>
 
@@ -384,7 +418,7 @@
         </a>
         <span>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-5.5-7-11a7 7 0 0 1 14 0c0 5.5-7 11-7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>
-          Nova Tierra, Davao City
+          Burgos, Siargao · Nova Tierra, Davao City
         </span>
       </div>
     </div>
@@ -398,7 +432,7 @@
       <div class="foot-grid">
         <div class="foot-brand">
           <a class="brand" href="index.html"><img src="assets/logo.png" alt="" style="width:42px;height:42px;" /><b style="font-family:var(--font-display);font-size:19px;color:#fff;">Evergreen Solar</b></a>
-          <p>Top-tier solar systems engineered for island living — grid-tied, off-grid, and hybrid installs across Mindanao.</p>
+          <p>Top-tier solar systems engineered for island living — grid-tied, off-grid, and hybrid installs across Siargao Island.</p>
         </div>
         <div class="foot-col">
           <h4>Navigation</h4>
@@ -409,7 +443,8 @@
           <a href="index.html#contact">Contact</a>
         </div>
         <div class="foot-col">
-          <h4>Head office</h4>
+          <h4>Offices</h4>
+          <a href="https://maps.app.goo.gl/td1LZpCJpKA7Vks69" target="_blank" rel="noopener">Burgos, Siargao</a>
           <p>Nova Tierra, Davao City</p>
           <a href="tel:+639663051461">0966 305 1461</a>
           <a href="tel:+639771275822">0977 127 5822</a>
@@ -423,7 +458,7 @@
         </div>
       </div>
       <div class="foot-bottom">
-        <span>© 2026 Evergreen Solar Mindanao</span>
+        <span>© 2026 Evergreen Solar</span>
         <div class="legal">
           <a href="terms.html">Terms &amp; Conditions</a>
           <a href="privacy.html">Privacy Policy</a>
