@@ -377,7 +377,7 @@
   .foot-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 40px; }
   .foot-brand .brand { margin-bottom: 18px; }
   .foot-brand p { color: var(--mist-d); font-size: 14.5px; max-width: 26em; }
-  .foot-col h4 { font-family: var(--font-mono); font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: var(--lime); margin: 0 0 16px; font-weight: 500; }
+  .foot-col h3 { font-family: var(--font-mono); font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: var(--lime); margin: 0 0 16px; font-weight: 500; }
   .foot-col a, .foot-col p { display: block; color: rgba(255,255,255,.78); font-size: 14.5px; padding: 5px 0; margin: 0; }
   .foot-col a:hover { color: var(--lime); }
   .foot-bottom {
