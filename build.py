@@ -20,7 +20,7 @@ HERE = Path(__file__).resolve().parent
 
 # Anchors used to insert markers the first time a page is processed.
 NAV_COMMENT    = "  <!-- ===================== NAV ===================== -->"
-MOBILE_END     = ('    <div class="mm-foot">Nova Tierra, Davao City · 0966 305 1461</div>\n'
+MOBILE_END     = ('    <div class="mm-foot">Burgos, Siargao · 0966 305 1461</div>\n'
                   "  </div>")
 FOOTER_COMMENT = "  <!-- ===================== FOOTER ===================== -->"
 FOOTER_CLOSE   = "  </footer>"

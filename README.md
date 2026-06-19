@@ -1,15 +1,19 @@
 # ever-green.ph
 
-Redesign of the Evergreen Solar Mindanao homepage — a high-performance,
-single-file static site built around the brand's pinwheel logo palette
+Redesign of the Evergreen Solar site — a high-performance static site for a
+two-location solar installer (Siargao-focused copy; offices in Burgos, Siargao
+and Davao City). Built around the brand's pinwheel logo palette
 (deep forest green → electric lime).
 
 ## Structure
 
 ```
-index.html              # the site (relative links to assets/)
-assets/                 # logo + real install photos
-build_standalone.py     # bundles images into one portable file
+*.html                  # 8 pages (index, services, estimate, projects,
+                        #   about, terms, privacy, accessibility)
+assets/                 # logo, install photos, shared site.css
+partials/               # header.html + footer.html, synced into every page
+build.py                # full build: sync partials, then rebuild standalone copies
+build_standalone.py     # bundles images + CSS into one portable file per page
 checkpoints/            # saved design snapshots
 original/               # the original Wix site, scraped (reference)
   scrape_mirror.py
