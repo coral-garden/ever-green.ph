@@ -116,7 +116,7 @@
   .nav-inner { display: flex; align-items: center; gap: 28px; height: 76px; }
   .brand { display: flex; align-items: center; gap: 11px; color: #fff; }
   .brand img { width: 40px; height: 40px; }
-  .brand b { font-family: var(--font-display); font-weight: 800; font-size: 20px; letter-spacing: -0.01em; }
+  .brand b { font-family: "Noto Sans", system-ui, sans-serif; font-weight: 700; font-size: 18px; letter-spacing: 0.04em; text-transform: uppercase; }
   .brand span { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.2em; color: var(--lime); display: block; line-height: 1; margin-top: 2px; }
   .nav-links { display: flex; gap: 4px; margin-left: auto; }
   .nav-links a {
@@ -166,9 +166,8 @@
   /* ambient sun-glow bleeding from upper area */
   .hero::before {
     content: "";
-    position: absolute; top: -22%; left: 8%; width: 60%; height: 80%;
-    background: radial-gradient(circle, rgba(125,194,62,.20), rgba(125,194,62,0) 62%);
-    pointer-events: none;
+    position: absolute; inset: 0; pointer-events: none;
+    background: radial-gradient(58% 60% at 30% 16%, rgba(125,194,62,.20), transparent 72%);
   }
   /* curved section seams — each color split is an island horizon with its own motif */
   .seam { position: absolute; top: 0; left: 0; width: 100%; transform: translateY(-99%); z-index: 5; pointer-events: none; line-height: 0; }
@@ -191,7 +190,13 @@
     line-height: 0.9;
     letter-spacing: -0.04em;
   }
-  .hero h1 .l2 { display: block; color: transparent; -webkit-text-stroke: 1.4px var(--lime); }
+  /* "Siargao" — palms photo clipped into the letters, kept legible by the lime outline */
+  .hero h1 .l2 {
+    display: block; width: fit-content;
+    background: url('siargao-water.webp') center 42% / cover;
+    -webkit-background-clip: text; background-clip: text;
+    color: transparent; -webkit-text-stroke: 1.4px var(--panel-3);
+  }
   .hero-sub {
     margin-top: 28px; max-width: 30em;
     font-size: clamp(16px, 1.9vw, 20px); color: rgba(255,255,255,.78);
@@ -248,6 +253,9 @@
     .hero-grid { grid-template-columns: 1fr; }
     .hero-photo { max-width: 420px; }
     .readout { grid-template-columns: 1fr 1fr; gap: 26px 20px; }
+    /* the wide sun-path arc + hour ticks (06/12/18) crop badly onto the headline
+       once the hero stacks — hide the decoration on small screens */
+    .sunpath { display: none; }
   }
 
   /* ============================================================
@@ -261,8 +269,8 @@
   .section-head p.kicker { color: var(--mist); max-width: 30em; font-size: 17px; }
 
   /* services header: copy stacks under the headline, illustration sits top-right */
-  .section-head--systems { align-items: center; flex-wrap: nowrap; }
-  .section-head--systems .lead { max-width: 20em; }
+  .section-head--systems { align-items: center; flex-wrap: nowrap; gap: clamp(28px, 5vw, 72px); }
+  .section-head--systems .lead { max-width: 34em; flex: 1 1 auto; }
   .section-head--systems .lead .kicker { margin-top: 20px; }
   .roof-art { margin: 0; width: min(400px, 44%); flex: none; }
   .roof-art svg { width: 100%; height: auto; display: block; }

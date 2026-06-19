@@ -36,6 +36,24 @@ def inline_images(html, cache):
     return re.sub(r'src=(["\'])(assets/[^"\']+)\1', repl, html)
 
 
+def inline_css_urls(css, base_dir):
+    # inline url(...) image refs inside CSS as data URIs (resolved relative to the css file)
+    def urlrepl(m):
+        quote, path = m.group(1), m.group(2)
+        if path.startswith(("data:", "http:", "https:", "//", "#")):
+            return m.group(0)
+        fp = (base_dir / path).resolve()
+        if not fp.exists():
+            print(f"  [warn] css url missing {path} — left as-is")
+            return m.group(0)
+        mime = mimetypes.guess_type(fp.name)[0] or {".webp": "image/webp"}.get(fp.suffix.lower(), "application/octet-stream")
+        b64 = base64.b64encode(fp.read_bytes()).decode("ascii")
+        print(f"  [inlined css-url] {path}  ({fp.stat().st_size // 1024} KB)")
+        return f"url({quote}data:{mime};base64,{b64}{quote})"
+
+    return re.sub(r"url\((['\"]?)([^'\")]+)\1\)", urlrepl, css)
+
+
 def inline_css(html):
     # match any <link ... href="assets/xxx.css" ...> (attribute order-independent)
     def repl(match):
@@ -48,7 +66,7 @@ def inline_css(html):
         if not f.exists():
             print(f"  [warn] missing {path} — left as-is")
             return tag
-        css = f.read_text(encoding="utf-8")
+        css = inline_css_urls(f.read_text(encoding="utf-8"), f.parent)
         print(f"  [inlined css] {path}  ({f.stat().st_size // 1024} KB)")
         return f"<style>\n{css}\n</style>"
 
