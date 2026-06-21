@@ -26,6 +26,28 @@ Production: web root = `public/`, then `php artisan config:cache route:cache vie
 - `app/Services/Leads/` — `LeadForwarder` interface + `LogLeadForwarder` (default) /
   `HttpLeadForwarder`. `checkpoints/`, `original/` are reference only (not served).
 
+## Divisions (umbrella structure)
+Evergreen is one brand with multiple business divisions in this single app. **Solar is the
+flagship and owns `/`** and its existing pages. Other divisions live under a slug
+(e.g. **Frame Construction** at `/construction`, `/construction/materials`). All divisions
+share the layout, header/footer, logo, and contacts. Catalog/product data is
+**developer-edited in `config/catalog.php`** (no DB, no CMS) — change a price, push, deploy.
+Leads from any division flow through the one pipeline tagged by a `division` field
+(defaults to `solar`). Design spec: `docs/superpowers/specs/`.
+
+**To add a division** (repeat the Construction pattern):
+1. `config/catalog.php` — add the division's data (if it has a catalog/price list).
+2. `app/Http/Controllers/<Name>Controller.php` — pass `config('site.meta.<slug>')` + data to views.
+3. `routes/web.php` — add `GET` routes named by slug.
+4. `config/site.php` — add a `<slug>` (and any sub-page) meta block.
+5. `resources/views/<slug>/*.blade.php` — landing + sub-pages (`@extends('layouts.app')`).
+6. `public/assets/page-<slug>.css` — division styles, `@push('head')` in its views.
+   Note: if the page opens on a **light** background (Solar pages open on a dark hero),
+   force the fixed nav solid in that CSS (`.nav { background: rgba(7,25,15,.92); … }`) and
+   add top padding to clear it — otherwise the white nav text fails contrast.
+7. `components/site/header.blade.php` — add the nav link (desktop + mobile).
+8. `public/sitemap.xml` — add the new URLs. Add feature tests; check Lighthouse.
+
 ## Gotchas
 - **Header/footer are Blade components**, not page markup. Edit
   `resources/views/components/site/{header,footer}.blade.php` — changes apply everywhere.
