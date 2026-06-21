@@ -4,13 +4,7 @@
   <!-- ===================== NAV ===================== -->
   <header class="nav" id="nav">
     <div class="shell nav-inner">
-      <a class="brand" href="/" aria-label="Evergreen home">
-        <img src="/assets/logo.png" alt="" />
-        <span class="brand-name">
-          <b>Evergreen</b>
-          @if($d['label'])<span>{{ $d['label'] }}</span>@endif
-        </span>
-      </a>
+      @include('partials.brand', ['division' => $division])
       <nav class="nav-links" aria-label="Primary">
         @foreach($d['links'] as [$text, $href])
         <a href="{{ $href }}">{{ $text }}</a>
@@ -30,10 +24,7 @@
   <!-- mobile menu -->
   <div class="mobile-menu" id="mobileMenu">
     <div class="mm-top">
-      <a class="brand" href="/">
-        <img src="/assets/logo.png" alt="" />
-        <span class="brand-name"><b>Evergreen</b>@if($d['label'])<span>{{ $d['label'] }}</span>@endif</span>
-      </a>
+      @include('partials.brand', ['division' => $division])
       <button class="mm-close" id="mmClose" aria-label="Close menu">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6L6 18"/></svg>
       </button>

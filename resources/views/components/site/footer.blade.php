@@ -1,12 +1,14 @@
-@verbatim
+@props(['division' => 'group'])
+
   <!-- ===================== FOOTER ===================== -->
   <footer class="footer">
     <div class="shell">
       <div class="foot-grid">
         <div class="foot-brand">
-          <a class="brand" href="/"><img src="/assets/logo.png" alt="" style="width:42px;height:42px;" /><b style="font-family:var(--font-display);font-size:19px;color:#fff;">Evergreen Solar</b></a>
+          @include('partials.brand', ['division' => $division])
           <p>An island group — solar power, steel-frame construction, and building materials, engineered for life across Siargao.</p>
         </div>
+        @verbatim
         <div class="foot-col">
           <h3>Evergreen</h3>
           <a href="/solar">Solar</a>
@@ -31,7 +33,7 @@
         </div>
       </div>
       <div class="foot-bottom">
-        <span>© 2026 Evergreen Solar</span>
+        <span>© 2026 Evergreen</span>
         <div class="legal">
           <a href="/terms">Terms &amp; Conditions</a>
           <a href="/privacy">Privacy Policy</a>
@@ -39,6 +41,6 @@
           <span class="credit">Site by <a href="https://coralgardensoftware.com/" target="_blank" rel="noopener">CGS</a></span>
         </div>
       </div>
+      @endverbatim
     </div>
   </footer>
-@endverbatim

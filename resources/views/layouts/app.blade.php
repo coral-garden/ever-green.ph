@@ -41,7 +41,7 @@
 
 @yield('content')
 
-  <x-site.footer />
+  <x-site.footer :division="$division ?? 'group'" />
 
 <script src="/assets/site.js" defer></script>
 @stack('scripts')
