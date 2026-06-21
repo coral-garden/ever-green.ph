@@ -32,7 +32,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Hanken+Grotesk:wght@400;500;600;700&family=Azeret+Mono:wght@400;500;600&family=Noto+Sans:wght@700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
     <noscript><link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Hanken+Grotesk:wght@400;500;600;700&family=Azeret+Mono:wght@400;500;600&family=Noto+Sans:wght@700;800&display=swap" rel="stylesheet" /></noscript>
 
-<link rel="stylesheet" href="/assets/site.css" />
+<link rel="stylesheet" href="{{ assetv('assets/site.css') }}" />
 @stack('head')
 </head>
 <body>
@@ -43,7 +43,7 @@
 
   <x-site.footer :division="$division ?? 'group'" />
 
-<script src="/assets/site.js" defer></script>
+<script src="{{ assetv('assets/site.js') }}" defer></script>
 @stack('scripts')
 </body>
 </html>

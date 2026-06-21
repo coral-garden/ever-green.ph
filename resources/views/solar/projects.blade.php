@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @push('head')
-<link rel="stylesheet" href="/assets/page-projects.css">
+<link rel="stylesheet" href="{{ assetv('assets/page-projects.css') }}">
 @endpush
 
 @section('content')
@@ -120,5 +120,5 @@
 @endsection
 
 @push('scripts')
-<script src="/assets/page-projects.js" defer></script>
+<script src="{{ assetv('assets/page-projects.js') }}" defer></script>
 @endpush

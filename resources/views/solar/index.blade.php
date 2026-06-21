@@ -293,5 +293,5 @@
 @endsection
 
 @push('scripts')
-<script src="/assets/page-home.js" defer></script>
+<script src="{{ assetv('assets/page-home.js') }}" defer></script>
 @endpush

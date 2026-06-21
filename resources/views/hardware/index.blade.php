@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @push('head')
-<link rel="stylesheet" href="/assets/division.css">
+<link rel="stylesheet" href="{{ assetv('assets/division.css') }}">
 @endpush
 
 @section('content')
