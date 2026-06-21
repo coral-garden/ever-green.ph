@@ -41,4 +41,10 @@ return [
         'key' => env('LEAD_FORWARDER_KEY'),
     ],
 
+    // Bill parser API — POST a bill image, receive structured data back.
+    'bill_parser' => [
+        'url' => env('BILL_PARSER_URL'),
+        'key' => env('BILL_PARSER_KEY'),
+    ],
+
 ];
