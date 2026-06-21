@@ -118,7 +118,7 @@
   .brand img { width: 40px; height: 40px; }
   .brand-name { display: flex; flex-direction: column; line-height: 1; }
   .brand b { font-family: "Noto Sans", system-ui, sans-serif; font-weight: 700; font-size: 18px; letter-spacing: 0.04em; text-transform: uppercase; }
-  .brand span { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.2em; color: #fff; display: block; line-height: 1; margin-top: 2px; }
+  .brand span { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.2em; color: var(--lime); display: block; line-height: 1; margin-top: 2px; }
   .nav-links { display: flex; gap: 4px; margin-left: auto; }
   .nav-links a {
     color: rgba(255,255,255,.82); font-size: 14px; font-weight: 500;
