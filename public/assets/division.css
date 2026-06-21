@@ -56,6 +56,13 @@ main > .section:first-child { padding-top: clamp(104px, 12vw, 150px); }
 .ec-cards .panel-card p a:hover { text-decoration: underline; }
 .ec-cards .panel-card .btn { margin-top: auto; align-self: flex-start; }
 
+/* whole-card link (group home division chooser) */
+.ec-card-link { text-decoration: none; transition: border-color .2s var(--ease), transform .2s var(--ease), box-shadow .2s var(--ease); }
+.ec-card-link:hover { border-color: var(--lime); transform: translateY(-3px); box-shadow: 0 18px 44px -28px rgba(0,0,0,.55); }
+.ec-card-link h2 { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.ec-card-link .ec-arrow { color: var(--lime); transition: transform .2s var(--ease); }
+.ec-card-link:hover .ec-arrow { transform: translateX(4px); }
+
 /* ---- price list ---- */
 .ec-pricelist { margin-top: 34px; }
 .ec-table {

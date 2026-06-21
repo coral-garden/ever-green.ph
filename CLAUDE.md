@@ -46,16 +46,25 @@ change a price, push, deploy. Leads from any division post to one endpoint
 (defaults to `solar`). Old URLs (`/services`, `/estimate`, `/construction/materials`, all
 `*.html`) are kept alive via 301s in `routes/web.php`. Design spec: `docs/superpowers/specs/`.
 
+The **header is division-aware**: each controller passes a `division` context
+(`group`/`solar`/`construction`/`hardware`) to the view; `layouts/app.blade.php` forwards it
+to `<x-site.header>`, which reads `config/divisions.php` for that division's wordmark
+sub-label, nav links, and CTA. The "Evergreen" wordmark always returns to the group portal
+(`/`); the sub-label (e.g. "Solar") shows the current sub-site. So Solar shows its own nav
+(Services/Estimate/Projects), Construction/Hardware show theirs, and `/` is the chooser.
+
 Light-background division pages (group home, construction, hardware, contact) load the
 shared **`public/assets/division.css`**, which forces the fixed nav solid + clears its height
 (Solar pages open on a dark hero, so they don't need it). Reuse `.ec-hero`, `.ec-cards`,
-`.ec-table` from there.
+`.ec-table`, `.ec-card-link` from there.
 
 **To add a division:**
 1. `config/catalog.php` — add `catalog.<slug>` data (if it has a catalog/price list).
-2. `app/Http/Controllers/<Name>Controller.php` — pass `config('site.meta.<slug>')` + data.
+2. `app/Http/Controllers/<Name>Controller.php` — pass `config('site.meta.<slug>')`, data,
+   and a `'division' => '<slug>'` context.
 3. `routes/web.php` — add `GET /<slug>` (named) + any 301s for moved URLs.
-4. `config/site.php` — add a `<slug>` meta block (title/description/canonical/OG).
+4. `config/site.php` — add a `<slug>` meta block; `config/divisions.php` — add the division's
+   wordmark label, nav links, and CTA.
 5. `resources/views/<slug>/*.blade.php` — `@extends('layouts.app')`; `@push('head')` the
    `division.css` link (and `@verbatim` any inline JSON-LD).
 6. `components/site/header.blade.php` + footer — add the nav link (desktop + mobile).

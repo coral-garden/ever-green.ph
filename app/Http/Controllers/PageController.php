@@ -7,20 +7,20 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class PageController extends Controller
 {
-    /** Map of route slug => Blade view. */
+    /** Map of route slug => [Blade view, division context]. */
     private const PAGES = [
         // Group-level
-        'home'           => 'pages.home',
-        'about'          => 'pages.about',
-        'contact'        => 'pages.contact',
-        'terms'          => 'pages.terms',
-        'privacy'        => 'pages.privacy',
-        'accessibility'  => 'pages.accessibility',
+        'home'           => ['pages.home', 'group'],
+        'about'          => ['pages.about', 'group'],
+        'contact'        => ['pages.contact', 'group'],
+        'terms'          => ['pages.terms', 'group'],
+        'privacy'        => ['pages.privacy', 'group'],
+        'accessibility'  => ['pages.accessibility', 'group'],
         // Solar division
-        'solar'          => 'solar.index',
-        'solar-services' => 'solar.services',
-        'solar-estimate' => 'solar.estimate',
-        'solar-projects' => 'solar.projects',
+        'solar'          => ['solar.index', 'solar'],
+        'solar-services' => ['solar.services', 'solar'],
+        'solar-estimate' => ['solar.estimate', 'solar'],
+        'solar-projects' => ['solar.projects', 'solar'],
     ];
 
     public function show(string $page): View
@@ -29,6 +29,8 @@ class PageController extends Controller
             throw new NotFoundHttpException();
         }
 
-        return view(self::PAGES[$page], ['meta' => config("site.meta.$page")]);
+        [$view, $division] = self::PAGES[$page];
+
+        return view($view, ['meta' => config("site.meta.$page"), 'division' => $division]);
     }
 }

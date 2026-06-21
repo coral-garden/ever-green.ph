@@ -8,6 +8,9 @@ class ConstructionController extends Controller
 {
     public function index(): View
     {
-        return view('construction.index', ['meta' => config('site.meta.construction')]);
+        return view('construction.index', [
+            'meta' => config('site.meta.construction'),
+            'division' => 'construction',
+        ]);
     }
 }

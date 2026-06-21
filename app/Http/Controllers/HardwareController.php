@@ -10,6 +10,7 @@ class HardwareController extends Controller
     {
         return view('hardware.index', [
             'meta' => config('site.meta.hardware'),
+            'division' => 'hardware',
             'materials' => config('catalog.hardware.materials', []),
             'pickup' => config('catalog.hardware.pickup'),
         ]);

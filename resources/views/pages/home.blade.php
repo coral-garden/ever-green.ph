@@ -29,28 +29,19 @@
         </div>
       </div>
 
-      <div class="ec-cards">
-        <article class="panel-card reveal">
-          <h2>Evergreen Solar</h2>
+      <div class="ec-cards ec-cards--links">
+        <a class="panel-card ec-card-link reveal" href="/solar">
+          <h2>Evergreen Solar <span class="ec-arrow" aria-hidden="true">→</span></h2>
           <p>Grid-tied, off-grid, and hybrid solar systems engineered for reliable island power and long-term savings.</p>
-          <a class="btn btn-ghost" href="/solar">Explore Solar
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </a>
-        </article>
-        <article class="panel-card reveal">
-          <h2>Frame Construction</h2>
+        </a>
+        <a class="panel-card ec-card-link reveal" href="/construction">
+          <h2>Frame Construction <span class="ec-arrow" aria-hidden="true">→</span></h2>
           <p>Durable, termite-proof light-gauge steel-frame building for homes, resorts, and commercial projects.</p>
-          <a class="btn btn-ghost" href="/construction">Explore Construction
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </a>
-        </article>
-        <article class="panel-card reveal">
-          <h2>Hardware Supply</h2>
+        </a>
+        <a class="panel-card ec-card-link reveal" href="/hardware">
+          <h2>Hardware Supply <span class="ec-arrow" aria-hidden="true">→</span></h2>
           <p>Building materials in stock for island builds — cement board, plywood, flooring and more. Pickup in Burgos.</p>
-          <a class="btn btn-ghost" href="/hardware">View price list
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </a>
-        </article>
+        </a>
       </div>
     </div>
   </section>

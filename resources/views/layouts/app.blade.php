@@ -37,7 +37,7 @@
 </head>
 <body>
 
-  <x-site.header />
+  <x-site.header :division="$division ?? 'group'" />
 
 @yield('content')
 
