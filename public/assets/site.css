@@ -263,7 +263,7 @@
      ============================================================ */
   .section { padding-block: clamp(72px, 11vw, 132px); position: relative; }
   .section-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 28px; flex-wrap: wrap; margin-bottom: 56px; }
-  .section-head .lead { max-width: 17em; }
+  .section-head .lead { max-width: 26em; }
   .section-head .tag { color: var(--foliage); margin-bottom: 18px; }
   .section-head h2 { font-size: clamp(32px, 5vw, 56px); }
   .section-head p.kicker { color: var(--mist); max-width: 30em; font-size: 17px; }

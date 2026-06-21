@@ -55,7 +55,7 @@ main > .section:first-child { padding-top: clamp(104px, 12vw, 150px); }
 .ec-cards .panel-card .btn { margin-top: auto; align-self: flex-start; }
 
 /* ---- price list ---- */
-.ec-pricelist { margin-top: 34px; max-width: 760px; }
+.ec-pricelist { margin-top: 34px; }
 .ec-table {
   width: 100%;
   border-collapse: collapse;
