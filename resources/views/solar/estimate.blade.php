@@ -75,6 +75,7 @@
               </div>
               <button type="button" class="upload-remove" id="uploadRemove" aria-label="Remove file">&times;</button>
             </div>
+            <div class="bill-parse" id="billParseMsg" role="status"></div>
           </div>
 
           <div class="field">

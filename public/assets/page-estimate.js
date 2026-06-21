@@ -95,8 +95,9 @@
 
   compute(); // initial paint
 
-  // ---- upload your bill (mockup UI: local preview only, no upload yet) ----
+  // ---- upload your bill: local preview, then parse it and auto-fill the estimate ----
   const billUpload = $('billUpload'), uploadCta = $('uploadCta'), uploadPreview = $('uploadPreview');
+  const parseMsg = $('billParseMsg');
   uploadCta.addEventListener('click', () => billUpload.click());
   billUpload.addEventListener('change', () => {
     const f = billUpload.files && billUpload.files[0];
@@ -111,6 +112,7 @@
     }
     uploadCta.hidden = true;
     uploadPreview.hidden = false;
+    parseBill(f);
   });
   $('uploadRemove').addEventListener('click', () => {
     const thumb = $('uploadThumb');
@@ -118,7 +120,46 @@
     billUpload.value = '';
     uploadPreview.hidden = true;
     uploadCta.hidden = false;
+    if (parseMsg) { parseMsg.textContent = ''; parseMsg.className = 'bill-parse'; }
   });
+
+  async function parseBill(file) {
+    if (!parseMsg) return;
+    parseMsg.className = 'bill-parse loading';
+    parseMsg.textContent = 'Reading your bill…';
+    try {
+      const fd = new FormData();
+      fd.append('file', file);
+      const token = document.querySelector('meta[name="csrf-token"]');
+      const res = await fetch('/estimate/parse-bill', {
+        method: 'POST',
+        body: fd,
+        headers: { Accept: 'application/json', 'X-CSRF-TOKEN': token ? token.content : '' }
+      });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok || !data.ok) {
+        parseMsg.className = 'bill-parse err';
+        parseMsg.textContent = data.message || 'Could not read the bill — enter your amount manually.';
+        return;
+      }
+      const b = data.bill || {};
+      // Setting both bill and rate keeps monthly kWh internally consistent (bill ÷ rate).
+      if (b.amount != null) {
+        billEl.value = Math.round(b.amount);
+        if (billRange) billRange.value = Math.min(Number(billRange.max) || 80000, Math.max(Number(billRange.min) || 1000, Math.round(b.amount)));
+      }
+      if (b.rate != null && b.rate > 0) rateEl.value = b.rate;
+      compute();
+      const bits = [];
+      if (b.amount != null) bits.push((b.currency ? b.currency + ' ' : '₱') + Number(b.amount).toLocaleString());
+      if (b.kwh != null) bits.push(b.kwh + ' kWh');
+      parseMsg.className = 'bill-parse ok';
+      parseMsg.textContent = '✓ Read from your bill: ' + bits.join(' · ') + (b.provider ? ' — ' + b.provider : '');
+    } catch (err) {
+      parseMsg.className = 'bill-parse err';
+      parseMsg.textContent = 'Network error reading the bill — enter your amount manually.';
+    }
+  }
 
   // ---- lead form: AJAX submit to our Laravel endpoint ----
   // The @csrf hidden field rides along automatically via FormData.

@@ -109,6 +109,12 @@
   .lead-grid textarea { min-height: 92px; resize: vertical; }
   .hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
   .lead-actions { margin-top: 24px; display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+  .bill-parse { font-family: var(--font-mono); font-size: 12.5px; letter-spacing: .02em; line-height: 1.4; margin-top: 10px; }
+  .bill-parse:empty { margin-top: 0; }
+  .bill-parse.loading { color: var(--mist); }
+  .bill-parse.ok { color: var(--foliage); }
+  .bill-parse.err { color: #b3261e; }
+
   .lead-msg { font-family: var(--font-mono); font-size: 13px; letter-spacing: .02em; }
   .lead-msg.ok { color: var(--foliage); }
   .lead-msg.err { color: #b3261e; }

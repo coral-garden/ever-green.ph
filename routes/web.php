@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BillParserController;
 use App\Http\Controllers\ConstructionController;
 use App\Http\Controllers\HardwareController;
 use App\Http\Controllers\LeadController;
@@ -30,6 +31,9 @@ Route::get('/hardware', [HardwareController::class, 'index'])->name('hardware');
 
 // --- Lead form (division-agnostic endpoint) ---
 Route::post('/estimate/lead', [LeadController::class, 'store'])->name('lead.store');
+
+// --- Bill parser: upload a bill image, get structured fields back ---
+Route::post('/estimate/parse-bill', [BillParserController::class, 'parse'])->name('bill.parse');
 
 // --- 301 redirects: old URLs -> new IA ---
 $redirects = [
