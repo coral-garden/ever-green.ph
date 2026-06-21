@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @push('head')
-<link rel="stylesheet" href="/assets/page-construction.css">
+<link rel="stylesheet" href="/assets/division.css">
 @endpush
 
 @section('content')
@@ -10,10 +10,10 @@
     <div class="shell">
       <div class="section-head reveal">
         <div class="lead">
-          <div class="tag tag-dot">Frame Construction</div>
-          <h1>Building materials price list</h1>
-          <p class="kicker">Quality materials for island builds, in stock for pickup in {{ $pickup }}. Contact us for project quotes and bulk pricing.</p>
+          <div class="tag tag-dot">Evergreen Hardware Supply</div>
+          <h1>Building materials, island-ready</h1>
         </div>
+        <p class="kicker">Quality materials for island builds — cement board, marine plywood, phenolic board, rockwool, SPC flooring and more. In stock for pickup in {{ $pickup }}. Contact us for project quotes and bulk pricing.</p>
       </div>
 
       <div class="ec-pricelist reveal">
@@ -39,11 +39,11 @@
       </div>
 
       <div class="ec-cta reveal">
-        <h2>Planning a build?</h2>
+        <h2>Need materials for a build?</h2>
         <a class="btn btn-lime" href="tel:+639663051461">Contact us for a quote
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         </a>
-        <a class="btn btn-ghost" href="/construction">Back to Frame Construction</a>
+        <a class="btn btn-ghost" href="/construction">See Frame Construction</a>
       </div>
     </div>
   </section>

@@ -52,6 +52,8 @@ main > .section:first-child { padding-top: clamp(104px, 12vw, 150px); }
   width: 100%;
 }
 .ec-cards .panel-card p { color: var(--mist); font-size: 15.5px; line-height: 1.55; }
+.ec-cards .panel-card p a { color: var(--foliage); font-weight: 600; }
+.ec-cards .panel-card p a:hover { text-decoration: underline; }
 .ec-cards .panel-card .btn { margin-top: auto; align-self: flex-start; }
 
 /* ---- price list ---- */

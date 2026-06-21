@@ -12,8 +12,8 @@
     <img class="hero-watermark" src="/assets/logo.png" alt="" aria-hidden="true" />
     <div class="shell">
       <div class="tag tag-dot">About us</div>
-      <h1>We build for energy independence</h1>
-      <p class="hero-sub">Premium, high-performance solar for Siargao — shaped by over 12 years of experience powering homes and businesses across the island.</p>
+      <h1>We power &amp; build island living</h1>
+      <p class="hero-sub">Evergreen is an island group — solar power, steel-frame construction, and building materials — shaped by over 12 years of experience powering and building across Siargao.</p>
     </div>
   </section>
 
@@ -35,11 +35,11 @@
     <div class="shell">
       <div class="about-intro">
         <div class="reveal">
-          <div class="tag tag-dot">About Evergreen Solar</div>
+          <div class="tag tag-dot">About Evergreen</div>
           <h2>Precision, reliability, results that last</h2>
           <div class="body">
-            <p>Evergreen Solar provides premium, high-performance solar solutions shaped by over 12 years of experience. We power homes, businesses, and essential facilities across Siargao — from General Luna to Dapa and beyond — with work defined by precision, reliability, and results that stand the test of time.</p>
-            <p>Every system we create is carefully engineered to be efficient, scalable, and future-ready — featuring advanced hybrid inverters, high-efficiency panels, and flexible battery storage. Whether you're looking to lower energy costs or ensure uninterrupted power, we deliver solar solutions designed to grow with you: elegantly, reliably, and without compromise.</p>
+            <p>Evergreen began in solar and has grown into an island group — Evergreen Solar, Evergreen Frame Construction, and Evergreen Hardware Supply — shaped by over 12 years of experience. We power and build homes, businesses, and essential facilities across Siargao, from General Luna to Dapa and beyond, with work defined by precision, reliability, and results that stand the test of time.</p>
+            <p>Whether it's a solar array, a steel-frame build, or the materials to finish it, every project is engineered to be efficient, durable, and future-ready. We deliver work designed to grow with you — elegantly, reliably, and without compromise.</p>
           </div>
         </div>
         <figure class="about-figure reveal">
@@ -50,7 +50,7 @@
       <div class="about-stats reveal">
         <div><div class="k">12+ yrs</div><div class="d">Experience</div></div>
         <div><div class="k">All of Siargao</div><div class="d">Coast to inland</div></div>
-        <div><div class="k">3 system types</div><div class="d">Grid-tied · Off-grid · Hybrid</div></div>
+        <div><div class="k">3 businesses</div><div class="d">Solar · Construction · Hardware</div></div>
         <div><div class="k">Future-ready</div><div class="d">Efficient &amp; scalable</div></div>
       </div>
     </div>
@@ -107,10 +107,10 @@
         <h2>Get an estimate for your upcoming project</h2>
         <p>Size your system and savings in 30 seconds, or talk it through with our island-based team.</p>
         <div class="cta-actions">
-          <a class="btn btn-lime" href="/estimate">Get a quote
+          <a class="btn btn-lime" href="/solar/estimate">Get a quote
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
           </a>
-          <a class="btn btn-ghost-light" href="/#contact">Talk to our team</a>
+          <a class="btn btn-ghost-light" href="/contact">Talk to our team</a>
         </div>
       </div>
     </div>

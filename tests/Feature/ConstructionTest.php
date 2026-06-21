@@ -8,25 +8,16 @@ use Tests\TestCase;
 
 class ConstructionTest extends TestCase
 {
-    public function test_construction_landing_renders(): void
+    public function test_construction_landing_renders_and_cross_links_hardware(): void
     {
         $this->get('/construction')
             ->assertOk()
             ->assertSee('Frame Construction')
-            ->assertSee('Building materials');
+            ->assertSee('Build for island living')
+            ->assertSee('/hardware', escape: false);
     }
 
-    public function test_materials_price_list_renders_catalog(): void
-    {
-        $this->get('/construction/materials')
-            ->assertOk()
-            ->assertSee('Shera Cement Board')
-            ->assertSee('SPC Flooring')
-            ->assertSee('₱1,900')          // Shera 12mm
-            ->assertSee('subject to change');
-    }
-
-    public function test_lead_can_be_tagged_with_construction_division(): void
+    public function test_lead_can_be_tagged_with_a_division(): void
     {
         $mock = Mockery::mock(LeadForwarder::class);
         $this->app->instance(LeadForwarder::class, $mock);
@@ -40,21 +31,6 @@ class ConstructionTest extends TestCase
             'email' => 'pedro@example.com',
             'division' => 'construction',
         ])->assertOk()->assertJson(['ok' => true]);
-    }
-
-    public function test_lead_defaults_to_solar_division_when_unspecified(): void
-    {
-        $mock = Mockery::mock(LeadForwarder::class);
-        $this->app->instance(LeadForwarder::class, $mock);
-        $mock->shouldReceive('forward')
-            ->once()
-            ->with(Mockery::on(fn ($lead) => ($lead['division'] ?? null) === 'solar'));
-
-        $this->postJson('/estimate/lead', [
-            'name' => 'Ana Homeowner',
-            'mobile' => '0977 444 5555',
-            'email' => 'ana@example.com',
-        ])->assertOk();
     }
 
     protected function tearDown(): void

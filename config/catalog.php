@@ -4,7 +4,7 @@
 // Prices are in PHP pesos (whole numbers). `thickness` is null when not applicable.
 return [
 
-    'construction' => [
+    'hardware' => [
         'pickup' => 'Burgos, Siargao',
         'materials' => [
             ['item' => 'Silk-8 Phenolic Board', 'thickness' => '18mm',  'price' => 1400],

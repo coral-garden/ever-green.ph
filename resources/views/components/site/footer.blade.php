@@ -5,15 +5,15 @@
       <div class="foot-grid">
         <div class="foot-brand">
           <a class="brand" href="/"><img src="/assets/logo.png" alt="" style="width:42px;height:42px;" /><b style="font-family:var(--font-display);font-size:19px;color:#fff;">Evergreen Solar</b></a>
-          <p>Top-tier solar systems engineered for island living — grid-tied, off-grid, and hybrid installs across Siargao Island.</p>
+          <p>An island group — solar power, steel-frame construction, and building materials, engineered for life across Siargao.</p>
         </div>
         <div class="foot-col">
-          <h3>Navigation</h3>
-          <a href="/services">Services</a>
-          <a href="/estimate">Estimate</a>
-          <a href="/projects">Projects</a>
-          <a href="/about">About us</a>
-          <a href="/#contact">Contact</a>
+          <h3>Evergreen</h3>
+          <a href="/solar">Solar</a>
+          <a href="/construction">Frame Construction</a>
+          <a href="/hardware">Hardware Supply</a>
+          <a href="/about">About</a>
+          <a href="/contact">Contact</a>
         </div>
         <div class="foot-col">
           <h3>Offices</h3>

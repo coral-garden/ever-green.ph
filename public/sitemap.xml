@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://www.ever-green.ph/</loc><priority>1.0</priority></url>
-  <url><loc>https://www.ever-green.ph/services</loc><priority>0.8</priority></url>
-  <url><loc>https://www.ever-green.ph/projects</loc><priority>0.8</priority></url>
-  <url><loc>https://www.ever-green.ph/estimate</loc><priority>0.8</priority></url>
+  <url><loc>https://www.ever-green.ph/solar</loc><priority>0.9</priority></url>
+  <url><loc>https://www.ever-green.ph/construction</loc><priority>0.9</priority></url>
+  <url><loc>https://www.ever-green.ph/hardware</loc><priority>0.9</priority></url>
+  <url><loc>https://www.ever-green.ph/solar/services</loc><priority>0.7</priority></url>
+  <url><loc>https://www.ever-green.ph/solar/estimate</loc><priority>0.7</priority></url>
+  <url><loc>https://www.ever-green.ph/solar/projects</loc><priority>0.7</priority></url>
   <url><loc>https://www.ever-green.ph/about</loc><priority>0.6</priority></url>
-  <url><loc>https://www.ever-green.ph/construction</loc><priority>0.8</priority></url>
-  <url><loc>https://www.ever-green.ph/construction/materials</loc><priority>0.7</priority></url>
+  <url><loc>https://www.ever-green.ph/contact</loc><priority>0.6</priority></url>
   <url><loc>https://www.ever-green.ph/terms</loc><priority>0.3</priority></url>
   <url><loc>https://www.ever-green.ph/privacy</loc><priority>0.3</priority></url>
   <url><loc>https://www.ever-green.ph/accessibility</loc><priority>0.3</priority></url>

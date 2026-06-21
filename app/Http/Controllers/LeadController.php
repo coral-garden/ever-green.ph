@@ -27,6 +27,6 @@ class LeadController extends Controller
             return response()->json(['ok' => true]);
         }
 
-        return redirect()->route('estimate')->with('lead_success', true);
+        return redirect()->route('solar-estimate')->with('lead_success', true);
     }
 }

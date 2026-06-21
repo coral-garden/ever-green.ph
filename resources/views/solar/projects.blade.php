@@ -96,10 +96,10 @@
         <h2>Get an estimate for your upcoming project</h2>
         <p>Size your system and savings in 30 seconds, or talk it through with our island-based team.</p>
         <div class="cta-actions">
-          <a class="btn btn-lime" href="/estimate">Get a quote
+          <a class="btn btn-lime" href="/solar/estimate">Get a quote
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
           </a>
-          <a class="btn btn-ghost-light" href="/#contact">Talk to our team</a>
+          <a class="btn btn-ghost-light" href="/contact">Talk to our team</a>
         </div>
       </div>
     </div>

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @push('head')
-<link rel="stylesheet" href="/assets/page-construction.css">
+<link rel="stylesheet" href="/assets/division.css">
 @endpush
 
 @section('content')
@@ -34,9 +34,9 @@
           <p>Durable, termite-proof, fast-to-build light-gauge steel framing for homes, resorts, and commercial builds across the island.</p>
         </article>
         <article class="panel-card reveal">
-          <h2>Building materials</h2>
-          <p>Cement board, marine plywood, phenolic board, rockwool, SPC flooring and more — in stock for pickup in Burgos.</p>
-          <a class="btn btn-ghost" href="/construction/materials">View price list
+          <h2>Need materials?</h2>
+          <p>Our sister business, Evergreen Hardware Supply, stocks cement board, marine plywood, phenolic board, rockwool, SPC flooring and more — pickup in Burgos.</p>
+          <a class="btn btn-ghost" href="/hardware">Hardware Supply price list
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
           </a>
         </article>

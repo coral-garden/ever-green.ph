@@ -26,27 +26,40 @@ Production: web root = `public/`, then `php artisan config:cache route:cache vie
 - `app/Services/Leads/` — `LeadForwarder` interface + `LogLeadForwarder` (default) /
   `HttpLeadForwarder`. `checkpoints/`, `original/` are reference only (not served).
 
-## Divisions (umbrella structure)
-Evergreen is one brand with multiple business divisions in this single app. **Solar is the
-flagship and owns `/`** and its existing pages. Other divisions live under a slug
-(e.g. **Frame Construction** at `/construction`, `/construction/materials`). All divisions
-share the layout, header/footer, logo, and contacts. Catalog/product data is
-**developer-edited in `config/catalog.php`** (no DB, no CMS) — change a price, push, deploy.
-Leads from any division flow through the one pipeline tagged by a `division` field
-(defaults to `solar`). Design spec: `docs/superpowers/specs/`.
+## Divisions (umbrella IA)
+Evergreen is a **parent group** of co-equal divisions in this single app:
+- **`/`** — neutral Evergreen group home (brand intro + division cards; carries the JSON-LD).
+- **Evergreen Solar** — `/solar`, `/solar/services`, `/solar/estimate`, `/solar/projects`.
+- **Evergreen Frame Construction** — `/construction` (steel-frame building *service*; no price list).
+- **Evergreen Hardware Supply** — `/hardware` (building-materials price list lives here).
+- **Group-level pages** (cover all divisions): `/about`, `/contact`, `/terms`, `/privacy`,
+  `/accessibility`.
 
-**To add a division** (repeat the Construction pattern):
-1. `config/catalog.php` — add the division's data (if it has a catalog/price list).
-2. `app/Http/Controllers/<Name>Controller.php` — pass `config('site.meta.<slug>')` + data to views.
-3. `routes/web.php` — add `GET` routes named by slug.
-4. `config/site.php` — add a `<slug>` (and any sub-page) meta block.
-5. `resources/views/<slug>/*.blade.php` — landing + sub-pages (`@extends('layouts.app')`).
-6. `public/assets/page-<slug>.css` — division styles, `@push('head')` in its views.
-   Note: if the page opens on a **light** background (Solar pages open on a dark hero),
-   force the fixed nav solid in that CSS (`.nav { background: rgba(7,25,15,.92); … }`) and
-   add top padding to clear it — otherwise the white nav text fails contrast.
-7. `components/site/header.blade.php` — add the nav link (desktop + mobile).
-8. `public/sitemap.xml` — add the new URLs. Add feature tests; check Lighthouse.
+Note the split: Frame Construction is the **building service**; Hardware Supply is the
+**materials store**. Don't put the price list under construction.
+
+All divisions share the layout, header/footer (nav = Solar · Construction · Hardware ·
+About · Contact), logo, and contacts. Catalog/product data is **developer-edited in
+`config/catalog.php`** keyed by division (e.g. `catalog.hardware.materials`) — no DB, no CMS;
+change a price, push, deploy. Leads from any division post to one endpoint
+(`POST /estimate/lead`) and flow through the one pipeline tagged by a `division` field
+(defaults to `solar`). Old URLs (`/services`, `/estimate`, `/construction/materials`, all
+`*.html`) are kept alive via 301s in `routes/web.php`. Design spec: `docs/superpowers/specs/`.
+
+Light-background division pages (group home, construction, hardware, contact) load the
+shared **`public/assets/division.css`**, which forces the fixed nav solid + clears its height
+(Solar pages open on a dark hero, so they don't need it). Reuse `.ec-hero`, `.ec-cards`,
+`.ec-table` from there.
+
+**To add a division:**
+1. `config/catalog.php` — add `catalog.<slug>` data (if it has a catalog/price list).
+2. `app/Http/Controllers/<Name>Controller.php` — pass `config('site.meta.<slug>')` + data.
+3. `routes/web.php` — add `GET /<slug>` (named) + any 301s for moved URLs.
+4. `config/site.php` — add a `<slug>` meta block (title/description/canonical/OG).
+5. `resources/views/<slug>/*.blade.php` — `@extends('layouts.app')`; `@push('head')` the
+   `division.css` link (and `@verbatim` any inline JSON-LD).
+6. `components/site/header.blade.php` + footer — add the nav link (desktop + mobile).
+7. `public/sitemap.xml` — add the new URLs. Add feature tests; check Lighthouse.
 
 ## Gotchas
 - **Header/footer are Blade components**, not page markup. Edit

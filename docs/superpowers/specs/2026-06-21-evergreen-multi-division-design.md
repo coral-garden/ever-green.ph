@@ -1,5 +1,18 @@
 # Evergreen multi-division structure — design
 
+## Revision (2026-06-22): group-home IA
+The IA below was revised after launch once the divisions were understood as **co-equal peers**
+(Evergreen Solar, Evergreen Frame Construction, Evergreen Hardware Supply), not Solar-with-sub-sections.
+Changes now implemented:
+- `/` is a **neutral Evergreen group home**; Solar moved to `/solar/*` (301s from old URLs).
+- The building-materials price list belongs to **Hardware Supply** (`/hardware`), **not** Frame
+  Construction. Frame Construction (`/construction`) is the steel-frame building service only.
+- About/Contact/legal are **group-level** (`/about`, `/contact`, `/terms`, `/privacy`, `/accessibility`).
+- `config/catalog.php` key renamed `construction` → `hardware`; shared `division.css` replaces
+  `page-construction.css`. See CLAUDE.md "Divisions (umbrella IA)" for the current recipe.
+
+The sections below are the original (Solar-flagship) design, kept for history.
+
 ## Context
 `ever-green.ph` is a Laravel 13 app (migrated from static HTML in June 2026) currently
 serving one business: **Evergreen Solar**. The company is expanding into more business

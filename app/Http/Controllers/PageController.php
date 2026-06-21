@@ -7,16 +7,20 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class PageController extends Controller
 {
-    /** Map of route slug => Blade view under resources/views/pages. */
+    /** Map of route slug => Blade view. */
     private const PAGES = [
-        'home'          => 'pages.home',
-        'services'      => 'pages.services',
-        'estimate'      => 'pages.estimate',
-        'projects'      => 'pages.projects',
-        'about'         => 'pages.about',
-        'terms'         => 'pages.terms',
-        'privacy'       => 'pages.privacy',
-        'accessibility' => 'pages.accessibility',
+        // Group-level
+        'home'           => 'pages.home',
+        'about'          => 'pages.about',
+        'contact'        => 'pages.contact',
+        'terms'          => 'pages.terms',
+        'privacy'        => 'pages.privacy',
+        'accessibility'  => 'pages.accessibility',
+        // Solar division
+        'solar'          => 'solar.index',
+        'solar-services' => 'solar.services',
+        'solar-estimate' => 'solar.estimate',
+        'solar-projects' => 'solar.projects',
     ];
 
     public function show(string $page): View
@@ -25,8 +29,6 @@ class PageController extends Controller
             throw new NotFoundHttpException();
         }
 
-        $meta = config("site.meta.$page");
-
-        return view(self::PAGES[$page], ['meta' => $meta]);
+        return view(self::PAGES[$page], ['meta' => config("site.meta.$page")]);
     }
 }

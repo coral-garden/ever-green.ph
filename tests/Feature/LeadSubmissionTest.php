@@ -57,7 +57,7 @@ class LeadSubmissionTest extends TestCase
             'name' => 'Maria',
             'mobile' => '0977 000 0000',
             'email' => 'maria@example.com',
-        ])->assertRedirect('/estimate')->assertSessionHas('lead_success', true);
+        ])->assertRedirect('/solar/estimate')->assertSessionHas('lead_success', true);
     }
 
     protected function tearDown(): void
