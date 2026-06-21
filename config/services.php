@@ -42,9 +42,11 @@ return [
     ],
 
     // Bill parser API — POST a bill image, receive structured data back.
+    // The key is origin-restricted; `origin` must be an allowlisted domain.
     'bill_parser' => [
         'url' => env('BILL_PARSER_URL'),
         'key' => env('BILL_PARSER_KEY'),
+        'origin' => env('BILL_PARSER_ORIGIN', env('APP_URL')),
     ],
 
 ];

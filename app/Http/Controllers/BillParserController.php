@@ -26,24 +26,27 @@ class BillParserController extends Controller
             ]);
         }
 
-        $bill = $result['data'] ?? [];
+        $bill = $result['json']['data'] ?? [];
 
-        if (! ($bill['is_electric_bill'] ?? false)) {
+        // Success: a parsed electric bill.
+        if ($result['ok'] && ($bill['is_electric_bill'] ?? false)) {
             return response()->json([
-                'ok' => false,
-                'message' => "That doesn't look like an electric bill — please enter your bill amount manually.",
+                'ok' => true,
+                'bill' => [
+                    'amount' => $bill['total_amount_due'] ?? null,
+                    'kwh' => $bill['total_kwh_used'] ?? null,
+                    'rate' => $bill['rate_per_kwh'] ?? null,
+                    'currency' => $bill['currency'] ?? null,
+                    'provider' => $bill['utility_provider'] ?? null,
+                ],
             ]);
         }
 
+        // Non-bill or API error: surface the API's message when present.
         return response()->json([
-            'ok' => true,
-            'bill' => [
-                'amount' => $bill['total_amount_due'] ?? null,
-                'kwh' => $bill['total_kwh_used'] ?? null,
-                'rate' => $bill['rate_per_kwh'] ?? null,
-                'currency' => $bill['currency'] ?? null,
-                'provider' => $bill['utility_provider'] ?? null,
-            ],
+            'ok' => false,
+            'message' => $result['json']['message']
+                ?? "We couldn't read that bill. Please enter your bill amount manually.",
         ]);
     }
 }

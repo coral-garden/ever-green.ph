@@ -44,13 +44,19 @@ class BillParserTest extends TestCase
             ]);
     }
 
-    public function test_rejects_non_electric_bill_gracefully(): void
+    public function test_surfaces_api_message_for_non_electric_bill(): void
     {
-        Http::fake(['parser.test/*' => Http::response(['data' => ['is_electric_bill' => false]], 200)]);
+        Http::fake(['parser.test/*' => Http::response([
+            'message' => 'The uploaded file does not look like an electric utility bill.',
+            'credits_remaining' => 8,
+        ], 422)]);
 
         $this->postJson('/estimate/parse-bill', ['file' => UploadedFile::fake()->image('receipt.jpg')])
             ->assertOk()
-            ->assertJson(['ok' => false]);
+            ->assertJson([
+                'ok' => false,
+                'message' => 'The uploaded file does not look like an electric utility bill.',
+            ]);
     }
 
     public function test_handles_parser_failure_gracefully(): void
