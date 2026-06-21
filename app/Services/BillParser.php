@@ -26,9 +26,8 @@ class BillParser
             $request = $request->withToken($key);
         }
 
-        // NOTE: the multipart field name is assumed to be "file" — adjust if the API differs.
         $response = $request
-            ->attach('file', file_get_contents($file->getRealPath()), $file->getClientOriginalName())
+            ->attach('bill_file', file_get_contents($file->getRealPath()), $file->getClientOriginalName())
             ->post($url);
 
         $response->throw();
