@@ -5,6 +5,8 @@
   <url><loc>https://www.ever-green.ph/projects</loc><priority>0.8</priority></url>
   <url><loc>https://www.ever-green.ph/estimate</loc><priority>0.8</priority></url>
   <url><loc>https://www.ever-green.ph/about</loc><priority>0.6</priority></url>
+  <url><loc>https://www.ever-green.ph/construction</loc><priority>0.8</priority></url>
+  <url><loc>https://www.ever-green.ph/construction/materials</loc><priority>0.7</priority></url>
   <url><loc>https://www.ever-green.ph/terms</loc><priority>0.3</priority></url>
   <url><loc>https://www.ever-green.ph/privacy</loc><priority>0.3</priority></url>
   <url><loc>https://www.ever-green.ph/accessibility</loc><priority>0.3</priority></url>

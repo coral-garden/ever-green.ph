@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ConstructionController;
 use App\Http\Controllers\LeadController;
 use App\Http\Controllers\PageController;
 use Illuminate\Support\Facades\Route;
@@ -12,6 +13,10 @@ $pages = ['home' => '/', 'services' => '/services', 'estimate' => '/estimate',
 foreach ($pages as $page => $path) {
     Route::get($path, [PageController::class, 'show'])->defaults('page', $page)->name($page);
 }
+
+// --- Frame Construction division ---
+Route::get('/construction', [ConstructionController::class, 'index'])->name('construction');
+Route::get('/construction/materials', [ConstructionController::class, 'materials'])->name('construction.materials');
 
 // --- Lead form ---
 Route::post('/estimate/lead', [LeadController::class, 'store'])->name('lead.store');

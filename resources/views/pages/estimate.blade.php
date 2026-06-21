@@ -187,6 +187,7 @@
           <!-- honeypot (spam trap) -->
           <input class="hp" type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" />
           <!-- email subject + auto-filled estimate snapshot -->
+          <input type="hidden" name="division" value="solar" />
           <input type="hidden" name="_subject" value="New solar estimate lead — Evergreen" />
           <input type="hidden" name="bill_php" id="hBill" />
           <input type="hidden" name="system_type" id="hType" />

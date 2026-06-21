@@ -11,6 +11,7 @@
         <a href="/estimate">Estimate</a>
         <a href="/projects">Projects</a>
         <a href="/about">About</a>
+        <a href="/construction">Construction</a>
         <a href="/#contact">Contact</a>
       </nav>
       <div class="nav-cta">
@@ -37,6 +38,7 @@
       <a href="/estimate">Estimate</a>
       <a href="/projects">Projects</a>
       <a href="/about">About</a>
+      <a href="/construction">Construction</a>
       <a href="/#contact">Contact</a>
     </nav>
     <div class="mm-foot">Burgos, Siargao · 0966 305 1461</div>
