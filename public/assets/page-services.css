@@ -1,0 +1,21 @@
+/* ============================================================
+     SERVICES PAGE (page-specific)
+     ============================================================ */
+  .services-sec { background: var(--paper); position: relative; padding-top: clamp(22px, 2.6vw, 34px); }
+  .services-sec .section-head { margin-bottom: clamp(28px, 3.5vw, 44px); }
+
+  /* 8-up responsive service grid, reusing the .sys card look */
+  .svc-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(258px, 1fr)); gap: 18px; }
+  .svc-grid .sys { display: flex; flex-direction: column; }
+  .svc-grid .sys .desc { margin-top: 12px; }
+
+  /* CTA band */
+  .svc-cta {
+    position: relative; color: #fff; text-align: center;
+    background: radial-gradient(60% 120% at 50% 8%, rgba(125,194,62,.18), transparent 60%), var(--panel);
+  }
+  .svc-cta .shell { position: relative; z-index: 2; }
+  .svc-cta .tag { color: var(--lime); margin-bottom: 20px; }
+  .svc-cta h2 { font-size: clamp(30px, 5vw, 58px); max-width: 16em; margin-inline: auto; }
+  .svc-cta p { margin: 18px auto 0; max-width: 34em; color: rgba(255,255,255,.78); font-size: 17px; }
+  .svc-cta .cta-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-top: 38px; }

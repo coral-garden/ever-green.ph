@@ -1,10 +1,31 @@
-.DS_Store
+# --- Laravel ---
 *.log
+.DS_Store
+.env
+.env.backup
+.env.production
+.phpactor.json
+.phpunit.result.cache
+/.phpunit.cache
+/.idea
+/.vscode
+/.zed
+/.nova
+/auth.json
+/node_modules
+/public/build
+/public/hot
+/public/storage
+/storage/*.key
+/storage/pail
+/vendor
+_ide_helper.php
+Homestead.json
+Homestead.yaml
+Thumbs.db
 
+# --- Project ---
 # Scraped static mirror of the original Wix site — reference only.
 original/mirror/
-
-# Generated build artifacts — rebuild with build.py
-*.standalone.html
-__pycache__/
-*.pyc
+# Local Claude Code settings
+/.claude/settings.local.json

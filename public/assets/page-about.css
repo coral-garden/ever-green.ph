@@ -1,0 +1,23 @@
+/* ============================================================
+     ABOUT PAGE (page-specific)
+     ============================================================ */
+  .about-sec { background: var(--paper); position: relative; padding-top: clamp(22px, 2.6vw, 34px); }
+
+  .about-intro { display: grid; grid-template-columns: 1.08fr 0.92fr; gap: clamp(28px, 5vw, 64px); align-items: center; }
+  @media (max-width: 860px) { .about-intro { grid-template-columns: 1fr; } }
+  .about-intro .tag { color: var(--foliage); margin-bottom: 16px; }
+  .about-intro h2 { font-size: clamp(28px, 4vw, 46px); max-width: 13em; }
+  .about-intro .body { margin-top: 22px; display: grid; gap: 16px; max-width: 34em; color: var(--mist); font-size: 16.5px; line-height: 1.7; }
+  .about-figure { position: relative; border-radius: var(--radius); overflow: hidden; aspect-ratio: 4/5; border: 1px solid var(--line); }
+  .about-figure img { width: 100%; height: 100%; object-fit: cover; }
+  @media (max-width: 860px) { .about-figure { max-width: 440px; } }
+
+  .about-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; margin-top: clamp(40px, 6vw, 72px); border-top: 1px solid var(--line); padding-top: 34px; }
+  @media (max-width: 680px) { .about-stats { grid-template-columns: 1fr 1fr; gap: 28px 18px; } }
+  .about-stats .k { font-family: var(--font-display); font-weight: 800; font-size: clamp(26px, 3vw, 38px); letter-spacing: -0.02em; color: var(--ink); line-height: 1; }
+  .about-stats .d { font-family: var(--font-mono); font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--mist); margin-top: 9px; }
+
+  .why-band { background: var(--foliage); color: #fff; position: relative; }
+  .why-band .tag { color: var(--lime); margin-bottom: 18px; }
+  .why-band h2 { font-size: clamp(30px, 4.6vw, 52px); max-width: 12em; }
+  .why-band .body { margin-top: 24px; display: grid; gap: 16px; max-width: 40em; color: rgba(255,255,255,.88); font-size: 17px; line-height: 1.7; }

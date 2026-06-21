@@ -1,0 +1,124 @@
+<?php $__env->startPush('head'); ?>
+<link rel="stylesheet" href="/assets/page-projects.css">
+<?php $__env->stopPush(); ?>
+
+<?php $__env->startSection('content'); ?>
+
+  <main id="top">
+  <!-- ===================== HERO ===================== -->
+  <section class="page-hero">
+    <img class="hero-watermark" src="/assets/logo.png" alt="" aria-hidden="true" />
+    <div class="shell">
+      <div class="tag tag-dot">Our work</div>
+      <h1>We build projects that last</h1>
+      <p class="hero-sub">A look at solar installs across the islands — homestays, villas, and hostels running cleaner, quieter, and through the brownouts. Tap any photo to view it full size.</p>
+    </div>
+  </section>
+
+  <!-- ===================== GALLERY ===================== -->
+  <section class="section gallery-sec">
+    <div class="seam" aria-hidden="true">
+      <svg class="seam-fill" viewBox="0 0 1440 90" preserveAspectRatio="none">
+        <path d="M0 90 L0 52 C360 4 1080 4 1440 52 L1440 90 Z" fill="var(--paper)"/>
+        <path d="M0 52 C360 4 1080 4 1440 52" fill="none" stroke="var(--lime)" stroke-width="2" stroke-dasharray="6 8" opacity=".55" vector-effect="non-scaling-stroke"/>
+      </svg>
+      <svg class="seam-badge" viewBox="0 0 64 64" aria-hidden="true">
+        <circle cx="32" cy="32" r="29" fill="var(--lime)"/>
+        <g transform="translate(32,32) scale(0.58) translate(-32,-32)" fill="none" stroke="var(--panel)" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="32" cy="32" r="11" fill="var(--panel)" stroke="none"/>
+          <path d="M32 10V3M32 61v-7M54 32h7M3 32h7M47 17l5-5M12 52l5-5M47 47l5 5M12 12l5 5"/>
+        </g>
+      </svg>
+    </div>
+    <div class="shell">
+      <div class="section-head reveal">
+        <div class="lead">
+          <div class="tag tag-dot">Selected installs</div>
+          <h2>Powered by sun, across Siargao</h2>
+        </div>
+        <p class="kicker">Real homes and businesses we've taken solar — each one engineered for the island's salt air, sun, and storms.</p>
+      </div>
+
+      <div class="proj-masonry">
+        <button class="pcard reveal" data-title="Filmegs Seaside Homestay" data-loc="Santa Monica, Siargao">
+          <img src="/assets/projects/filmegs-seaside.webp" alt="Solar panels on the A-frame roof of Filmegs Seaside Homestay, Siargao" loading="lazy" />
+          <div class="pmeta"><div class="ploc">Santa Monica, Siargao</div><div class="ptitle">Filmegs Seaside Homestay</div></div>
+        </button>
+        <button class="pcard reveal" data-title="Roxy" data-loc="Dapa, Siargao">
+          <img src="/assets/projects/roxy-dapa.webp" alt="Rooftop solar array being cleaned at Roxy, Dapa, Siargao" loading="lazy" />
+          <div class="pmeta"><div class="ploc">Dapa, Siargao</div><div class="ptitle">Roxy</div></div>
+        </button>
+        <button class="pcard reveal" data-title="Casa Cahuenga" data-loc="Burgos, Siargao">
+          <img src="/assets/projects/casa-cahuenga.webp" alt="Solar panels on the roof of Casa Cahuenga, Burgos, Siargao" loading="lazy" />
+          <div class="pmeta"><div class="ploc">Burgos, Siargao</div><div class="ptitle">Casa Cahuenga</div></div>
+        </button>
+        <button class="pcard reveal" data-title="Garcia Overlooking Villa" data-loc="Siargao Island">
+          <img src="/assets/projects/garcia-villa.webp" alt="Evergreen team with the battery and inverter wall at Garcia Overlooking Villa" loading="lazy" />
+          <div class="pmeta"><div class="ploc">Siargao Island</div><div class="ptitle">Garcia Overlooking Villa</div></div>
+        </button>
+        <button class="pcard reveal" data-title="Sunlit Hostel Siargao" data-loc="General Luna, Siargao">
+          <img src="/assets/projects/sunlit-hostel.webp" alt="Rooftop solar array overlooking greenery at Sunlit Hostel, General Luna, Siargao" loading="lazy" />
+          <div class="pmeta"><div class="ploc">General Luna, Siargao</div><div class="ptitle">Sunlit Hostel Siargao</div></div>
+        </button>
+        <button class="pcard reveal" data-title="Rooftop Installation" data-loc="Siargao Island">
+          <img src="/assets/projects/siargao-install.webp" alt="Evergreen crew installing solar panels on an island rooftop" loading="lazy" />
+          <div class="pmeta"><div class="ploc">Siargao Island</div><div class="ptitle">Rooftop Installation</div></div>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CTA ===================== -->
+  <section class="section cta-band">
+    <div class="seam" aria-hidden="true">
+      <svg class="seam-fill" viewBox="0 0 1440 90" preserveAspectRatio="none">
+        <path d="M0 90 L0 52 C360 4 1080 4 1440 52 L1440 90 Z" fill="var(--panel)"/>
+        <path d="M0 52 C360 4 1080 4 1440 52" fill="none" stroke="var(--lime)" stroke-width="2" stroke-dasharray="6 8" opacity=".55" vector-effect="non-scaling-stroke"/>
+      </svg>
+      <svg class="seam-badge" viewBox="0 0 64 64" aria-hidden="true">
+        <circle cx="32" cy="32" r="29" fill="var(--lime)"/>
+        <g transform="translate(32,32) scale(0.58) translate(-32,-32)" fill="none" stroke="var(--panel)" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 55 Q32 47 52 55"/>
+          <path d="M35 55 C33 43 39 33 33 23"/>
+          <path d="M33 23 C24 19 17 21 11 29"/>
+          <path d="M33 23 C26 13 19 10 11 11"/>
+          <path d="M33 23 C33 13 33 9 32 4"/>
+          <path d="M33 23 C43 13 52 11 60 16"/>
+          <path d="M33 23 C42 17 50 19 56 28"/>
+        </g>
+      </svg>
+    </div>
+    <div class="shell">
+      <div class="reveal">
+        <div class="tag tag-dot">Your roof next</div>
+        <h2>Get an estimate for your upcoming project</h2>
+        <p>Size your system and savings in 30 seconds, or talk it through with our island-based team.</p>
+        <div class="cta-actions">
+          <a class="btn btn-lime" href="/estimate">Get a quote
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a class="btn btn-ghost-light" href="/#contact">Talk to our team</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  </main>
+
+  <!-- lightbox -->
+  <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-label="Project photo">
+    <button class="lb-close" id="lbClose" aria-label="Close">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+    <img id="lbImg" src="" alt="" />
+    <div class="lb-cap" id="lbCap"></div>
+  </div>
+
+  
+
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startPush('scripts'); ?>
+<script src="/assets/page-projects.js" defer></script>
+<?php $__env->stopPush(); ?>
+
+<?php echo $__env->make('layouts.app', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?><?php /**PATH /Users/dahican/Library/CloudStorage/Dropbox/ever-green.ph/resources/views/pages/projects.blade.php ENDPATH**/ ?>
