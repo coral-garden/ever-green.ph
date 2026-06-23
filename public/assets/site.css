@@ -451,5 +451,5 @@
   .home-testimonials .ht-card { margin: 0; padding: 20px; border-radius: var(--radius);
     border: 1px solid var(--line); background: var(--panel); display: flex; flex-direction: column; gap: 10px; }
   .home-testimonials .ht-stars { color: var(--lime); letter-spacing: 2px; }
-  .home-testimonials .ht-card blockquote { margin: 0; font-size: 14px; line-height: 1.6; }
-  .home-testimonials .ht-card figcaption { font-family: var(--font-display); font-weight: 700; }
+  .home-testimonials .ht-card blockquote { margin: 0; font-size: 14px; line-height: 1.6; color: rgba(255,255,255,.9); }
+  .home-testimonials .ht-card figcaption { font-family: var(--font-display); font-weight: 700; color: #fff; }

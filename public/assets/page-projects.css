@@ -30,6 +30,7 @@
   .lightbox .lb-cap { position: absolute; bottom: 24px; left: 0; right: 0; text-align: center;
     font-family: var(--font-mono); font-size: 12px; letter-spacing: .1em; color: rgba(255,255,255,.85); }
   .lightbox .lb-cap b { color: var(--lime); font-weight: 600; }
+  .lightbox .lb-count { margin-left: 8px; color: rgba(255,255,255,.6); }
   .lightbox .lb-close { position: absolute; top: 16px; right: 20px; background: none; border: 0; color: #fff; padding: 8px; }
   .lightbox .lb-close svg { width: 30px; height: 30px; }
 
@@ -49,8 +50,8 @@
   .tcard { margin: 0; padding: 22px; border-radius: var(--radius); border: 1px solid var(--line);
     background: var(--panel); display: flex; flex-direction: column; gap: 12px; }
   .tcard .tstars { color: var(--lime); font-size: 15px; letter-spacing: 2px; }
-  .tcard blockquote { margin: 0; font-size: 15px; line-height: 1.6; color: var(--ink, inherit); }
-  .tcard .tname { font-family: var(--font-display); font-weight: 700; letter-spacing: -0.01em; }
+  .tcard blockquote { margin: 0; font-size: 15px; line-height: 1.6; color: rgba(255,255,255,.9); }
+  .tcard .tname { font-family: var(--font-display); font-weight: 700; letter-spacing: -0.01em; color: #fff; }
 
   /* lightbox nav */
   .lightbox .lb-nav { position: absolute; top: 50%; transform: translateY(-50%);
