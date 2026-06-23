@@ -31,4 +31,10 @@ class SolarProjectsPageTest extends TestCase
         $response->assertSee('tcard', false);  // testimonial card class rendered
         $response->assertSee('tstars', false); // star row rendered
     }
+
+    public function test_cards_carry_photo_sets_for_the_lightbox(): void
+    {
+        $response = $this->get('/solar/projects');
+        $response->assertSee('data-photos="/assets/projects/sunlit-hostel-1.webp', false);
+    }
 }

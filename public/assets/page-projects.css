@@ -32,3 +32,31 @@
   .lightbox .lb-cap b { color: var(--lime); font-weight: 600; }
   .lightbox .lb-close { position: absolute; top: 16px; right: 20px; background: none; border: 0; color: #fff; padding: 8px; }
   .lightbox .lb-close svg { width: 30px; height: 30px; }
+
+  /* spec list inside project cards */
+  .pcard .pspecs { list-style: none; margin: 8px 0 0; padding: 0; display: grid; gap: 3px; }
+  .pcard .pspecs li {
+    font-family: var(--font-mono); font-size: 11px; line-height: 1.45;
+    letter-spacing: .02em; color: rgba(255,255,255,.92); padding-left: 14px; position: relative;
+  }
+  .pcard .pspecs li::before { content: ""; position: absolute; left: 0; top: 7px;
+    width: 6px; height: 6px; border-radius: 50%; background: var(--lime); }
+
+  /* testimonials */
+  .testimonials { background: var(--paper); }
+  .testimonials .tgrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 28px; }
+  @media (max-width: 920px) { .testimonials .tgrid { grid-template-columns: 1fr; } }
+  .tcard { margin: 0; padding: 22px; border-radius: var(--radius); border: 1px solid var(--line);
+    background: var(--panel); display: flex; flex-direction: column; gap: 12px; }
+  .tcard .tstars { color: var(--lime); font-size: 15px; letter-spacing: 2px; }
+  .tcard blockquote { margin: 0; font-size: 15px; line-height: 1.6; color: var(--ink, inherit); }
+  .tcard .tname { font-family: var(--font-display); font-weight: 700; letter-spacing: -0.01em; }
+
+  /* lightbox nav */
+  .lightbox .lb-nav { position: absolute; top: 50%; transform: translateY(-50%);
+    background: rgba(255,255,255,.08); border: 0; color: #fff; padding: 10px; border-radius: 50%; cursor: pointer; }
+  .lightbox .lb-nav:hover { background: rgba(255,255,255,.18); }
+  .lightbox .lb-nav svg { width: 26px; height: 26px; display: block; }
+  .lightbox .lb-prev { left: 18px; }
+  .lightbox .lb-next { right: 18px; }
+  .lightbox.single .lb-nav { display: none; }
