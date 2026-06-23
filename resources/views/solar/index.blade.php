@@ -229,13 +229,42 @@
       </div>
 
       <div style="margin-top:36px;" class="reveal">
-        <a class="btn btn-ghost" href="#contact">More projects
+        <a class="btn btn-ghost" href="/solar/projects">More projects
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+@endverbatim
+
+  <!-- ===================== TESTIMONIALS STRIP ===================== -->
+  <section class="section home-testimonials">
+    <div class="shell">
+      <div class="section-head reveal">
+        <div class="lead">
+          <div class="tag tag-dot">Client stories</div>
+          <h2>Loved by island homes &amp; businesses</h2>
+        </div>
+        <p class="kicker">A few words from people already running on Evergreen solar.</p>
+      </div>
+      <div class="ht-grid">
+        @foreach ($testimonials as $t)
+          <figure class="ht-card reveal">
+            <div class="ht-stars" aria-label="{{ $t['stars'] }} out of 5 stars">{!! str_repeat('★', $t['stars']) !!}</div>
+            <blockquote>{{ $t['quote'] }}</blockquote>
+            <figcaption>{{ $t['name'] }}</figcaption>
+          </figure>
+        @endforeach
+      </div>
+      <div style="margin-top:32px;" class="reveal">
+        <a class="btn btn-ghost" href="/solar/projects">See our work
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         </a>
       </div>
     </div>
   </section>
 
+@verbatim
   <!-- ===================== QUOTE / CONTACT ===================== -->
   <section class="section quote" id="contact">
     <!-- curved island-horizon seam -->
