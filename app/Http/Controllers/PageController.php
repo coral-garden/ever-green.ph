@@ -31,6 +31,15 @@ class PageController extends Controller
 
         [$view, $division] = self::PAGES[$page];
 
-        return view($view, ['meta' => config("site.meta.$page"), 'division' => $division]);
+        $data = ['meta' => config("site.meta.$page"), 'division' => $division];
+
+        if ($page === 'solar-projects') {
+            $data['projects'] = config('projects.projects');
+            $data['testimonials'] = config('projects.testimonials');
+        } elseif ($page === 'solar') {
+            $data['testimonials'] = array_slice(config('projects.testimonials'), 0, 3);
+        }
+
+        return view($view, $data);
     }
 }
