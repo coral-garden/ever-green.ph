@@ -66,6 +66,30 @@
     </div>
   </section>
 
+      @endverbatim
+      <!-- ===================== TESTIMONIALS ===================== -->
+      <section class="section testimonials">
+        <div class="shell">
+          <div class="section-head reveal">
+            <div class="lead">
+              <div class="tag tag-dot">What clients say</div>
+              <h2>Trusted across the island</h2>
+            </div>
+            <p class="kicker">Real words from homeowners and businesses now running on Evergreen solar.</p>
+          </div>
+          <div class="tgrid">
+            @foreach ($testimonials as $t)
+              <figure class="tcard reveal">
+                <div class="tstars" aria-label="{{ $t['stars'] }} out of 5 stars">{!! str_repeat('★', $t['stars']) !!}</div>
+                <blockquote>{{ $t['quote'] }}</blockquote>
+                <figcaption class="tname">{{ $t['name'] }}</figcaption>
+              </figure>
+            @endforeach
+          </div>
+        </div>
+      </section>
+      @verbatim
+
   <!-- ===================== CTA ===================== -->
   <section class="section cta-band">
     <div class="seam" aria-hidden="true">

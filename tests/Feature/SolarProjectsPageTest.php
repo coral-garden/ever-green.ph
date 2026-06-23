@@ -22,4 +22,13 @@ class SolarProjectsPageTest extends TestCase
         $response->assertSee('Casa Cahuenga');
         $response->assertSee('Roxy');
     }
+
+    public function test_shows_client_testimonials(): void
+    {
+        $response = $this->get('/solar/projects');
+        $response->assertSee('James Gaffod');
+        $response->assertSee('Antonio Altair');
+        $response->assertSee('tcard', false);  // testimonial card class rendered
+        $response->assertSee('tstars', false); // star row rendered
+    }
 }
