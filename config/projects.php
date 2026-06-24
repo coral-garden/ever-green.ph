@@ -71,6 +71,7 @@ return [
                 'bamboo-surf-1.webp',
                 'bamboo-surf-2.webp',
                 'bamboo-surf-3.webp',
+                'bamboo-surf-4.webp',
             ],
         ],
 
