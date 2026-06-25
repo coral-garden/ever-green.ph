@@ -38,6 +38,7 @@ return [
                 'filmegz-seaside-1.webp',
                 'filmegz-seaside-2.webp',
                 'filmegz-seaside-3.webp',
+                'filmegz-seaside-4.webp',
             ],
         ],
 
@@ -54,6 +55,7 @@ return [
                 'yugo-grill-1.webp',
                 'yugo-grill-2.webp',
                 'yugo-grill-3.webp',
+                'yugo-grill-4.webp',
             ],
         ],
 
