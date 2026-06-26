@@ -29,3 +29,6 @@ Thumbs.db
 original/mirror/
 # Local Claude Code settings
 /.claude/settings.local.json
+# Tooling runtime scratch
+/.omx
+/.superpowers
