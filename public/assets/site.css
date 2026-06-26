@@ -191,12 +191,10 @@
     line-height: 0.9;
     letter-spacing: -0.04em;
   }
-  /* "Siargao" — palms photo clipped into the letters, kept legible by the lime outline */
+  /* "Siargao" — lime accent on the second line */
   .hero h1 .l2 {
     display: block; width: fit-content;
-    background: url('siargao-water.webp') center 42% / cover;
-    -webkit-background-clip: text; background-clip: text;
-    color: transparent; -webkit-text-stroke: 1.4px var(--panel-3);
+    color: var(--lime);
   }
   .hero-sub {
     margin-top: 28px; max-width: 30em;
