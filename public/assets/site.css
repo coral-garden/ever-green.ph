@@ -444,3 +444,12 @@
   .cta-band h2 { font-size: clamp(30px, 5vw, 58px); max-width: 16em; margin-inline: auto; }
   .cta-band p { margin: 18px auto 0; max-width: 34em; color: rgba(255,255,255,.78); font-size: 17px; }
   .cta-band .cta-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-top: 38px; }
+
+  /* home testimonials strip */
+  .home-testimonials .ht-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 26px; }
+  @media (max-width: 920px) { .home-testimonials .ht-grid { grid-template-columns: 1fr; } }
+  .home-testimonials .ht-card { margin: 0; padding: 20px; border-radius: var(--radius);
+    border: 1px solid var(--line); background: var(--panel); display: flex; flex-direction: column; gap: 10px; }
+  .home-testimonials .ht-stars { color: var(--lime); letter-spacing: 2px; }
+  .home-testimonials .ht-card blockquote { margin: 0; font-size: 14px; line-height: 1.6; color: rgba(255,255,255,.9); }
+  .home-testimonials .ht-card figcaption { font-family: var(--font-display); font-weight: 700; color: #fff; }

@@ -41,34 +41,54 @@
         <p class="kicker">Real homes and businesses we've taken solar — each one engineered for the island's salt air, sun, and storms.</p>
       </div>
 
-      <div class="proj-masonry">
-        <button class="pcard reveal" data-title="Filmegs Seaside Homestay" data-loc="Santa Monica, Siargao">
-          <img src="/assets/projects/filmegs-seaside.webp" alt="Solar panels on the A-frame roof of Filmegs Seaside Homestay, Siargao" loading="lazy" />
-          <div class="pmeta"><div class="ploc">Santa Monica, Siargao</div><div class="ptitle">Filmegs Seaside Homestay</div></div>
+      @endverbatim
+
+      @foreach ($projects as $p)
+        @php $photoUrls = collect($p['photos'])->map(fn ($f) => '/assets/projects/'.$f)->implode(','); @endphp
+        <button class="pcard reveal" data-title="{{ $p['title'] }}" data-loc="{{ $p['location'] }}" data-photos="{{ $photoUrls }}">
+          <img src="/assets/projects/{{ $p['photos'][0] }}" alt="Solar installation at {{ $p['title'] }}, {{ $p['location'] }}" loading="lazy" />
+          <div class="pmeta">
+            <div class="ploc">{{ $p['location'] }}</div>
+            <div class="ptitle">{{ $p['title'] }}</div>
+            @if (!empty($p['specs']))
+              <ul class="pspecs">
+                @foreach ($p['specs'] as $spec)
+                  <li>{{ $spec }}</li>
+                @endforeach
+              </ul>
+            @endif
+          </div>
         </button>
-        <button class="pcard reveal" data-title="Roxy" data-loc="Dapa, Siargao">
-          <img src="/assets/projects/roxy-dapa.webp" alt="Rooftop solar array being cleaned at Roxy, Dapa, Siargao" loading="lazy" />
-          <div class="pmeta"><div class="ploc">Dapa, Siargao</div><div class="ptitle">Roxy</div></div>
-        </button>
-        <button class="pcard reveal" data-title="Casa Cahuenga" data-loc="Burgos, Siargao">
-          <img src="/assets/projects/casa-cahuenga.webp" alt="Solar panels on the roof of Casa Cahuenga, Burgos, Siargao" loading="lazy" />
-          <div class="pmeta"><div class="ploc">Burgos, Siargao</div><div class="ptitle">Casa Cahuenga</div></div>
-        </button>
-        <button class="pcard reveal" data-title="Garcia Overlooking Villa" data-loc="Siargao Island">
-          <img src="/assets/projects/garcia-villa.webp" alt="Evergreen team with the battery and inverter wall at Garcia Overlooking Villa" loading="lazy" />
-          <div class="pmeta"><div class="ploc">Siargao Island</div><div class="ptitle">Garcia Overlooking Villa</div></div>
-        </button>
-        <button class="pcard reveal" data-title="Sunlit Hostel Siargao" data-loc="General Luna, Siargao">
-          <img src="/assets/projects/sunlit-hostel.webp" alt="Rooftop solar array overlooking greenery at Sunlit Hostel, General Luna, Siargao" loading="lazy" />
-          <div class="pmeta"><div class="ploc">General Luna, Siargao</div><div class="ptitle">Sunlit Hostel Siargao</div></div>
-        </button>
-        <button class="pcard reveal" data-title="Rooftop Installation" data-loc="Siargao Island">
-          <img src="/assets/projects/siargao-install.webp" alt="Evergreen crew installing solar panels on an island rooftop" loading="lazy" />
-          <div class="pmeta"><div class="ploc">Siargao Island</div><div class="ptitle">Rooftop Installation</div></div>
-        </button>
+      @endforeach
+
+      @verbatim
       </div>
     </div>
   </section>
+
+      @endverbatim
+      <!-- ===================== TESTIMONIALS ===================== -->
+      <section class="section testimonials">
+        <div class="shell">
+          <div class="section-head reveal">
+            <div class="lead">
+              <div class="tag tag-dot">What clients say</div>
+              <h2>Trusted across the island</h2>
+            </div>
+            <p class="kicker">Real words from homeowners and businesses now running on Evergreen solar.</p>
+          </div>
+          <div class="tgrid">
+            @foreach ($testimonials as $t)
+              <figure class="tcard reveal">
+                <div class="tstars" aria-label="{{ $t['stars'] }} out of 5 stars">{!! str_repeat('★', $t['stars']) !!}</div>
+                <blockquote>{{ $t['quote'] }}</blockquote>
+                <figcaption class="tname">{{ $t['name'] }}</figcaption>
+              </figure>
+            @endforeach
+          </div>
+        </div>
+      </section>
+      @verbatim
 
   <!-- ===================== CTA ===================== -->
   <section class="section cta-band">
@@ -110,6 +130,12 @@
   <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-label="Project photo">
     <button class="lb-close" id="lbClose" aria-label="Close">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+    <button class="lb-nav lb-prev" id="lbPrev" aria-label="Previous photo">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 6l-6 6 6 6"/></svg>
+    </button>
+    <button class="lb-nav lb-next" id="lbNext" aria-label="Next photo">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg>
     </button>
     <img id="lbImg" src="" alt="" />
     <div class="lb-cap" id="lbCap"></div>
