@@ -35,10 +35,13 @@ return [
         ],
     ],
 
-    // External lead system (TBC). When `url` is empty, leads are logged instead.
+    // External lead system. When `url` is empty, leads are logged instead.
+    // The key is origin-restricted (same API host as the bill parser), so
+    // `origin` must be an allowlisted domain.
     'lead_forwarder' => [
         'url' => env('LEAD_FORWARDER_URL'),
         'key' => env('LEAD_FORWARDER_KEY'),
+        'origin' => env('LEAD_FORWARDER_ORIGIN', env('APP_URL')),
     ],
 
     // Bill parser API — POST a bill image, receive structured data back.

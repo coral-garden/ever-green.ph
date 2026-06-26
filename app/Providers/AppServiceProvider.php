@@ -20,7 +20,11 @@ class AppServiceProvider extends ServiceProvider
             $url = config('services.lead_forwarder.url');
 
             if (! empty($url)) {
-                return new HttpLeadForwarder($url, config('services.lead_forwarder.key'));
+                return new HttpLeadForwarder(
+                    $url,
+                    config('services.lead_forwarder.key'),
+                    config('services.lead_forwarder.origin'),
+                );
             }
 
             return new LogLeadForwarder();
