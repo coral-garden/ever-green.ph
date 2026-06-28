@@ -23,12 +23,16 @@ class SolarProjectsPageTest extends TestCase
         $response->assertSee('Roxy');
     }
 
-    public function test_cards_are_wrapped_in_masonry_container(): void
+    public function test_spec_projects_show_a_roof_and_equipment_pair(): void
     {
-        // The .proj-masonry wrapper drives the multi-column layout; without it
-        // the cards stack full-width (one column).
+        // Each documented project renders as a row with a .proj-pair holding the
+        // rooftop photo and its inverter/battery photo.
         $response = $this->get('/solar/projects');
-        $response->assertSee('<div class="proj-masonry">', false);
+        $response->assertSee('proj-pair', false);
+        $response->assertSee('Rooftop array', false);
+        $response->assertSee('Inverter &amp; battery', false);
+        // the equipment photo is shown inline, not just hidden in the lightbox
+        $response->assertSee('src="/assets/projects/sunlit-hostel-3.webp"', false);
     }
 
     public function test_shows_client_testimonials(): void

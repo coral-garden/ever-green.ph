@@ -41,29 +41,65 @@
         <p class="kicker">Real homes and businesses we've taken solar — each one engineered for the island's salt air, sun, and storms.</p>
       </div>
 
-      <div class="proj-masonry">
       @endverbatim
 
-      @foreach ($projects as $p)
-        @php $photoUrls = collect($p['photos'])->map(fn ($f) => '/assets/projects/'.$f)->implode(','); @endphp
-        <button class="pcard reveal" data-title="{{ $p['title'] }}" data-loc="{{ $p['location'] }}" data-photos="{{ $photoUrls }}">
-          <img src="/assets/projects/{{ $p['photos'][0] }}" alt="Solar installation at {{ $p['title'] }}, {{ $p['location'] }}" loading="lazy" />
-          <div class="pmeta">
-            <div class="ploc">{{ $p['location'] }}</div>
-            <div class="ptitle">{{ $p['title'] }}</div>
-            @if (!empty($p['specs']))
+      @php
+        $specProjects = collect($projects)->filter(fn ($p) => ! empty($p['specs']));
+        $extras = collect($projects)->filter(fn ($p) => empty($p['specs']));
+      @endphp
+
+      <div class="proj-rows">
+        @foreach ($specProjects as $p)
+          @php
+            $all = collect($p['photos'])->map(fn ($f) => '/assets/projects/'.$f)->values();
+            $roof = '/assets/projects/'.$p['photos'][0];
+            $eq = '/assets/projects/'.$p['equipment'];
+            $roofList = $all->implode(',');
+            $eqList = collect([$eq])->merge($all->reject(fn ($u) => $u === $eq))->implode(',');
+          @endphp
+          <article class="proj-row reveal">
+            <div class="proj-row-head">
+              <div class="ploc">{{ $p['location'] }}</div>
+              <h3 class="ptitle">{{ $p['title'] }}</h3>
               <ul class="pspecs">
                 @foreach ($p['specs'] as $spec)
                   <li>{{ $spec }}</li>
                 @endforeach
               </ul>
-            @endif
-          </div>
-        </button>
-      @endforeach
+            </div>
+            <div class="proj-pair">
+              <button class="pcard reveal" data-title="{{ $p['title'] }}" data-loc="{{ $p['location'] }}" data-photos="{{ $roofList }}">
+                <img src="{{ $roof }}" alt="Rooftop solar array at {{ $p['title'] }}, {{ $p['location'] }}" loading="lazy" />
+                <span class="pcard-tag">Rooftop array</span>
+              </button>
+              <button class="pcard reveal" data-title="{{ $p['title'] }}" data-loc="{{ $p['location'] }}" data-photos="{{ $eqList }}">
+                <img src="{{ $eq }}" alt="Inverter and battery system at {{ $p['title'] }}, {{ $p['location'] }}" loading="lazy" />
+                <span class="pcard-tag">Inverter &amp; battery</span>
+              </button>
+            </div>
+          </article>
+        @endforeach
+      </div>
+
+      @if ($extras->isNotEmpty())
+        <div class="proj-extras-head reveal">
+          <div class="tag tag-dot">More installs</div>
+        </div>
+        <div class="proj-extras">
+          @foreach ($extras as $p)
+            @php $photoUrls = collect($p['photos'])->map(fn ($f) => '/assets/projects/'.$f)->implode(','); @endphp
+            <button class="pcard reveal" data-title="{{ $p['title'] }}" data-loc="{{ $p['location'] }}" data-photos="{{ $photoUrls }}">
+              <img src="/assets/projects/{{ $p['photos'][0] }}" alt="Solar installation at {{ $p['title'] }}, {{ $p['location'] }}" loading="lazy" />
+              <div class="pmeta">
+                <div class="ploc">{{ $p['location'] }}</div>
+                <div class="ptitle">{{ $p['title'] }}</div>
+              </div>
+            </button>
+          @endforeach
+        </div>
+      @endif
 
       @verbatim
-      </div>
     </div>
   </section>
 

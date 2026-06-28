@@ -3,23 +3,35 @@
      ============================================================ */
   .gallery-sec { background: var(--paper); position: relative; padding-top: clamp(22px, 2.6vw, 34px); }
 
-  /* 2-column masonry — keeps every photo uncropped at its native aspect ratio */
-  .proj-masonry { columns: 2; column-gap: 18px; }
-  @media (max-width: 600px) { .proj-masonry { columns: 1; } }
+  /* project rows — one project per row: a spec header + a roof / equipment pair */
+  .proj-rows { display: grid; gap: clamp(30px, 4.5vw, 52px); }
+  .proj-row { display: grid; gap: 16px; }
+  .proj-row-head .ploc { font-family: var(--font-mono); font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--lime-deep, var(--lime)); }
+  .proj-row-head .ptitle { font-family: var(--font-display); font-weight: 700; font-size: clamp(22px, 3vw, 30px); letter-spacing: -0.01em; margin: 4px 0 0; color: var(--ink); }
+  .proj-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  @media (max-width: 640px) { .proj-pair { grid-template-columns: 1fr; } }
+
+  /* extras — single-photo installs, no equipment pair */
+  .proj-extras-head { margin-top: clamp(38px, 5vw, 60px); margin-bottom: 16px; }
+  .proj-extras { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  @media (max-width: 760px) { .proj-extras { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 460px) { .proj-extras { grid-template-columns: 1fr; } }
 
   .pcard {
     display: block; width: 100%; padding: 0; text-align: left; font: inherit; color: inherit;
-    position: relative; break-inside: avoid; margin: 0 0 18px;
+    position: relative; margin: 0;
     border-radius: var(--radius); overflow: hidden; border: 1px solid var(--line);
     background: var(--panel); cursor: zoom-in;
   }
-  .pcard img { width: 100%; height: auto; display: block; transition: transform .7s var(--ease); }
+  .pcard img { width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; display: block; transition: transform .7s var(--ease); }
   .pcard:hover img { transform: scale(1.04); }
   .pcard::after { content: ""; position: absolute; inset: 0; pointer-events: none;
-    background: linear-gradient(180deg, transparent 48%, rgba(7,25,15,.82)); }
+    background: linear-gradient(180deg, transparent 52%, rgba(7,25,15,.80)); }
   .pcard .pmeta { position: absolute; left: 18px; right: 18px; bottom: 15px; z-index: 2; color: #fff; }
   .pcard .ploc { font-family: var(--font-mono); font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--lime); }
   .pcard .ptitle { font-family: var(--font-display); font-weight: 700; font-size: 19px; letter-spacing: -0.01em; margin-top: 4px; }
+  .pcard-tag { position: absolute; left: 14px; bottom: 12px; z-index: 2; color: #fff;
+    font-family: var(--font-mono); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; }
 
   /* lightbox */
   .lightbox { position: fixed; inset: 0; z-index: 100; display: none; align-items: center; justify-content: center;
@@ -33,13 +45,14 @@
   .lightbox .lb-close { position: absolute; top: 16px; right: 20px; background: none; border: 0; color: #fff; padding: 8px; }
   .lightbox .lb-close svg { width: 30px; height: 30px; }
 
-  /* spec list inside project cards */
-  .pcard .pspecs { list-style: none; margin: 8px 0 0; padding: 0; display: grid; gap: 3px; }
-  .pcard .pspecs li {
-    font-family: var(--font-mono); font-size: 11px; line-height: 1.45;
-    letter-spacing: .02em; color: rgba(255,255,255,.92); padding-left: 14px; position: relative;
+  /* spec list in the row header (on the light section background) */
+  .proj-row-head .pspecs { list-style: none; margin: 10px 0 0; padding: 0;
+    display: flex; flex-wrap: wrap; gap: 6px 18px; }
+  .proj-row-head .pspecs li {
+    font-family: var(--font-mono); font-size: 12px; line-height: 1.4;
+    letter-spacing: .01em; color: var(--ink); opacity: .82; padding-left: 14px; position: relative;
   }
-  .pcard .pspecs li::before { content: ""; position: absolute; left: 0; top: 7px;
+  .proj-row-head .pspecs li::before { content: ""; position: absolute; left: 0; top: 6px;
     width: 6px; height: 6px; border-radius: 50%; background: var(--lime); }
 
   /* testimonials */

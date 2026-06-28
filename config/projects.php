@@ -18,6 +18,7 @@ return [
                 '2× Growatt 10kVA hybrid inverter · 5yr warranty',
                 '4× Growatt 14.3kWh LiFePO4 battery · 10yr warranty',
             ],
+            'equipment' => 'sunlit-hostel-3.webp',
             'photos' => [
                 'sunlit-hostel-1.webp',
                 'sunlit-hostel-2.webp',
@@ -34,6 +35,7 @@ return [
                 '1× Growatt 6kVA off-grid inverter · 5yr warranty',
                 '1× Growatt smart 14.3kWh LiFePO4 battery · 10yr / 6000 cycles',
             ],
+            'equipment' => 'filmegz-seaside-4.webp',
             'photos' => [
                 'filmegz-seaside-1.webp',
                 'filmegz-seaside-2.webp',
@@ -51,6 +53,7 @@ return [
                 '1× Growatt 6kVA inverter · 5yr warranty',
                 '1× Growatt 14.3kWh LiFePO4 battery · 10yr / 6000 cycles',
             ],
+            'equipment' => 'yugo-grill-4.webp',
             'photos' => [
                 'yugo-grill-1.webp',
                 'yugo-grill-2.webp',
@@ -69,6 +72,7 @@ return [
                 '8× Growatt 14.3kWh LiFePO4 battery · 10yr / 6000 cycles',
                 '1 year free maintenance',
             ],
+            'equipment' => 'bamboo-surf-4.webp',
             'photos' => [
                 'bamboo-surf-1.webp',
                 'bamboo-surf-2.webp',
