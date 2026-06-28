@@ -41,6 +41,7 @@
         <p class="kicker">Real homes and businesses we've taken solar — each one engineered for the island's salt air, sun, and storms.</p>
       </div>
 
+      <div class="proj-masonry">
       @endverbatim
 
       @foreach ($projects as $p)

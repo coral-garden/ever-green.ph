@@ -23,6 +23,14 @@ class SolarProjectsPageTest extends TestCase
         $response->assertSee('Roxy');
     }
 
+    public function test_cards_are_wrapped_in_masonry_container(): void
+    {
+        // The .proj-masonry wrapper drives the multi-column layout; without it
+        // the cards stack full-width (one column).
+        $response = $this->get('/solar/projects');
+        $response->assertSee('<div class="proj-masonry">', false);
+    }
+
     public function test_shows_client_testimonials(): void
     {
         $response = $this->get('/solar/projects');
