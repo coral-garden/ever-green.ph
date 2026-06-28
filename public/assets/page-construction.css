@@ -1,0 +1,49 @@
+/* ============================================================
+     CONSTRUCTION PAGE — "designed → built" showcase
+     ============================================================ */
+  .ec-showcase { padding-top: 0; }
+  .ec-showcase-head { max-width: 56ch; margin: 0 0 22px; }
+  .ec-showcase-head--site { margin-top: clamp(40px, 6vw, 72px); }
+  .ec-showcase-head h2 { margin: 10px 0 0; letter-spacing: -0.01em; }
+  .ec-showcase-head .kicker { margin-top: 10px; }
+
+  .cwork-grid {
+    display: grid; gap: 16px;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  }
+  @media (max-width: 520px) { .cwork-grid { grid-template-columns: 1fr; } }
+
+  .cwork {
+    display: block; width: 100%; padding: 0; margin: 0; text-align: left; font: inherit; color: inherit;
+    position: relative; border-radius: var(--radius); overflow: hidden;
+    border: 1px solid var(--line); background: var(--panel); cursor: zoom-in;
+  }
+  .cwork img {
+    width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; display: block;
+    transition: transform .7s var(--ease);
+  }
+  .cwork:hover img { transform: scale(1.04); }
+  .cwork::after { content: ""; position: absolute; inset: 0; pointer-events: none;
+    background: linear-gradient(180deg, transparent 62%, rgba(7,25,15,.55)); }
+  .cwork-tag {
+    position: absolute; left: 12px; bottom: 11px; z-index: 2; color: #fff;
+    font-family: var(--font-mono); font-size: 11px; letter-spacing: .1em; text-transform: uppercase;
+  }
+
+  /* lightbox (self-contained for this page) */
+  .lightbox { position: fixed; inset: 0; z-index: 100; display: none; align-items: center; justify-content: center;
+    padding: 24px; background: rgba(7,25,15,.93); backdrop-filter: blur(4px); }
+  .lightbox.open { display: flex; }
+  .lightbox img { max-width: 92vw; max-height: 84vh; border-radius: 10px; box-shadow: 0 30px 90px -20px rgba(0,0,0,.85); }
+  .lightbox .lb-cap { position: absolute; bottom: 24px; left: 0; right: 0; text-align: center;
+    font-family: var(--font-mono); font-size: 12px; letter-spacing: .1em; color: rgba(255,255,255,.85); }
+  .lightbox .lb-count { margin-left: 8px; color: rgba(255,255,255,.6); }
+  .lightbox .lb-close { position: absolute; top: 16px; right: 20px; background: none; border: 0; color: #fff; padding: 8px; cursor: pointer; }
+  .lightbox .lb-close svg { width: 30px; height: 30px; }
+  .lightbox .lb-nav { position: absolute; top: 50%; transform: translateY(-50%);
+    background: rgba(255,255,255,.08); border: 0; color: #fff; padding: 10px; border-radius: 50%; cursor: pointer; }
+  .lightbox .lb-nav:hover { background: rgba(255,255,255,.18); }
+  .lightbox .lb-nav svg { width: 26px; height: 26px; display: block; }
+  .lightbox .lb-prev { left: 18px; }
+  .lightbox .lb-next { right: 18px; }
+  .lightbox.single .lb-nav { display: none; }
