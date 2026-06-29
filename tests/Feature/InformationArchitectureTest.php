@@ -29,6 +29,17 @@ class InformationArchitectureTest extends TestCase
         $this->get($path)->assertOk()->assertSee($needle);
     }
 
+    public function test_group_home_shows_brand_intro_and_division_blurbs(): void
+    {
+        $this->get('/')
+            ->assertOk()
+            ->assertSee('We power')                 // brand hero headline
+            ->assertSee('island group')             // positioning line (existing copy)
+            ->assertSee('High-performance solar')   // solar card blurb
+            ->assertSee('termite-proof builds')     // construction card blurb
+            ->assertSee('marine plywood');          // hardware card blurb
+    }
+
     public static function redirectProvider(): array
     {
         return [

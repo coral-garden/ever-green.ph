@@ -9,8 +9,15 @@
 }
 main > .section:first-child { padding-top: clamp(104px, 12vw, 150px); }
 
-/* ---- group home portal: stacked division boxes, dark writing ---- */
+/* ---- group home portal: brand intro + stacked division boxes, dark writing ---- */
 .ec-portal .shell { max-width: 880px; display: flex; flex-direction: column; gap: 18px; }
+
+.ec-portal-intro { margin-bottom: clamp(8px, 2.5vw, 22px); max-width: 60ch; }
+.ec-portal-intro .brand-row { display: flex; align-items: center; gap: 14px; margin-bottom: 16px; }
+.ec-portal-mark { width: clamp(40px, 6vw, 52px); height: clamp(40px, 6vw, 52px); flex: none; }
+.ec-portal-intro h1 { font-size: clamp(34px, 6vw, 60px); line-height: 1.02; letter-spacing: -0.02em; color: var(--panel); }
+.ec-portal-intro .kicker { margin-top: 16px; }
+
 .portal-box {
   display: flex;
   align-items: center;
@@ -18,22 +25,33 @@ main > .section:first-child { padding-top: clamp(104px, 12vw, 150px); }
   background: var(--paper-2);
   border: 1px solid var(--line);
   border-radius: var(--radius);
-  padding: clamp(20px, 3.2vw, 32px) clamp(22px, 4vw, 40px);
+  padding: clamp(20px, 3.2vw, 30px) clamp(22px, 4vw, 36px);
   text-decoration: none;
   color: var(--panel);
   transition: border-color .2s var(--ease), transform .2s var(--ease), box-shadow .2s var(--ease);
 }
 .portal-box:hover { border-color: var(--lime); transform: translateY(-2px); box-shadow: 0 18px 44px -28px rgba(0,0,0,.55); }
-.portal-logo { width: clamp(52px, 8vw, 68px); height: clamp(52px, 8vw, 68px); flex: none; }
+.portal-ico {
+  flex: none; display: grid; place-items: center;
+  width: clamp(52px, 8vw, 66px); height: clamp(52px, 8vw, 66px);
+  border-radius: 14px; background: var(--paper); border: 1px solid var(--line); color: var(--lime-deep, var(--lime));
+}
+.portal-ico svg { width: 56%; height: 56%; }
+.portal-body { display: flex; flex-direction: column; gap: 5px; min-width: 0; }
 .portal-text {
   font-family: var(--font-display);
-  font-size: clamp(22px, 3.6vw, 36px);
+  font-size: clamp(20px, 3vw, 30px);
   line-height: 1.05;
   color: var(--panel);
 }
 .portal-text b { font-weight: 800; }
-.portal-arrow { margin-left: auto; flex: none; width: 26px; height: 26px; color: var(--lime); transition: transform .2s var(--ease); }
+.portal-desc { font-size: clamp(13px, 1.6vw, 15px); line-height: 1.45; color: var(--panel); opacity: .72; }
+.portal-arrow { margin-left: auto; flex: none; width: 26px; height: 26px; color: var(--lime); transition: transform .2s var(--ease); align-self: center; }
 .portal-box:hover .portal-arrow { transform: translateX(4px); }
+@media (max-width: 540px) {
+  .portal-box { gap: 14px; padding: 18px 18px; }
+  .portal-arrow { display: none; }
+}
 
 /* ---- division hero ---- */
 .ec-hero {
