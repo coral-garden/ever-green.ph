@@ -83,6 +83,18 @@ return [
 
         // ---- photo-only extras (no specs available) ----
         [
+            'slug' => 'kolekbibo',
+            'title' => 'Kolekbibo',
+            'location' => 'Siargao Island',
+            'photos' => [
+                'kolekbibo-1.webp',
+                'kolekbibo-2.webp',
+                'kolekbibo-3.webp',
+                'kolekbibo-4.webp',
+                'kolekbibo-5.webp',
+            ],
+        ],
+        [
             'slug' => 'roxy-dapa',
             'title' => 'Roxy',
             'location' => 'Dapa, Siargao',
