@@ -72,12 +72,16 @@ return [
                 '8× Growatt 14.3kWh LiFePO4 battery · 10yr / 6000 cycles',
                 '1 year free maintenance',
             ],
-            'equipment' => 'bamboo-surf-4.webp',
+            'equipment' => 'bamboo-surf-7.webp',
             'photos' => [
                 'bamboo-surf-1.webp',
+                'bamboo-surf-5.webp',
+                'bamboo-surf-6.webp',
+                'bamboo-surf-8.webp',
                 'bamboo-surf-2.webp',
                 'bamboo-surf-3.webp',
-                'bamboo-surf-4.webp',
+                'bamboo-surf-9.webp',
+                'bamboo-surf-7.webp',
             ],
         ],
 
