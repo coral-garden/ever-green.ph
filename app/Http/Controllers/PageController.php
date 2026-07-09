@@ -38,6 +38,15 @@ class PageController extends Controller
             $data['testimonials'] = config('projects.testimonials');
         } elseif ($page === 'solar') {
             $data['testimonials'] = array_slice(config('projects.testimonials'), 0, 3);
+            // Featured tiles: the first four documented (spec'd) installs, in config order.
+            $data['featuredProjects'] = array_slice(
+                array_values(array_filter(
+                    config('projects.projects'),
+                    fn ($p) => ! empty($p['specs'])
+                )),
+                0,
+                4
+            );
         }
 
         return view($view, $data);

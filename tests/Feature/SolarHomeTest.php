@@ -16,4 +16,22 @@ class SolarHomeTest extends TestCase
         $response->assertSee('home-testimonials', false);
         $response->assertSee('/solar/projects', false);
     }
+
+    public function test_featured_tiles_are_real_projects_and_link_to_projects_page(): void
+    {
+        $response = $this->get('/solar');
+        $response->assertOk();
+
+        // the four documented installs, in config order (Dayo leads, Bamboo second)
+        $response->assertSee('Dayo Siargao');
+        $response->assertSee('Bamboo Surf Beach Resort');
+        $response->assertSee('Sunlit Hostel Siargao');
+        $response->assertSee('Filmegz Seaside Homestay');
+
+        // no leftover placeholder tiles / dead anchors
+        $response->assertDontSee('Hillside array');
+        $response->assertDontSee('Among the palms');
+        $response->assertDontSee('Seaside rooftop');
+        $response->assertDontSee('/assets/project-palms.webp', false);
+    }
 }

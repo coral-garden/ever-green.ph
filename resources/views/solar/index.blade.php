@@ -209,25 +209,21 @@
         <p class="kicker">Discover our latest installs across coastal towns, hillsides, and off-grid getaways.</p>
       </div>
 
+      @endverbatim
+
       <div class="proj-grid">
-        <a class="proj big reveal" href="/solar/projects">
-          <img src="/assets/projects/dayo-siargao-1.webp" alt="Rooftop solar array at Dayo Siargao" />
-          <div class="meta"><div class="loc">Siargao · Hybrid</div><div class="ttl">Dayo Siargao</div></div>
-        </a>
-        <a class="proj small reveal" href="#contact">
-          <img src="/assets/project-coastal-roof.webp" alt="Solar panels on a coastal town rooftop" />
-          <div class="meta"><div class="loc">Dapa, Siargao · Grid-tied</div><div class="ttl">Seaside rooftop</div></div>
-        </a>
-        <a class="proj small reveal" href="#contact">
-          <img src="/assets/project-palms.webp" alt="Rooftop solar panels among coconut palms" />
-          <div class="meta"><div class="loc">General Luna, Siargao · Hybrid</div><div class="ttl">Among the palms</div></div>
-        </a>
-        <a class="proj small reveal" href="#contact">
-          <img src="/assets/project-hillside.webp" alt="Crew installing a solar array on a green island hillside" />
-          <div class="meta"><div class="loc">Burgos, Siargao · Off-grid</div><div class="ttl">Hillside array</div></div>
-        </a>
+        @foreach ($featuredProjects as $i => $p)
+          <a class="proj {{ $i === 0 ? 'big' : 'small' }} reveal" href="/solar/projects">
+            <img src="/assets/projects/{{ $p['photos'][0] }}" alt="Rooftop solar array at {{ $p['title'] }}, {{ $p['location'] }}" />
+            <div class="meta">
+              <div class="loc">{{ $p['location'] }}</div>
+              <div class="ttl">{{ $p['title'] }}</div>
+            </div>
+          </a>
+        @endforeach
       </div>
 
+      @verbatim
       <div style="margin-top:36px;" class="reveal">
         <a class="btn btn-ghost" href="/solar/projects">More projects
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
