@@ -10,6 +10,52 @@ return [
     'projects' => [
 
         [
+            'slug' => 'dayo-siargao',
+            'title' => 'Dayo Siargao',
+            'location' => 'Siargao Island',
+            'specs' => [
+                '27× 630W bifacial panels',
+                '2× Solis 12kVA hybrid inverter',
+                '2× Calidad 16.1kWh LiFePO4 batteries',
+            ],
+            'equipment' => 'dayo-siargao-2.webp',
+            'photos' => [
+                'dayo-siargao-1.webp',
+                'dayo-siargao-2.webp',
+                'dayo-siargao-3.webp',
+                'dayo-siargao-4.webp',
+                'dayo-siargao-5.webp',
+                'dayo-siargao-6.webp',
+                'dayo-siargao-7.webp',
+                'dayo-siargao-8.webp',
+                'dayo-siargao-9.webp',
+            ],
+        ],
+
+        [
+            'slug' => 'bamboo-surf',
+            'title' => 'Bamboo Surf Beach Resort',
+            'location' => 'Pacifico, San Isidro, Siargao',
+            'specs' => [
+                '54× 715W bifacial panels · 12yr warranty',
+                '4× Growatt 10kVA inverter · 5yr warranty',
+                '8× Growatt 14.3kWh LiFePO4 battery · 10yr / 6000 cycles',
+                '1 year free maintenance',
+            ],
+            'equipment' => 'bamboo-surf-7.webp',
+            'photos' => [
+                'bamboo-surf-1.webp',
+                'bamboo-surf-5.webp',
+                'bamboo-surf-6.webp',
+                'bamboo-surf-8.webp',
+                'bamboo-surf-2.webp',
+                'bamboo-surf-3.webp',
+                'bamboo-surf-9.webp',
+                'bamboo-surf-7.webp',
+            ],
+        ],
+
+        [
             'slug' => 'sunlit-hostel',
             'title' => 'Sunlit Hostel Siargao',
             'location' => 'Santa Ines, Catangnan, General Luna',
@@ -59,29 +105,6 @@ return [
                 'yugo-grill-2.webp',
                 'yugo-grill-3.webp',
                 'yugo-grill-4.webp',
-            ],
-        ],
-
-        [
-            'slug' => 'bamboo-surf',
-            'title' => 'Bamboo Surf Beach Resort',
-            'location' => 'Pacifico, San Isidro, Siargao',
-            'specs' => [
-                '54× 715W bifacial panels · 12yr warranty',
-                '4× Growatt 10kVA inverter · 5yr warranty',
-                '8× Growatt 14.3kWh LiFePO4 battery · 10yr / 6000 cycles',
-                '1 year free maintenance',
-            ],
-            'equipment' => 'bamboo-surf-7.webp',
-            'photos' => [
-                'bamboo-surf-1.webp',
-                'bamboo-surf-5.webp',
-                'bamboo-surf-6.webp',
-                'bamboo-surf-8.webp',
-                'bamboo-surf-2.webp',
-                'bamboo-surf-3.webp',
-                'bamboo-surf-9.webp',
-                'bamboo-surf-7.webp',
             ],
         ],
 

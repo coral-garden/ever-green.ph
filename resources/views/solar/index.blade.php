@@ -210,9 +210,9 @@
       </div>
 
       <div class="proj-grid">
-        <a class="proj big reveal" href="#contact">
-          <img src="/assets/hero-aframe.webp" alt="Solar array on a thatched A-frame bungalow" />
-          <div class="meta"><div class="loc">Siargao · Off-grid</div><div class="ttl">A-frame beach house</div></div>
+        <a class="proj big reveal" href="/solar/projects">
+          <img src="/assets/projects/dayo-siargao-1.webp" alt="Rooftop solar array at Dayo Siargao" />
+          <div class="meta"><div class="loc">Siargao · Hybrid</div><div class="ttl">Dayo Siargao</div></div>
         </a>
         <a class="proj small reveal" href="#contact">
           <img src="/assets/project-coastal-roof.webp" alt="Solar panels on a coastal town rooftop" />

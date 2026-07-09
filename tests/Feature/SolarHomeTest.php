@@ -10,6 +10,8 @@ class SolarHomeTest extends TestCase
     {
         $response = $this->get('/solar');
         $response->assertOk();
+        $response->assertSee('Dayo Siargao');
+        $response->assertSee('/assets/projects/dayo-siargao-1.webp', false);
         $response->assertSee('James Gaffod');
         $response->assertSee('home-testimonials', false);
         $response->assertSee('/solar/projects', false);

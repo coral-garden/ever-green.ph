@@ -10,6 +10,8 @@ class SolarProjectsPageTest extends TestCase
     {
         $response = $this->get('/solar/projects');
         $response->assertOk();
+        $response->assertSee('Dayo Siargao');
+        $response->assertSee('27× 630W bifacial panels');
         $response->assertSee('Yugo Grill and Restaurant');
         $response->assertSee('Bamboo Surf Beach Resort');
         $response->assertSee('54× 715W bifacial panels · 12yr warranty');
@@ -32,6 +34,7 @@ class SolarProjectsPageTest extends TestCase
         $response->assertSee('Rooftop array', false);
         $response->assertSee('Inverter &amp; battery', false);
         // the equipment photo is shown inline, not just hidden in the lightbox
+        $response->assertSee('src="/assets/projects/dayo-siargao-2.webp"', false);
         $response->assertSee('src="/assets/projects/sunlit-hostel-3.webp"', false);
     }
 
@@ -47,6 +50,7 @@ class SolarProjectsPageTest extends TestCase
     public function test_cards_carry_photo_sets_for_the_lightbox(): void
     {
         $response = $this->get('/solar/projects');
+        $response->assertSee('data-photos="/assets/projects/dayo-siargao-1.webp', false);
         $response->assertSee('data-photos="/assets/projects/sunlit-hostel-1.webp', false);
     }
 }

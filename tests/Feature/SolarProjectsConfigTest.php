@@ -14,12 +14,16 @@ class SolarProjectsConfigTest extends TestCase
 
         $bySlug = collect($projects)->keyBy('slug');
 
-        // four documented installs carry specs
-        foreach (['sunlit-hostel', 'filmegz-seaside', 'yugo-grill', 'bamboo-surf'] as $slug) {
+        // five documented installs carry specs
+        foreach (['dayo-siargao', 'sunlit-hostel', 'filmegz-seaside', 'yugo-grill', 'bamboo-surf'] as $slug) {
             $this->assertArrayHasKey($slug, $bySlug, "missing project $slug");
             $this->assertNotEmpty($bySlug[$slug]['specs'], "$slug should have specs");
             $this->assertNotEmpty($bySlug[$slug]['photos'], "$slug should have photos");
         }
+
+        $this->assertSame('Dayo Siargao', $bySlug['dayo-siargao']['title']);
+        $this->assertSame('dayo-siargao-2.webp', $bySlug['dayo-siargao']['equipment']);
+        $this->assertContains('27× 630W bifacial panels', $bySlug['dayo-siargao']['specs']);
 
         // three placeholders kept as photo-only (no specs key)
         foreach (['roxy-dapa', 'casa-cahuenga', 'garcia-villa'] as $slug) {
