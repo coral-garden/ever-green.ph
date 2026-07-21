@@ -85,7 +85,7 @@ shared **`public/assets/division.css`**, which forces the fixed nav solid + clea
 - **The estimate lead form** posts to `POST /estimate/lead` (`LeadController`). It needs
   `@csrf` in the form (already present). Validation: `StoreLeadRequest`. Honeypot `_gotcha`.
   AJAX gets 422 JSON; no-JS gets a redirect + `session('lead_success')`. Unconfigured
-  forwarder → logs to `storage/logs/leads.log`. Set `LEAD_FORWARDER_URL`/`_KEY` to forward.
+  API forwarder → emails `LEAD_MAIL_TO`; API failures also fall back to email.
 - `bootstrap/app.php` returns JSON for exceptions when `api/*` **or** `$request->expectsJson()`
   — the latter is required so the AJAX form gets 422s instead of redirects.
 - Asset/nav paths are **root-absolute** (`/assets/...`, `/services`) because clean URLs

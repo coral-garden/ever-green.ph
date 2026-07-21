@@ -65,14 +65,6 @@ return [
             'replace_placeholders' => true,
         ],
 
-        // Captured estimate leads (fallback store until the external system is wired up).
-        'leads' => [
-            'driver' => 'single',
-            'path' => storage_path('logs/leads.log'),
-            'level' => 'info',
-            'replace_placeholders' => true,
-        ],
-
         'daily' => [
             'driver' => 'daily',
             'path' => storage_path('logs/laravel.log'),

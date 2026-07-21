@@ -102,6 +102,14 @@
   billUpload.addEventListener('change', () => {
     const f = billUpload.files && billUpload.files[0];
     if (!f) return;
+    if (f.size > 4 * 1024 * 1024) {
+      billUpload.value = '';
+      if (parseMsg) {
+        parseMsg.className = 'bill-parse err';
+        parseMsg.textContent = 'Please upload a bill smaller than 4 MB.';
+      }
+      return;
+    }
     $('uploadName').textContent = f.name;
     $('uploadSize').textContent = (f.size / 1048576).toFixed(2) + ' MB';
     const thumb = $('uploadThumb'), doc = $('uploadDoc');

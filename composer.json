@@ -7,6 +7,8 @@
     "license": "MIT",
     "require": {
         "php": "^8.3",
+        "bref/bref": "^3.0",
+        "bref/laravel-bridge": "^3.0",
         "laravel/framework": "^13.8",
         "laravel/tinker": "^3.0"
     },
@@ -51,6 +53,26 @@
             "@php artisan config:clear --ansi @no_additional_args",
             "@php artisan test"
         ],
+        "deploy": [
+            "Composer\\Config::disableProcessTimeout",
+            "@deploy:prepare",
+            "bref deploy"
+        ],
+        "deploy:prod": [
+            "Composer\\Config::disableProcessTimeout",
+            "@deploy:prepare:prod",
+            "bref deploy --env=prod"
+        ],
+        "deploy:prepare": [
+            "@php artisan config:clear --ansi"
+        ],
+        "deploy:prepare:prod": [
+            "composer install --prefer-dist --optimize-autoloader --no-dev --no-interaction",
+            "@deploy:prepare"
+        ],
+        "pre-autoload-dump": [
+            "Aws\\Script\\Composer\\Composer::removeUnusedServices"
+        ],
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
             "@php artisan package:discover --ansi"
@@ -71,6 +93,10 @@
         ]
     },
     "extra": {
+        "aws/aws-sdk-php": [
+            "Lambda",
+            "SesV2"
+        ],
         "laravel": {
             "dont-discover": []
         }

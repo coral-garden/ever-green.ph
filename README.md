@@ -45,10 +45,9 @@ php artisan serve                                   # http://127.0.0.1:8000
 
 ## The estimate lead form
 
-`POST /estimate/lead` validates the submission, drops honeypot spam, and hands the lead
-to a `LeadForwarder`. Until the external lead system is configured it falls back to the
-`leads` log channel (`storage/logs/leads.log`) so nothing is lost. To forward to an
-external API, set in `.env`:
+`POST /estimate/lead` validates the submission, drops honeypot spam, and emails the lead
+to `LEAD_MAIL_TO`. If the external lead API is configured, email becomes the fallback
+for failed API deliveries. To forward to the API, set in `.env`:
 
 ```
 LEAD_FORWARDER_URL=https://example.com/leads

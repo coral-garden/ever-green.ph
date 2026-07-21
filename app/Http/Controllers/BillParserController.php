@@ -12,7 +12,9 @@ class BillParserController extends Controller
     public function parse(Request $request, BillParser $parser): JsonResponse
     {
         $request->validate([
-            'file' => ['required', 'file', 'mimes:jpg,jpeg,png,webp,heic,heif,pdf', 'max:10240'],
+            // Keep the raw upload comfortably below Lambda's 6 MB synchronous
+            // payload limit; API Gateway base64-encodes binary request bodies.
+            'file' => ['required', 'file', 'mimes:jpg,jpeg,png,webp,heic,heif,pdf', 'max:4096'],
         ]);
 
         try {

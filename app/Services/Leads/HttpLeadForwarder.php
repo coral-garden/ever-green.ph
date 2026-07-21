@@ -19,6 +19,7 @@ class HttpLeadForwarder implements LeadForwarder
         private string $url,
         private ?string $key = null,
         private ?string $origin = null,
+        private ?LeadForwarder $fallback = null,
     ) {}
 
     public function forward(array $lead): void
@@ -61,6 +62,6 @@ class HttpLeadForwarder implements LeadForwarder
     private function fallback(array $lead, string $reason): void
     {
         Log::error('lead.forward_failed', ['reason' => $reason]);
-        Log::channel('leads')->info('lead.captured', $lead + ['_forward_failed' => $reason]);
+        $this->fallback?->forward($lead + ['_forward_failed' => $reason]);
     }
 }

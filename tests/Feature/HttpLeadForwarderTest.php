@@ -2,10 +2,12 @@
 
 namespace Tests\Feature;
 
+use App\Mail\LeadCaptured;
 use App\Services\Leads\HttpLeadForwarder;
 use App\Services\Leads\LeadForwarder;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Mail;
 use Mockery;
 use Tests\TestCase;
 
@@ -18,6 +20,7 @@ class HttpLeadForwarderTest extends TestCase
             'services.lead_forwarder.url' => 'https://leads.test/api/v1/leads',
             'services.lead_forwarder.key' => 'lk_secret',
             'services.lead_forwarder.origin' => 'https://allowed.test',
+            'services.lead_mail.to' => 'sales@example.com',
         ]);
     }
 
@@ -52,15 +55,12 @@ class HttpLeadForwarderTest extends TestCase
         });
     }
 
-    public function test_it_falls_back_to_the_leads_log_on_api_failure_without_throwing(): void
+    public function test_it_falls_back_to_email_on_api_failure_without_throwing(): void
     {
         Http::fake(['leads.test/*' => Http::response('nope', 500)]);
+        Mail::fake();
 
-        Log::shouldReceive('error')->once();
-        Log::shouldReceive('channel')->with('leads')->once()->andReturnSelf();
-        Log::shouldReceive('info')->once()->with('lead.captured', Mockery::on(
-            fn ($ctx) => ($ctx['_forward_failed'] ?? null) !== null
-        ));
+        Log::shouldReceive('error')->once()->with('lead.forward_failed', Mockery::type('array'));
 
         // Must not throw — the public form always succeeds for the user.
         $this->app->make(LeadForwarder::class)->forward([
@@ -68,5 +68,10 @@ class HttpLeadForwarderTest extends TestCase
             'mobile' => '1',
             'email' => 'maria@example.com',
         ]);
+
+        Mail::assertSent(LeadCaptured::class, fn (LeadCaptured $mail) =>
+            $mail->hasTo('sales@example.com')
+            && ($mail->lead['_forward_failed'] ?? null) !== null
+        );
     }
 }

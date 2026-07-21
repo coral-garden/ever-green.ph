@@ -1,0 +1,8 @@
+{
+    "$schema": "https://www.schemastore.org/package.json",
+    "private": true,
+    "devDependencies": {
+        "osls": "3.76.1",
+        "serverless-lift": "^1.37.7"
+    }
+}

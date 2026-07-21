@@ -74,4 +74,13 @@ class BillParserTest extends TestCase
             ->assertStatus(422)
             ->assertJsonValidationErrors(['file']);
     }
+
+    public function test_rejects_a_bill_larger_than_four_megabytes(): void
+    {
+        $file = UploadedFile::fake()->create('bill.pdf', 4097, 'application/pdf');
+
+        $this->postJson('/estimate/parse-bill', ['file' => $file])
+            ->assertStatus(422)
+            ->assertJsonValidationErrors(['file']);
+    }
 }
