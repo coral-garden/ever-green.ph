@@ -41,7 +41,7 @@ provider:
         MAIL_FROM_ADDRESS: simonphconsult@gmail.com
         MAIL_FROM_NAME: ${param:appName}
         LEAD_MAIL_TO: simonphconsult@gmail.com
-        BILL_PARSER_URL: https://d1fhti2zr2qnlm.cloudfront.net/api/v1/bill-parser
+        BILL_PARSER_URL: https://conduit.solar/api/v1/bill-parser
         BILL_PARSER_KEY: ${ssm:/ever-green-ph/${sls:stage}/BILL_PARSER_KEY}
         BILL_PARSER_ORIGIN: https://ever-greenph.on-forge.com
 
