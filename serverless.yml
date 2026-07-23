@@ -41,7 +41,7 @@ provider:
         MAIL_FROM_NAME: ${param:appName}
         LEAD_MAIL_TO: simonphconsult@gmail.com
         LEAD_FORWARDER_URL: https://conduit.solar/api/v1/leads
-        LEAD_FORWARDER_KEY: ${env:LEAD_FORWARDER_KEY}
+        LEAD_FORWARDER_KEY: ${ssm:/ever-green-ph/${sls:stage}/LEAD_FORWARDER_KEY}
         LEAD_FORWARDER_ORIGIN: ${construct:website.url}
         BILL_PARSER_URL: https://conduit.solar/api/v1/bill-parser
         BILL_PARSER_KEY: ${ssm:/ever-green-ph/${sls:stage}/BILL_PARSER_KEY}
