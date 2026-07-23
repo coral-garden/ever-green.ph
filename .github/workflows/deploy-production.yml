@@ -48,38 +48,10 @@ jobs:
             - name: Normalize deployment secrets
               shell: bash
               run: |
-                  clean_token="${BREF_TOKEN//
-
-            - name: Install Bref Cloud CLI
-              run: composer global require bref/cli:^1.1 --prefer-dist --no-interaction --no-progress
-
-            - name: Deploy production
-              run: composer deploy:prod
-\r'/}"
-                  clean_token="${clean_token//
-
-            - name: Install Bref Cloud CLI
-              run: composer global require bref/cli:^1.1 --prefer-dist --no-interaction --no-progress
-
-            - name: Deploy production
-              run: composer deploy:prod
-\n'/}"
-                  clean_lead_key="${LEAD_FORWARDER_KEY//
-
-            - name: Install Bref Cloud CLI
-              run: composer global require bref/cli:^1.1 --prefer-dist --no-interaction --no-progress
-
-            - name: Deploy production
-              run: composer deploy:prod
-\r'/}"
-                  clean_lead_key="${clean_lead_key//
-
-            - name: Install Bref Cloud CLI
-              run: composer global require bref/cli:^1.1 --prefer-dist --no-interaction --no-progress
-
-            - name: Deploy production
-              run: composer deploy:prod
-\n'/}"
+                  clean_token="${BREF_TOKEN//$'\r'/}"
+                  clean_token="${clean_token//$'\n'/}"
+                  clean_lead_key="${LEAD_FORWARDER_KEY//$'\r'/}"
+                  clean_lead_key="${clean_lead_key//$'\n'/}"
                   echo "::add-mask::$clean_token"
                   echo "::add-mask::$clean_lead_key"
                   printf 'BREF_TOKEN=%s\n' "$clean_token" >> "$GITHUB_ENV"
