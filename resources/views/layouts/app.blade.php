@@ -7,19 +7,20 @@
 <title>{{ $meta['title'] }}</title>
 <meta name="description" content="{{ $meta['description'] }}" />
 <meta property="og:type" content="website" />
-<meta property="og:site_name" content="Evergreen Solar" />
+<meta property="og:site_name" content="Evergreen" />
 <meta property="og:locale" content="en_PH" />
 <meta property="og:title" content="{{ $meta['og_title'] }}" />
 <meta property="og:description" content="{{ $meta['og_description'] }}" />
 <meta property="og:url" content="{{ $meta['og_url'] }}" />
-<meta property="og:image" content="https://www.ever-green.ph/assets/og-cover.png" />
+<meta property="og:image" content="{{ $meta['og_image'] ?? 'https://www.ever-green.ph/assets/og-cover.png' }}" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
-<meta property="og:image:alt" content="Evergreen Solar — solar for island living" />
+<meta property="og:image:alt" content="{{ $meta['og_image_alt'] ?? 'Evergreen — solar, construction & hardware for island living' }}" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="{{ $meta['twitter_title'] }}" />
 <meta name="twitter:description" content="{{ $meta['twitter_description'] }}" />
-<meta name="twitter:image" content="https://www.ever-green.ph/assets/og-cover.png" />
+<meta name="twitter:image" content="{{ $meta['og_image'] ?? 'https://www.ever-green.ph/assets/og-cover.png' }}" />
+<meta name="twitter:image:alt" content="{{ $meta['og_image_alt'] ?? 'Evergreen — solar, construction & hardware for island living' }}" />
 
 <link rel="canonical" href="{{ $meta['canonical'] }}" />
 <meta name="theme-color" content="#07190F" />

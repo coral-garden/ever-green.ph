@@ -8,10 +8,10 @@ return [
         'home' => [
             'title' => 'Evergreen — Solar, Construction & Hardware in Siargao',
             'description' => 'Evergreen is an island group of businesses — Evergreen Solar, Evergreen Frame Construction, and Evergreen Hardware Supply — powering and building homes across Siargao, Philippines.',
-            'canonical' => 'https://www.ever-green.ph',
+            'canonical' => 'https://www.ever-green.ph/',
             'og_title' => 'Evergreen — Siargao\'s solar, construction & hardware group',
             'og_description' => 'Solar systems, steel-frame construction, and building materials — engineered for island living across Siargao.',
-            'og_url' => 'https://www.ever-green.ph',
+            'og_url' => 'https://www.ever-green.ph/',
             'twitter_title' => 'Evergreen — solar, construction & hardware, Siargao',
             'twitter_description' => 'Solar systems, steel-frame construction, and building materials — engineered for island living across Siargao.',
         ],
