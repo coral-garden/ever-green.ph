@@ -16,7 +16,7 @@ return [
             'twitter_description' => 'Solar systems, steel-frame construction, and building materials — engineered for island living across Siargao.',
         ],
         'about' => [
-            'title' => 'About — Evergreen',
+            'title' => 'About Evergreen — Solar, Construction & Hardware in Siargao',
             'description' => 'Evergreen — a Siargao group spanning solar power, steel-frame construction, and hardware supply, shaped by over 12 years of powering and building across the island.',
             'canonical' => 'https://www.ever-green.ph/about',
             'og_title' => 'About Evergreen',
@@ -26,7 +26,7 @@ return [
             'twitter_description' => 'One island group, three businesses — solar, construction, and hardware — built on precision, reliability, and results that last.',
         ],
         'contact' => [
-            'title' => 'Contact — Evergreen',
+            'title' => 'Contact Evergreen — Siargao & Davao City',
             'description' => 'Get in touch with Evergreen — solar, construction, and hardware supply. Offices in Burgos, Siargao and Nova Tierra, Davao City.',
             'canonical' => 'https://www.ever-green.ph/contact',
             'og_title' => 'Contact Evergreen',
@@ -68,7 +68,7 @@ return [
 
         // ---------- Evergreen Solar ----------
         'solar' => [
-            'title' => 'Evergreen Solar — Powering Siargao',
+            'title' => 'Evergreen Solar — Solar Installation in Siargao',
             'description' => 'High-performance solar systems engineered for reliability, long-term savings, and dependable energy — built for island living on Siargao. Grid-tied, off-grid, and hybrid installs.',
             'canonical' => 'https://www.ever-green.ph/solar',
             'og_title' => 'Evergreen Solar — Powering Siargao',
@@ -78,7 +78,7 @@ return [
             'twitter_description' => 'Solar systems engineered for island living. Grid-tied, off-grid, and hybrid installs across the Philippine islands.',
         ],
         'solar-services' => [
-            'title' => 'Services — Evergreen Solar',
+            'title' => 'Solar Services in Siargao — Evergreen Solar',
             'description' => 'Reliable solar solutions for island living — installation, roofing, battery storage, energy audits, monitoring, consultation, activation, and warranty support across Siargao Island.',
             'canonical' => 'https://www.ever-green.ph/solar/services',
             'og_title' => 'Services — Evergreen Solar',
@@ -88,7 +88,7 @@ return [
             'twitter_description' => 'From energy audit to lifetime support — every step of going solar, engineered for the salt air, sun, and storms of island living.',
         ],
         'solar-estimate' => [
-            'title' => 'Solar Estimate — Evergreen Solar',
+            'title' => 'Solar Cost & Savings Estimate — Evergreen Solar',
             'description' => 'Estimate your solar system size, cost, and savings in 30 seconds. Enter your monthly electricity bill and get an instant, tailored estimate for grid-tied, off-grid, or hybrid solar on Siargao Island.',
             'canonical' => 'https://www.ever-green.ph/solar/estimate',
             'og_title' => 'Solar Estimate — Evergreen Solar',
@@ -98,7 +98,7 @@ return [
             'twitter_description' => 'Enter your monthly electricity bill and instantly size your solar system, cost, and savings — then get a detailed quote from Evergreen Solar.',
         ],
         'solar-projects' => [
-            'title' => 'Projects — Evergreen Solar',
+            'title' => 'Solar Projects in Siargao — Evergreen Solar',
             'description' => 'Selected Evergreen Solar installations across Siargao — homestays, villas, and hostels powered by sun.',
             'canonical' => 'https://www.ever-green.ph/solar/projects',
             'og_title' => 'Projects — Evergreen Solar',
@@ -110,7 +110,7 @@ return [
 
         // ---------- Evergreen Frame Construction ----------
         'construction' => [
-            'title' => 'Frame Construction — Evergreen',
+            'title' => 'Evergreen Frame Construction — Steel Framing in Siargao',
             'description' => 'Evergreen Frame Construction — durable light-gauge steel-frame building for homes, resorts, and commercial projects across Siargao. Engineered for the salt air, sun, and storms.',
             'canonical' => 'https://www.ever-green.ph/construction',
             'og_title' => 'Evergreen Frame Construction',
@@ -122,7 +122,7 @@ return [
 
         // ---------- Evergreen Hardware Supply ----------
         'hardware' => [
-            'title' => 'Hardware Supply — Evergreen | Building Materials Price List',
+            'title' => 'Evergreen Hardware Supply — Building Materials Price List',
             'description' => 'Evergreen Hardware Supply — building materials for island builds: cement board, marine plywood, phenolic board, rockwool, SPC flooring and more. Pickup in Burgos, Siargao.',
             'canonical' => 'https://www.ever-green.ph/hardware',
             'og_title' => 'Evergreen Hardware Supply — Building Materials',
