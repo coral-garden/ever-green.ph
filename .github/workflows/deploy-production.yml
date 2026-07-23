@@ -21,11 +21,12 @@ jobs:
         environment: production
 
         env:
+            APP_KEY: base64:AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=
             BREF_TOKEN: ${{ secrets.BREF_TOKEN }}
 
         steps:
             - name: Check out repository
-              uses: actions/checkout@v4
+              uses: actions/checkout@v5
 
             - name: Set up PHP
               uses: shivammathur/setup-php@v2
