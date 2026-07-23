@@ -44,6 +44,14 @@ jobs:
             - name: Run tests
               run: php artisan test --compact
 
+            - name: Normalize deployment token
+              shell: bash
+              run: |
+                  clean_token="${BREF_TOKEN//$'\r'/}"
+                  clean_token="${clean_token//$'\n'/}"
+                  echo "::add-mask::$clean_token"
+                  printf 'BREF_TOKEN=%s\n' "$clean_token" >> "$GITHUB_ENV"
+
             - name: Verify deployment token
               run: |
                   if [ -z "$BREF_TOKEN" ]; then
