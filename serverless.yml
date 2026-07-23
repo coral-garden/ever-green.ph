@@ -36,14 +36,15 @@ provider:
         LOG_CHANNEL: stderr
         LOG_STDERR_FORMATTER: Bref\Monolog\CloudWatchFormatter
         LOG_LEVEL: info
-        AWS_DEFAULT_REGION: ${aws:region}
         MAIL_MAILER: ses-v2
         MAIL_FROM_ADDRESS: simonphconsult@gmail.com
         MAIL_FROM_NAME: ${param:appName}
         LEAD_MAIL_TO: simonphconsult@gmail.com
+        LEAD_FORWARDER_URL: https://conduit.solar/api/v1/leads
+        LEAD_FORWARDER_ORIGIN: ${construct:website.url}
         BILL_PARSER_URL: https://conduit.solar/api/v1/bill-parser
         BILL_PARSER_KEY: ${ssm:/ever-green-ph/${sls:stage}/BILL_PARSER_KEY}
-        BILL_PARSER_ORIGIN: https://ever-greenph.on-forge.com
+        BILL_PARSER_ORIGIN: ${construct:website.url}
 
 functions:
     web:
@@ -52,6 +53,10 @@ functions:
         timeout: 28
         events:
             - httpApi: '*'
+            - schedule:
+                  rate: rate(5 minutes)
+                  input:
+                      warmer: true
 
     artisan:
         handler: artisan
@@ -98,10 +103,3 @@ package:
 plugins:
     - ./vendor/bref/bref
     - serverless-lift
-
-resources:
-    Resources:
-        LeadEmailIdentity:
-            Type: AWS::SES::EmailIdentity
-            Properties:
-                EmailIdentity: simonphconsult@gmail.com
