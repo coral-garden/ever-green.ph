@@ -26,6 +26,11 @@ class MailLeadForwarderTest extends TestCase
         $this->assertInstanceOf(MailLeadForwarder::class, $this->app->make(LeadForwarder::class));
     }
 
+    public function test_the_production_ses_v2_mailer_is_defined(): void
+    {
+        $this->assertSame('ses-v2', config('mail.mailers.ses-v2.transport'));
+    }
+
     public function test_it_emails_the_lead_and_sets_reply_to(): void
     {
         Mail::fake();

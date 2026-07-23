@@ -8,10 +8,10 @@ use Illuminate\Support\Facades\Log;
 use Throwable;
 
 /**
- * Forwards leads to the external lead API via an outbound HTTP call.
+ * Forwards leads to the external lead API and sends an email notification.
  * The key is origin-restricted (the key's allowlisted domain is sent as the
- * Origin header). On any failure it falls back to the `leads` log channel so
- * the lead is never lost and the user-facing form still succeeds.
+ * Origin header). API failures are logged and included in the email so the
+ * lead is still delivered and the user-facing form can succeed.
  */
 class HttpLeadForwarder implements LeadForwarder
 {
@@ -19,7 +19,7 @@ class HttpLeadForwarder implements LeadForwarder
         private string $url,
         private ?string $key = null,
         private ?string $origin = null,
-        private ?LeadForwarder $fallback = null,
+        private ?LeadForwarder $email = null,
     ) {}
 
     public function forward(array $lead): void
@@ -38,11 +38,17 @@ class HttpLeadForwarder implements LeadForwarder
             $response = $request->post($this->url, $this->payload($lead));
 
             if ($response->failed()) {
-                $this->fallback($lead, "HTTP {$response->status()}: {$response->body()}");
+                $this->emailAfterFailure($lead, "HTTP {$response->status()}: {$response->body()}");
+
+                return;
             }
         } catch (Throwable $e) {
-            $this->fallback($lead, $e->getMessage());
+            $this->emailAfterFailure($lead, $e->getMessage());
+
+            return;
         }
+
+        $this->email?->forward($lead);
     }
 
     /**
@@ -59,9 +65,9 @@ class HttpLeadForwarder implements LeadForwarder
         ] + Arr::except($lead, ['name', 'mobile']);
     }
 
-    private function fallback(array $lead, string $reason): void
+    private function emailAfterFailure(array $lead, string $reason): void
     {
         Log::error('lead.forward_failed', ['reason' => $reason]);
-        $this->fallback?->forward($lead + ['_forward_failed' => $reason]);
+        $this->email?->forward($lead + ['_forward_failed' => $reason]);
     }
 }

@@ -46,11 +46,11 @@ php artisan serve                                   # http://127.0.0.1:8000
 ## The estimate lead form
 
 `POST /estimate/lead` validates the submission, drops honeypot spam, and emails the lead
-to `LEAD_MAIL_TO`. If the external lead API is configured, email becomes the fallback
-for failed API deliveries. To forward to the API, set in `.env`:
+to `LEAD_MAIL_TO`. If the external lead API is configured, every lead is also forwarded
+to the API; failed API deliveries are noted in the email. Configure it in `.env`:
 
 ```
-LEAD_FORWARDER_URL=https://example.com/leads
+LEAD_FORWARDER_URL=https://conduit.solar/api/v1/leads
 LEAD_FORWARDER_KEY=...        # optional bearer token
 ```
 
@@ -67,3 +67,10 @@ php artisan config:cache route:cache view:cache
 Set `APP_ENV=production`, `APP_DEBUG=false`, `APP_URL=https://www.ever-green.ph`.
 Ensure `storage/` is writable. Final cut-over: repoint the `www.ever-green.ph` DNS to the
 new host and disable the old GitHub Pages serving.
+
+## Bref Cloud
+
+Before deploying, verify `simonphconsult@gmail.com` as an Amazon SES identity in
+`ap-southeast-1`. The identity is deliberately managed outside the CloudFormation stack:
+the Bref Cloud deployment role configured for this project cannot tag SES identities,
+while Serverless propagates stack tags to resources created by CloudFormation.

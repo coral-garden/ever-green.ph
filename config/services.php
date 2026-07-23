@@ -39,7 +39,8 @@ return [
         'to' => env('LEAD_MAIL_TO', 'simonphconsult@gmail.com'),
     ],
 
-    // External lead system. When `url` is empty, leads are emailed instead.
+    // External lead system. When `url` is set, leads go to the API and email.
+    // When it is empty, leads are emailed only.
     // The key is origin-restricted (same API host as the bill parser), so
     // `origin` must be an allowlisted domain.
     'lead_forwarder' => [

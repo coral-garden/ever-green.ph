@@ -14,8 +14,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        // Email leads until the external API is configured. Once it is live,
-        // email remains the fallback for failed API deliveries.
+        // Always email leads. When the external API is configured, deliver
+        // there too and include any API failure details in the email.
         $this->app->bind(LeadForwarder::class, function () {
             $url = config('services.lead_forwarder.url');
             $email = new MailLeadForwarder(config('services.lead_mail.to'));
