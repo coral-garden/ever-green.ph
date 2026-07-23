@@ -1,0 +1,57 @@
+name: Deploy production
+
+on:
+    push:
+        branches:
+            - main
+    workflow_dispatch:
+
+concurrency:
+    group: production
+    cancel-in-progress: false
+
+permissions:
+    contents: read
+
+jobs:
+    deploy:
+        name: Test and deploy
+        runs-on: ubuntu-latest
+        timeout-minutes: 30
+        environment: production
+
+        env:
+            BREF_TOKEN: ${{ secrets.BREF_TOKEN }}
+
+        steps:
+            - name: Check out repository
+              uses: actions/checkout@v4
+
+            - name: Set up PHP
+              uses: shivammathur/setup-php@v2
+              with:
+                  php-version: '8.5'
+                  extensions: zip
+                  coverage: none
+
+            - name: Install PHP dependencies
+              run: composer install --prefer-dist --no-interaction --no-progress
+
+            - name: Install Node dependencies
+              run: npm ci
+
+            - name: Run tests
+              run: php artisan test --compact
+
+            - name: Verify deployment token
+              run: |
+                  if [ -z "$BREF_TOKEN" ]; then
+                      echo "::error::Add BREF_TOKEN to the production environment or repository secrets."
+                      exit 1
+                  fi
+
+            - name: Install Bref Cloud CLI
+              run: composer global require bref/cli:^1.1 --prefer-dist --no-interaction --no-progress
+
+            - name: Deploy production
+              run: composer deploy:prod
