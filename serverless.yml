@@ -39,7 +39,7 @@ provider:
         MAIL_MAILER: ses-v2
         MAIL_FROM_ADDRESS: simonphconsult@gmail.com
         MAIL_FROM_NAME: ${param:appName}
-        LEAD_MAIL_TO: simonphconsult@gmail.com
+        LEAD_MAIL_TO: admin@coralgardensoftware.com
         LEAD_FORWARDER_URL: https://conduit.solar/api/v1/leads
         LEAD_FORWARDER_KEY: ${ssm:/ever-green-ph/${sls:stage}/LEAD_FORWARDER_KEY}
         LEAD_FORWARDER_ORIGIN: ${construct:website.url}
