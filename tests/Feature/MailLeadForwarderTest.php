@@ -7,6 +7,7 @@ use App\Services\Leads\LeadForwarder;
 use App\Services\Leads\MailLeadForwarder;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Str;
 use RuntimeException;
 use Tests\TestCase;
 
@@ -42,8 +43,7 @@ class MailLeadForwarderTest extends TestCase
             'division' => 'solar',
         ]);
 
-        Mail::assertSent(LeadCaptured::class, fn (LeadCaptured $mail) =>
-            $mail->hasTo('sales@example.com')
+        Mail::assertSent(LeadCaptured::class, fn (LeadCaptured $mail) => $mail->hasTo('sales@example.com')
             && $mail->hasReplyTo('juan@example.com', 'Juan Cruz')
         );
     }
@@ -66,10 +66,32 @@ class MailLeadForwarderTest extends TestCase
     public function test_it_logs_mail_failure_without_throwing(): void
     {
         Mail::shouldReceive('to')->once()->andThrow(new RuntimeException('SES unavailable'));
-        Log::shouldReceive('error')->once()->with('lead.email_failed', [
-            'reason' => 'SES unavailable',
-            'lead' => ['name' => 'Maria'],
-        ]);
+        Log::shouldReceive('info')->once()->withArgs(fn (string $message, array $context): bool => $message === 'lead.email_sending'
+                && Str::isUuid($context['delivery_id'])
+                && $context['recipient'] === 'sales@example.com'
+        );
+        Log::shouldReceive('error')->once()->withArgs(fn (string $message, array $context): bool => $message === 'lead.email_failed'
+            && Str::isUuid($context['delivery_id'])
+            && $context['recipient'] === 'sales@example.com'
+            && $context['reason'] === 'SES unavailable'
+            && $context['exception'] === RuntimeException::class
+        );
+
+        $this->app->make(LeadForwarder::class)->forward(['name' => 'Maria']);
+    }
+
+    public function test_it_logs_when_ses_accepts_the_message(): void
+    {
+        Mail::fake();
+        Log::shouldReceive('info')->once()->withArgs(fn (string $message, array $context): bool => $message === 'lead.email_sending'
+            && Str::isUuid($context['delivery_id'])
+            && $context['recipient'] === 'sales@example.com'
+        );
+        Log::shouldReceive('info')->once()->withArgs(fn (string $message, array $context): bool => $message === 'lead.email_sent'
+            && Str::isUuid($context['delivery_id'])
+            && $context['recipient'] === 'sales@example.com'
+            && $context['message_id'] === null
+        );
 
         $this->app->make(LeadForwarder::class)->forward(['name' => 'Maria']);
     }
