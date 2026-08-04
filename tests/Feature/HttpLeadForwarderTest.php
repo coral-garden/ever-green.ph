@@ -70,6 +70,7 @@ class HttpLeadForwarderTest extends TestCase
         Mail::fake();
 
         Log::shouldReceive('error')->once()->with('lead.forward_failed', Mockery::type('array'));
+        Log::shouldReceive('info')->twice()->withAnyArgs();
 
         // Must not throw — the public form always succeeds for the user.
         $this->app->make(LeadForwarder::class)->forward([
