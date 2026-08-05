@@ -18,7 +18,10 @@ class AppServiceProvider extends ServiceProvider
         // there too and include any API failure details in the email.
         $this->app->bind(LeadForwarder::class, function () {
             $url = config('services.lead_forwarder.url');
-            $email = new MailLeadForwarder(config('services.lead_mail.to'));
+            $email = new MailLeadForwarder(
+                config('services.lead_mail.to'),
+                config('services.lead_mail.bcc'),
+            );
 
             if (! empty($url)) {
                 return new HttpLeadForwarder(

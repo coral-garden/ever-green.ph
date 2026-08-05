@@ -37,6 +37,7 @@ return [
 
     'lead_mail' => [
         'to' => env('LEAD_MAIL_TO', 'simonphconsult@gmail.com'),
+        'bcc' => env('LEAD_MAIL_BCC'),
     ],
 
     // External lead system. When `url` is set, leads go to the API and email.

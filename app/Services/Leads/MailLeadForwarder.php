@@ -10,19 +10,29 @@ use Throwable;
 
 class MailLeadForwarder implements LeadForwarder
 {
-    public function __construct(private string $recipient) {}
+    public function __construct(
+        private string $recipient,
+        private ?string $bcc = null,
+    ) {}
 
     public function forward(array $lead): void
     {
         $context = [
             'delivery_id' => (string) Str::uuid(),
             'recipient' => $this->recipient,
+            'bcc' => $this->bcc,
         ];
 
         Log::info('lead.email_sending', $context);
 
         try {
-            $sentMessage = Mail::to($this->recipient)->send(new LeadCaptured($lead));
+            $mail = Mail::to($this->recipient);
+
+            if ($this->bcc !== null && $this->bcc !== '') {
+                $mail->bcc($this->bcc);
+            }
+
+            $sentMessage = $mail->send(new LeadCaptured($lead));
 
             Log::info('lead.email_sent', [
                 ...$context,

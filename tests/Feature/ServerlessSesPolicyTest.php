@@ -18,5 +18,7 @@ class ServerlessSesPolicyTest extends TestCase
             'arn:aws:ses:${AWS::Region}:${AWS::AccountId}:identity/admin@coralgardensoftware.com',
             $serverless,
         );
+        $this->assertStringContainsString('LEAD_MAIL_TO: simonphconsult@gmail.com', $serverless);
+        $this->assertStringContainsString('LEAD_MAIL_BCC: admin@coralgardensoftware.com', $serverless);
     }
 }

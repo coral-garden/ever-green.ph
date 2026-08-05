@@ -19,6 +19,7 @@ class MailLeadForwarderTest extends TestCase
         config([
             'services.lead_forwarder.url' => null,
             'services.lead_mail.to' => 'sales@example.com',
+            'services.lead_mail.bcc' => 'archive@example.com',
         ]);
     }
 
@@ -44,6 +45,7 @@ class MailLeadForwarderTest extends TestCase
         ]);
 
         Mail::assertSent(LeadCaptured::class, fn (LeadCaptured $mail) => $mail->hasTo('sales@example.com')
+            && $mail->hasBcc('archive@example.com')
             && $mail->hasReplyTo('juan@example.com', 'Juan Cruz')
         );
     }
