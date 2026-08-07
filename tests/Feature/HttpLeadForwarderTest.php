@@ -31,14 +31,17 @@ class HttpLeadForwarderTest extends TestCase
 
     public function test_it_sends_the_mapped_payload_to_the_api_and_emails_the_lead(): void
     {
-        Http::fake(['leads.test/*' => Http::response(['ok' => true], 200)]);
+        Http::fake(['leads.test/*' => Http::response(['data' => ['id' => 123]], 201)]);
         Mail::fake();
 
         $lead = [
             'name' => 'Juan Cruz',
             'mobile' => '0966 000 0000',
             'email' => 'juan@example.com',
+            'city' => 'Dapa',
             'division' => 'solar',
+            'bill_php' => '10,000',
+            'message' => 'Metal roof, ready this month.',
         ];
 
         $this->app->make(LeadForwarder::class)->forward($lead);
@@ -51,14 +54,20 @@ class HttpLeadForwarderTest extends TestCase
                 && $request['contact_name'] === 'Juan Cruz'
                 && $request['phone'] === '0966 000 0000'
                 && $request['email'] === 'juan@example.com'
-                && $request['score'] === true
-                && $request['division'] === 'solar'
+                && $request['city'] === 'Dapa'
+                && $request['country'] === 'PH'
+                && $request['source'] === 'website'
+                && $request['notes'] === 'Metal roof, ready this month.'
+                && $request['monthly_bill'] === 10000
+                && $request['metadata']['division'] === 'solar'
+                && $request['metadata']['bill_php'] === '10,000'
+                && ! array_key_exists('score', $request->data())
+                && ! array_key_exists('division', $request->data())
                 && ! array_key_exists('name', $request->data())
                 && ! array_key_exists('mobile', $request->data());
         });
 
-        Mail::assertSent(LeadCaptured::class, fn (LeadCaptured $mail) =>
-            $mail->hasTo('sales@example.com')
+        Mail::assertSent(LeadCaptured::class, fn (LeadCaptured $mail) => $mail->hasTo('sales@example.com')
             && $mail->lead === $lead
         );
         Mail::assertSentCount(1);
@@ -79,8 +88,7 @@ class HttpLeadForwarderTest extends TestCase
             'email' => 'maria@example.com',
         ]);
 
-        Mail::assertSent(LeadCaptured::class, fn (LeadCaptured $mail) =>
-            $mail->hasTo('sales@example.com')
+        Mail::assertSent(LeadCaptured::class, fn (LeadCaptured $mail) => $mail->hasTo('sales@example.com')
             && ($mail->lead['_forward_failed'] ?? null) !== null
         );
         Mail::assertSentCount(1);

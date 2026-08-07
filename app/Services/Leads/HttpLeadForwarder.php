@@ -48,21 +48,37 @@ class HttpLeadForwarder implements LeadForwarder
             return;
         }
 
+        Log::info('lead.forward_succeeded', [
+            'status' => $response->status(),
+            'inquiry_id' => $response->json('data.id'),
+        ]);
+
         $this->email?->forward($lead);
     }
 
     /**
-     * Map the internal lead shape to the API contract
-     * ({contact_name, email, phone, score}). Remaining captured fields
-     * (city, message, division, estimate snapshot, …) ride along as extras.
+     * Map the website form to Conduit's shared homeowner inquiry contract.
      */
     private function payload(array $lead): array
     {
         return [
             'contact_name' => $lead['name'] ?? null,
-            'phone'        => $lead['mobile'] ?? null,
-            'score'        => true, // request lead scoring on the API side
-        ] + Arr::except($lead, ['name', 'mobile']);
+            'phone' => $lead['mobile'] ?? null,
+            'email' => $lead['email'] ?? null,
+            'city' => $lead['city'] ?? null,
+            'country' => 'PH',
+            'source' => 'website',
+            'notes' => $lead['message'] ?? null,
+            'monthly_bill' => $this->monthlyBill($lead['bill_php'] ?? null),
+            'metadata' => Arr::except($lead, ['name', 'mobile', 'email', 'city', 'message']),
+        ];
+    }
+
+    private function monthlyBill(mixed $value): ?int
+    {
+        $normalized = str_replace(',', '', trim((string) $value));
+
+        return is_numeric($normalized) ? (int) round((float) $normalized) : null;
     }
 
     private function emailAfterFailure(array $lead, string $reason): void
