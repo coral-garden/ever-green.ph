@@ -11,8 +11,9 @@ class LeadController extends Controller
 {
     public function store(StoreLeadRequest $request, LeadForwarder $forwarder): JsonResponse|RedirectResponse
     {
-        // Honeypot: bots fill the hidden _gotcha field. Pretend success, drop silently.
-        if ($request->filled('_gotcha')) {
+        // Keep the trap for simple non-JavaScript bots. Legitimate AJAX submissions
+        // may have this off-screen field populated by a browser password manager.
+        if ($request->filled('_gotcha') && ! $request->expectsJson()) {
             return $this->success($request);
         }
 

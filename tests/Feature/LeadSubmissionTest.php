@@ -37,15 +37,27 @@ class LeadSubmissionTest extends TestCase
             ->assertJsonValidationErrors(['name', 'email']);
     }
 
-    public function test_honeypot_silently_succeeds_without_forwarding(): void
+    public function test_non_ajax_honeypot_silently_succeeds_without_forwarding(): void
     {
         $this->fakeForwarder()->shouldNotReceive('forward');
 
-        $this->postJson('/estimate/lead', [
+        $this->post('/estimate/lead', [
             'name' => 'Bot',
             'mobile' => '1',
             'email' => 'bot@example.com',
             '_gotcha' => 'spam',
+        ])->assertRedirect('/solar/estimate')->assertSessionHas('lead_success', true);
+    }
+
+    public function test_ajax_submission_is_forwarded_when_a_password_manager_fills_the_honeypot(): void
+    {
+        $this->fakeForwarder()->shouldReceive('forward')->once();
+
+        $this->postJson('/estimate/lead', [
+            'name' => 'Juan Cruz',
+            'mobile' => '0966 000 0000',
+            'email' => 'juan@example.com',
+            '_gotcha' => 'browser-autofill',
         ])->assertOk()->assertJson(['ok' => true]);
     }
 
