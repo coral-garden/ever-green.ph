@@ -3,11 +3,28 @@
 // Developer-edited project + testimonial content for Evergreen Solar.
 // A project with a 'specs' key renders as a spec card; without it, a photo-only card.
 // photos[0] is the hero; the rest are stepped through in the lightbox.
-// Filenames are relative to public/assets/projects/.
+// Optional videos are shown after the photos. Filenames are relative to
+// public/assets/projects/.
 
 return [
 
     'projects' => [
+
+        [
+            'slug' => 'martin-and-rain',
+            'title' => 'Martin and Rain',
+            'location' => 'Siargao Island',
+            'specs' => [
+                'Off-grid setup for 4 houses',
+            ],
+            'equipment' => 'martin-and-rain-3.webp',
+            'photos' => [
+                'martin-and-rain-1.webp',
+                'martin-and-rain-2.webp',
+                'martin-and-rain-3.webp',
+                'martin-and-rain-4.webp',
+            ],
+        ],
 
         [
             'slug' => 'dayo-siargao',
@@ -109,6 +126,21 @@ return [
         ],
 
         // ---- photo-only extras (no specs available) ----
+        [
+            'slug' => 'suba-resort',
+            'title' => 'Suba Resort',
+            'location' => 'Siargao Island',
+            'photos' => [
+                'suba-resort-1.webp',
+                'suba-resort-2.webp',
+                'suba-resort-3.webp',
+                'suba-resort-4.webp',
+                'suba-resort-5.webp',
+                'suba-resort-6.webp',
+                'suba-resort-7.webp',
+            ],
+            'videos' => ['suba-resort-drone.mp4'],
+        ],
         [
             'slug' => 'kolekbibo',
             'title' => 'Kolekbibo',

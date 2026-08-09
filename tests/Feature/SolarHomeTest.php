@@ -22,11 +22,11 @@ class SolarHomeTest extends TestCase
         $response = $this->get('/solar');
         $response->assertOk();
 
-        // the four documented installs, in config order (Dayo leads, Bamboo second)
+        // The four latest documented installs, in config order.
+        $response->assertSee('Martin and Rain');
         $response->assertSee('Dayo Siargao');
         $response->assertSee('Bamboo Surf Beach Resort');
         $response->assertSee('Sunlit Hostel Siargao');
-        $response->assertSee('Filmegz Seaside Homestay');
 
         // no leftover placeholder tiles / dead anchors
         $response->assertDontSee('Hillside array');

@@ -1,27 +1,53 @@
-  // ---- lightbox with per-card photo stepping ----
+  // ---- lightbox with per-card photo and video stepping ----
   const lb = document.getElementById('lightbox');
   const lbImg = document.getElementById('lbImg');
+  const lbVideo = document.getElementById('lbVideo');
   const lbCap = document.getElementById('lbCap');
   const lbPrev = document.getElementById('lbPrev');
   const lbNext = document.getElementById('lbNext');
 
-  let photos = [];
+  let media = [];
   let idx = 0;
   let cap = '';
 
+  const isVideo = (src) => /\.(mp4|webm|ogg)(?:[?#].*)?$/i.test(src);
+
+  const resetVideo = () => {
+    lbVideo.pause();
+    lbVideo.removeAttribute('src');
+    lbVideo.load();
+    lbVideo.hidden = true;
+  };
+
   const render = () => {
-    lbImg.src = photos[idx];
-    lbImg.alt = cap;
-    lbCap.innerHTML = cap + (photos.length > 1 ? ' <span class="lb-count">' + (idx + 1) + ' / ' + photos.length + '</span>' : '');
+    const src = media[idx];
+
+    if (isVideo(src)) {
+      lbImg.hidden = true;
+      lbImg.removeAttribute('src');
+      resetVideo();
+      lbVideo.src = src;
+      lbVideo.hidden = false;
+      lbVideo.load();
+    } else {
+      resetVideo();
+      lbImg.src = src;
+      lbImg.alt = cap;
+      lbImg.hidden = false;
+    }
+
+    lbCap.innerHTML = cap + (media.length > 1 ? ' <span class="lb-count">' + (idx + 1) + ' / ' + media.length + '</span>' : '');
   };
 
   const openLb = (card) => {
-    const list = (card.dataset.photos || '').split(',').filter(Boolean);
+    const photos = (card.dataset.photos || '').split(',').filter(Boolean);
+    const videos = (card.dataset.videos || '').split(',').filter(Boolean);
     const heroSrc = card.querySelector('img').src;
-    photos = list.length ? list : [heroSrc];
+    media = photos.concat(videos);
+    if (!media.length) media = [heroSrc];
     idx = 0;
     cap = '<b>' + card.dataset.title + '</b> — ' + card.dataset.loc;
-    lb.classList.toggle('single', photos.length < 2);
+    lb.classList.toggle('single', media.length < 2);
     render();
     lb.classList.add('open');
     lb.setAttribute('aria-hidden', 'false');
@@ -29,14 +55,15 @@
   };
 
   const closeLb = () => {
+    resetVideo();
     lb.classList.remove('open');
     lb.setAttribute('aria-hidden', 'true');
     document.body.style.overflow = '';
   };
 
   const step = (delta) => {
-    if (photos.length < 2) return;
-    idx = (idx + delta + photos.length) % photos.length;
+    if (media.length < 2) return;
+    idx = (idx + delta + media.length) % media.length;
     render();
   };
 

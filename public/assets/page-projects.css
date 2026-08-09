@@ -30,6 +30,8 @@
   .pcard .pmeta { position: absolute; left: 18px; right: 18px; bottom: 15px; z-index: 2; color: #fff; }
   .pcard .ploc { font-family: var(--font-mono); font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--lime); }
   .pcard .ptitle { font-family: var(--font-display); font-weight: 700; font-size: 19px; letter-spacing: -0.01em; margin-top: 4px; }
+  .pcard .pmedia { margin-top: 5px; font-family: var(--font-mono); font-size: 10px; letter-spacing: .1em;
+    text-transform: uppercase; color: rgba(255,255,255,.78); }
   .pcard-tag { position: absolute; left: 14px; bottom: 12px; z-index: 2; color: #fff;
     font-family: var(--font-mono); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; }
 
@@ -37,7 +39,10 @@
   .lightbox { position: fixed; inset: 0; z-index: 100; display: none; align-items: center; justify-content: center;
     padding: 24px; background: rgba(7,25,15,.93); backdrop-filter: blur(4px); }
   .lightbox.open { display: flex; }
-  .lightbox img { max-width: 92vw; max-height: 84vh; border-radius: 10px; box-shadow: 0 30px 90px -20px rgba(0,0,0,.85); }
+  .lightbox img, .lightbox video { max-width: 92vw; max-height: 84vh; border-radius: 10px;
+    box-shadow: 0 30px 90px -20px rgba(0,0,0,.85); }
+  .lightbox video { width: min(92vw, 960px); background: #000; }
+  .lightbox [hidden] { display: none; }
   .lightbox .lb-cap { position: absolute; bottom: 24px; left: 0; right: 0; text-align: center;
     font-family: var(--font-mono); font-size: 12px; letter-spacing: .1em; color: rgba(255,255,255,.85); }
   .lightbox .lb-cap b { color: var(--lime); font-weight: 600; }

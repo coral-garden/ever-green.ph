@@ -56,6 +56,7 @@
             $eq = '/assets/projects/'.$p['equipment'];
             $roofList = $all->implode(',');
             $eqList = collect([$eq])->merge($all->reject(fn ($u) => $u === $eq))->implode(',');
+            $videoList = collect($p['videos'] ?? [])->map(fn ($f) => '/assets/projects/'.$f)->implode(',');
           @endphp
           <article class="proj-row reveal">
             <div class="proj-row-head">
@@ -68,11 +69,11 @@
               </ul>
             </div>
             <div class="proj-pair">
-              <button class="pcard reveal" data-title="{{ $p['title'] }}" data-loc="{{ $p['location'] }}" data-photos="{{ $roofList }}">
+              <button class="pcard reveal" data-title="{{ $p['title'] }}" data-loc="{{ $p['location'] }}" data-photos="{{ $roofList }}" data-videos="{{ $videoList }}">
                 <img src="{{ $roof }}" alt="Rooftop solar array at {{ $p['title'] }}, {{ $p['location'] }}" loading="lazy" />
                 <span class="pcard-tag">Rooftop array</span>
               </button>
-              <button class="pcard reveal" data-title="{{ $p['title'] }}" data-loc="{{ $p['location'] }}" data-photos="{{ $eqList }}">
+              <button class="pcard reveal" data-title="{{ $p['title'] }}" data-loc="{{ $p['location'] }}" data-photos="{{ $eqList }}" data-videos="{{ $videoList }}">
                 <img src="{{ $eq }}" alt="Inverter and battery system at {{ $p['title'] }}, {{ $p['location'] }}" loading="lazy" />
                 <span class="pcard-tag">Inverter &amp; battery</span>
               </button>
@@ -87,12 +88,18 @@
         </div>
         <div class="proj-extras">
           @foreach ($extras as $p)
-            @php $photoUrls = collect($p['photos'])->map(fn ($f) => '/assets/projects/'.$f)->implode(','); @endphp
-            <button class="pcard reveal" data-title="{{ $p['title'] }}" data-loc="{{ $p['location'] }}" data-photos="{{ $photoUrls }}">
+            @php
+              $photoUrls = collect($p['photos'])->map(fn ($f) => '/assets/projects/'.$f)->implode(',');
+              $videoUrls = collect($p['videos'] ?? [])->map(fn ($f) => '/assets/projects/'.$f)->implode(',');
+            @endphp
+            <button class="pcard reveal" data-title="{{ $p['title'] }}" data-loc="{{ $p['location'] }}" data-photos="{{ $photoUrls }}" data-videos="{{ $videoUrls }}">
               <img src="/assets/projects/{{ $p['photos'][0] }}" alt="Solar installation at {{ $p['title'] }}, {{ $p['location'] }}" loading="lazy" />
               <div class="pmeta">
                 <div class="ploc">{{ $p['location'] }}</div>
                 <div class="ptitle">{{ $p['title'] }}</div>
+                @if ($videoUrls !== '')
+                  <div class="pmedia">Photos + video</div>
+                @endif
               </div>
             </button>
           @endforeach
@@ -175,6 +182,7 @@
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg>
     </button>
     <img id="lbImg" src="" alt="" />
+    <video id="lbVideo" controls playsinline preload="metadata" hidden aria-label="Project video"></video>
     <div class="lb-cap" id="lbCap"></div>
   </div>
 
