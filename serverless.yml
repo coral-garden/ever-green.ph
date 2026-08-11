@@ -70,6 +70,11 @@ functions:
 constructs:
     website:
         type: server-side-website
+        domain:
+            - www.ever-green.ph
+            - ever-green.ph
+        redirectToMainDomain: true
+        certificate: arn:aws:acm:us-east-1:223655089515:certificate/96f84728-3cfa-4882-815d-eac69fd83a4d
         versionedAssets: true
         assets:
             '/assets/*': public/assets
