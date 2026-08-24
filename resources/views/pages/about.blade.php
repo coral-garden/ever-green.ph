@@ -81,6 +81,56 @@
     </div>
   </section>
 
+  <!-- ===================== FRIENDS ===================== -->
+  <section class="section friends-band" aria-labelledby="friends-title">
+    <div class="seam" aria-hidden="true">
+      <svg class="seam-fill" viewBox="0 0 1440 90" preserveAspectRatio="none">
+        <path d="M0 90 L0 52 C360 4 1080 4 1440 52 L1440 90 Z" fill="var(--paper)"/>
+        <path d="M0 52 C360 4 1080 4 1440 52" fill="none" stroke="var(--lime)" stroke-width="2" stroke-dasharray="6 8" opacity=".55" vector-effect="non-scaling-stroke"/>
+      </svg>
+      <svg class="seam-badge" viewBox="0 0 64 64" aria-hidden="true">
+        <circle cx="32" cy="32" r="29" fill="var(--lime)"/>
+        <g fill="var(--panel)">
+          <circle cx="20" cy="34" r="5"/>
+          <circle cx="32" cy="20" r="5"/>
+          <circle cx="44" cy="34" r="5"/>
+        </g>
+        <path d="M23 30l6-7M35 23l6 7M25 35h14" fill="none" stroke="var(--panel)" stroke-width="3.4" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <div class="shell">
+      <div class="friends-intro reveal">
+        <div>
+          <div class="tag tag-dot">Friends &amp; local businesses</div>
+          <h2 id="friends-title">Island life runs on community</h2>
+        </div>
+        <p>A growing directory of neighbors, independent businesses, and people doing good work around us.</p>
+      </div>
+
+      <div class="friends-list">
+        <article class="friend-card reveal">
+          <div class="friend-card-copy">
+            <div class="friend-card-meta">
+              <span>01</span>
+              <span>Featured friend</span>
+            </div>
+            <div>
+              <h3>MAD LAW Siargao</h3>
+              <p>Scan the code or follow the link to connect with MAD LAW Siargao and learn more about their work.</p>
+            </div>
+            <a class="friend-link" href="https://linktr.ee/madlawph" target="_blank" rel="noopener">
+              Visit MAD LAW Siargao
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+          </div>
+          <a class="friend-qr" href="https://linktr.ee/madlawph" target="_blank" rel="noopener" aria-label="Visit MAD LAW Siargao online">
+            <img src="/assets/friends/mad-law-siargao-qr.jpg" width="820" height="820" loading="lazy" decoding="async" alt="QR code for MAD LAW Siargao" />
+          </a>
+        </article>
+      </div>
+    </div>
+  </section>
+
   <!-- ===================== CTA ===================== -->
   <section class="section cta-band">
     <div class="seam" aria-hidden="true">

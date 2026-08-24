@@ -40,6 +40,18 @@ class InformationArchitectureTest extends TestCase
             ->assertSee('marine plywood');          // hardware card blurb
     }
 
+    public function test_about_page_introduces_the_local_friends_directory(): void
+    {
+        $this->get('/about')
+            ->assertOk()
+            ->assertSee('Friends &amp; local businesses', false)
+            ->assertSee('MAD LAW Siargao')
+            ->assertSee('https://linktr.ee/madlawph', false)
+            ->assertSee('/assets/friends/mad-law-siargao-qr.jpg', false);
+
+        $this->assertFileExists(public_path('assets/friends/mad-law-siargao-qr.jpg'));
+    }
+
     public static function redirectProvider(): array
     {
         return [
