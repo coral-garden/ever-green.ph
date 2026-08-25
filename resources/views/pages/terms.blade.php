@@ -28,10 +28,10 @@
     </div>
     <div class="shell">
       <div class="prose reveal">
-        <p class="meta">Evergreen Solar Solutions · Philippines</p>
+        <p class="meta">Evergreen Solar · Siargao, Philippines</p>
 
         <h2>1. General Information</h2>
-        <p>Evergreen Solar Solutions provides information on solar power systems including grid-tie, off-grid, and hybrid solutions using Growatt inverters, Calidad lithium batteries, and TW Solar bifacial modules. All content is informational and subject to change without notice.</p>
+        <p>Evergreen Solar provides information on solar power systems including grid-tie, off-grid, and hybrid solutions using Growatt inverters, Calidad lithium batteries, and TW Solar bifacial modules. All content is informational and subject to change without notice.</p>
 
         <h2>2. Quotations &amp; Product Availability</h2>
         <ul>
@@ -69,7 +69,7 @@
         </ul>
 
         <h2>7. Intellectual Property</h2>
-        <p>Designs and engineering configurations remain the property of Evergreen Solar Solutions.</p>
+        <p>Designs and engineering configurations remain the property of Evergreen Solar.</p>
 
         <h2>8. Governing Law</h2>
         <p>These terms are governed by Philippine law; disputes are handled in the courts of Surigao del Norte.</p>

@@ -11,7 +11,7 @@
     <img class="hero-watermark" src="/assets/logo.png" alt="" aria-hidden="true" />
     <div class="shell">
       <div class="tag tag-dot">Solar estimator</div>
-      <h1>Size your solar in 30 seconds</h1>
+      <h1>Solar cost &amp; savings estimate for Siargao</h1>
       <p class="est-sub">Tell us your average monthly electricity bill and we'll estimate the system size, roof space, indicative cost, and savings — tuned for Siargao sun. Then send it over for a precise, no-obligation quote.</p>
     </div>
   </section>
@@ -211,6 +211,136 @@
           <p>Your estimate is on its way to the Evergreen team. We'll be in touch shortly to schedule a site assessment and send your detailed quote. For anything urgent, call <a href="tel:+639663051461" style="color:var(--foliage);font-weight:600;">0966 305 1461</a>.</p>
         </div>
       </div>
+
+      <!-- ---------- CRAWLABLE METHODOLOGY & DECISION SUPPORT ---------- -->
+      <section class="estimate-guide" id="methodology" aria-labelledby="methodology-title">
+        <div class="estimate-guide-head reveal">
+          <div>
+            <div class="tag tag-dot">Transparent assumptions</div>
+            <h2 id="methodology-title">How the Siargao solar estimate works</h2>
+          </div>
+          <p class="estimate-updated">Methodology displayed as of <time datetime="2026-08-25">25 August 2026</time>.</p>
+        </div>
+
+        <div class="method-grid">
+          <article class="method-card reveal">
+            <h3>System sizing method</h3>
+            <ol>
+              <li>Your monthly bill is divided by the electricity rate to estimate monthly energy use in kWh.</li>
+              <li>That usage is multiplied by your chosen bill-offset target, then converted to a daily target.</li>
+              <li>The daily target is divided by peak sun hours and an 80% system-efficiency allowance to estimate array size in kWp.</li>
+              <li>Panel count uses the selected panel wattage. Roof area allows 2.6 m² per panel.</li>
+            </ol>
+            <p>The default inputs are ₱13.47/kWh, 5.0 peak sun hours, 550W panels, and an 80% bill-offset target. You can edit the rate, sun hours, panel wattage, and offset in the calculator.</p>
+          </article>
+
+          <article class="method-card reveal">
+            <h3>Indicative cost method</h3>
+            <p>The calculated array size is multiplied by the generalized Philippine planning band currently used by the calculator for the selected system type:</p>
+            <dl class="cost-bands">
+              <div><dt>Grid-tied</dt><dd>₱45,000–₱62,000 per kWp</dd></div>
+              <div><dt>Hybrid</dt><dd>₱60,000–₱90,000 per kWp</dd></div>
+              <div><dt>Off-grid</dt><dd>₱75,000–₱115,000 per kWp</dd></div>
+            </dl>
+            <p>These are broad market assumptions, not current Evergreen package prices or a formal quote. Battery capacity, equipment selection, the roof, cable runs, logistics, and site conditions can materially change the formal quote.</p>
+          </article>
+        </div>
+
+        <div class="scenario-block reveal">
+          <div class="scenario-head">
+            <h3>Typical grid-tied scenarios</h3>
+            <p>Examples use the default assumptions above and an 80% bill-offset target.</p>
+          </div>
+          <div class="scenario-table-wrap">
+            <table class="scenario-table">
+              <thead>
+                <tr>
+                  <th scope="col">Monthly bill</th>
+                  <th scope="col">Estimated array</th>
+                  <th scope="col">Panels / roof</th>
+                  <th scope="col">Indicative range</th>
+                  <th scope="col">Target monthly savings</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>₱5,000</td><td>2.5 kWp</td><td>5 / 13 m²</td><td>₱111k–₱153k</td><td>₱4,000</td></tr>
+                <tr><td>₱10,000</td><td>4.9 kWp</td><td>9 / 23 m²</td><td>₱223k–₱307k</td><td>₱8,000</td></tr>
+                <tr><td>₱25,000</td><td>12.4 kWp</td><td>23 / 60 m²</td><td>₱557k–₱767k</td><td>₱20,000</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="estimate-scope-grid">
+          <article class="scope-card reveal">
+            <h3>What the online estimate considers</h3>
+            <ul>
+              <li>Your monthly bill and editable electricity rate</li>
+              <li>Your target bill offset and selected system type</li>
+              <li>Peak sun hours, system efficiency, and panel wattage</li>
+              <li>Indicative array size, panel count, roof area, cost range, and self-consumption savings</li>
+            </ul>
+          </article>
+          <article class="scope-card reveal">
+            <h3>What your formal quote must confirm</h3>
+            <ul>
+              <li>Actual interval or monthly load profile and essential backup loads</li>
+              <li>Roof condition, usable area, shading, mounting, and structural work</li>
+              <li>Panel, inverter, battery, protection, monitoring, and warranty selections</li>
+              <li>Cabling, trenching, delivery, access, permitting, utility, and net-metering requirements</li>
+              <li>Exactly what is included, excluded, taxed, and warranted in the final price</li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="estimate-projects reveal">
+          <div class="scenario-head">
+            <h3>Compare with completed Siargao installations</h3>
+            <p>See the equipment and locations behind real Evergreen Solar projects.</p>
+          </div>
+          <div class="estimate-project-grid">
+            <a href="/solar/projects/bamboo-surf">
+              <strong>Bamboo Surf Beach Resort</strong>
+              <span>Pacifico, San Isidro · hybrid solar with battery storage</span>
+            </a>
+            <a href="/solar/projects/sunlit-hostel">
+              <strong>Sunlit Hostel Siargao</strong>
+              <span>Catangnan, General Luna · hybrid solar with battery storage</span>
+            </a>
+            <a href="/solar/projects/filmegz-seaside">
+              <strong>Filmegz Seaside Homestay</strong>
+              <span>Santa Monica · off-grid solar with battery storage</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="estimate-faq reveal">
+          <div class="tag tag-dot">Solar estimate FAQ</div>
+          <h3>Frequently asked questions</h3>
+          <div class="faq-list">
+            <details>
+              <summary>How accurate is the online solar estimate?</summary>
+              <p>It is a preliminary planning estimate based on the inputs and assumptions shown above. A formal design and quote requires your bill history, load profile, roof or site assessment, and equipment selection.</p>
+            </details>
+            <details>
+              <summary>Why does the calculator start with my electricity bill?</summary>
+              <p>It estimates energy use by dividing your monthly bill by the selected ₱/kWh rate. If your bill shows a different rate, update the advanced assumption or upload the bill so the calculator can use the detected figure.</p>
+            </details>
+            <details>
+              <summary>Does the hybrid or off-grid estimate include a battery?</summary>
+              <p>The system-type selection changes the indicative cost band, but it does not size a specific battery. Evergreen must confirm your essential loads, desired backup time, and operating pattern before specifying battery capacity and price.</p>
+            </details>
+            <details>
+              <summary>Does the savings figure include net-metering credits?</summary>
+              <p>No. The calculator treats the target production as self-consumed energy. Exported surplus is credited differently, so a formal proposal must model expected daytime use and any applicable utility arrangement.</p>
+            </details>
+            <details>
+              <summary>What happens after I request a quote?</summary>
+              <p>The Evergreen Solar team reviews your bill, roof, loads, location, and backup goals, then confirms a system design, equipment list, project scope, and formal price.</p>
+            </details>
+          </div>
+        </div>
+      </section>
     </div>
   </section>
   </main>

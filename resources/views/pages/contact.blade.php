@@ -11,7 +11,7 @@
       <div class="section-head reveal">
         <div class="lead">
           <div class="tag tag-dot">Contact</div>
-          <h1>Talk to the Evergreen team</h1>
+          <h1>Contact Evergreen in Siargao</h1>
         </div>
         <p class="kicker">Solar, construction, or building materials — reach us directly. We're on-island and happy to help scope your project.</p>
       </div>
@@ -29,11 +29,10 @@
           </a>
         </article>
         <article class="panel-card reveal">
-          <h2>Visit us</h2>
-          <p>
-            <a href="https://maps.app.goo.gl/td1LZpCJpKA7Vks69" target="_blank" rel="noopener">Burgos, Siargao</a><br>
-            Nova Tierra, Davao City
-          </p>
+          <h2>Serving Siargao Island</h2>
+          <p>Office: General Luna, Surigao del Norte.<br>
+            This office is not open to the public.<br>
+            Warehouse pickup in Burgos by arrangement.</p>
         </article>
         <article class="panel-card reveal">
           <h2>Get a solar estimate</h2>

@@ -28,7 +28,7 @@
     </div>
     <div class="shell">
       <div class="prose reveal">
-        <p class="meta">Evergreen Solar Solutions · Philippines</p>
+        <p class="meta">Evergreen Solar · Siargao, Philippines</p>
 
         <h2>Our commitment</h2>
         <p>Evergreen Solar is committed to making our website accessible to as many people as possible, regardless of ability or technology. We aim to meet the spirit of the Web Content Accessibility Guidelines (WCAG) 2.1 at Level AA.</p>

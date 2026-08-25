@@ -11,9 +11,9 @@
       <div class="section-head reveal">
         <div class="lead">
           <div class="tag tag-dot">Evergreen Hardware Supply</div>
-          <h1>Building materials, island-ready</h1>
+          <h1>Building materials &amp; hardware supply in Siargao</h1>
         </div>
-        <p class="kicker">Quality materials for island builds — cement board, marine plywood, phenolic board, rockwool, SPC flooring and more. In stock for pickup in {{ $pickup }}. Contact us for project quotes and bulk pricing.</p>
+        <p class="kicker">Quality materials for island builds — cement board, marine plywood, phenolic board, rockwool, SPC flooring and more. Warehouse pickup in {{ $pickup }} is available by arrangement. Contact us for project quotes and bulk pricing.</p>
       </div>
 
       <div class="ec-pricelist reveal">
@@ -35,7 +35,7 @@
             @endforeach
           </tbody>
         </table>
-        <p class="ec-note">* Prices are subject to change without prior notice. Pickup location: {{ $pickup }}.</p>
+        <p class="ec-note">* Prices are subject to change without prior notice. Warehouse pickup: {{ $pickup }}, by arrangement.</p>
       </div>
 
       <div class="ec-cta reveal">

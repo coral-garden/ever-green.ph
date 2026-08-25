@@ -45,7 +45,7 @@
     const heroSrc = card.querySelector('img').src;
     media = photos.concat(videos);
     if (!media.length) media = [heroSrc];
-    idx = 0;
+    idx = Math.min(Number.parseInt(card.dataset.start || '0', 10), media.length - 1);
     cap = '<b>' + card.dataset.title + '</b> — ' + card.dataset.loc;
     lb.classList.toggle('single', media.length < 2);
     render();

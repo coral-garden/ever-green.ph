@@ -18,9 +18,10 @@
           <a href="/contact">Contact</a>
         </div>
         <div class="foot-col">
-          <h3>Offices</h3>
-          <a href="https://maps.app.goo.gl/td1LZpCJpKA7Vks69" target="_blank" rel="noopener">Burgos, Siargao</a>
-          <p>Nova Tierra, Davao City</p>
+          <h3>Service area</h3>
+          <p>Serving Siargao Island</p>
+          <p>Office: General Luna, Surigao del Norte<br>Not open to the public</p>
+          <p>Warehouse pickup in Burgos by arrangement</p>
           <a href="tel:+639663051461">0966 305 1461</a>
           <a href="tel:+639771275822">0977 127 5822</a>
           <a href="mailto:simonphconsult@gmail.com">simonphconsult@gmail.com</a>

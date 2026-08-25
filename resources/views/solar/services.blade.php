@@ -12,7 +12,7 @@
     <img class="hero-watermark" src="/assets/logo.png" alt="" aria-hidden="true" />
     <div class="shell">
       <div class="tag tag-dot">Our services</div>
-      <h1>Reliable solar for island living</h1>
+      <h1>Solar services in Siargao</h1>
       <p class="hero-sub">From the first energy audit to lifetime support, we handle every step of going solar — engineered for the salt air, sun, and storms of the islands.</p>
     </div>
   </section>

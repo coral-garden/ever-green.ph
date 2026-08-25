@@ -13,7 +13,7 @@ class ConstructionTest extends TestCase
         $this->get('/construction')
             ->assertOk()
             ->assertSee('Frame Construction')
-            ->assertSee('Build for island living')
+            ->assertSee('Steel-frame construction in Siargao')
             ->assertSee('/hardware', escape: false);
     }
 

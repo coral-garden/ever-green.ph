@@ -10,14 +10,14 @@ class PageController extends Controller
     /** Map of route slug => [Blade view, division context]. */
     private const PAGES = [
         // Group-level
-        'home'           => ['pages.home', 'group'],
-        'about'          => ['pages.about', 'group'],
-        'contact'        => ['pages.contact', 'group'],
-        'terms'          => ['pages.terms', 'group'],
-        'privacy'        => ['pages.privacy', 'group'],
-        'accessibility'  => ['pages.accessibility', 'group'],
+        'home' => ['pages.home', 'group'],
+        'about' => ['pages.about', 'group'],
+        'contact' => ['pages.contact', 'group'],
+        'terms' => ['pages.terms', 'group'],
+        'privacy' => ['pages.privacy', 'group'],
+        'accessibility' => ['pages.accessibility', 'group'],
         // Solar division
-        'solar'          => ['solar.index', 'solar'],
+        'solar' => ['solar.index', 'solar'],
         'solar-services' => ['solar.services', 'solar'],
         'solar-estimate' => ['solar.estimate', 'solar'],
         'solar-projects' => ['solar.projects', 'solar'],
@@ -26,7 +26,7 @@ class PageController extends Controller
     public function show(string $page): View
     {
         if (! isset(self::PAGES[$page])) {
-            throw new NotFoundHttpException();
+            throw new NotFoundHttpException;
         }
 
         [$view, $division] = self::PAGES[$page];
@@ -50,5 +50,35 @@ class PageController extends Controller
         }
 
         return view($view, $data);
+    }
+
+    public function project(string $slug): View
+    {
+        $project = collect(config('projects.projects'))->firstWhere('slug', $slug);
+
+        if ($project === null) {
+            throw new NotFoundHttpException;
+        }
+
+        $canonical = "https://www.ever-green.ph/solar/projects/{$project['slug']}";
+        $description = "See Evergreen Solar's {$project['title']} installation in {$project['location']}, with project photos";
+        $description .= empty($project['specs']) ? '.' : ' and solar system details.';
+
+        return view('solar.project', [
+            'division' => 'solar',
+            'project' => $project,
+            'meta' => [
+                'title' => "{$project['title']} Solar Installation in Siargao — Evergreen Solar",
+                'description' => $description,
+                'canonical' => $canonical,
+                'og_title' => "{$project['title']} — Evergreen Solar Project",
+                'og_description' => $description,
+                'og_url' => $canonical,
+                'og_image' => 'https://www.ever-green.ph/assets/projects/'.$project['photos'][0],
+                'og_image_alt' => "Solar installation at {$project['title']}, {$project['location']}",
+                'twitter_title' => "{$project['title']} — Evergreen Solar Project",
+                'twitter_description' => $description,
+            ],
+        ]);
     }
 }

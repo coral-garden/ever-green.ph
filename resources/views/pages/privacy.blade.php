@@ -28,10 +28,10 @@
     </div>
     <div class="shell">
       <div class="prose reveal">
-        <p class="meta">Evergreen Solar Solutions · Philippines</p>
+        <p class="meta">Evergreen Solar · Siargao, Philippines</p>
 
         <h2>Our commitment to your privacy</h2>
-        <p>At Evergreen Solar Solutions, we treat your personal information with the same precision and care we apply to our electrical engineering projects. We collect the essential details needed to design solar systems, including contact information, installation addresses in Siargao or Dinagat, and energy-consumption data.</p>
+        <p>At Evergreen Solar, we treat your personal information with the same precision and care we apply to our electrical engineering projects. We collect the essential details needed to design solar systems, including contact information, installation addresses in Siargao, and energy-consumption data.</p>
 
         <h2>How we use and protect your information</h2>
         <p>Information is used exclusively for creating engineering proposals, scheduling site surveys, and coordinating with local utility cooperatives for net-metering. We do not sell, trade, or share your data with outside marketers. We maintain security through encrypted communication and secure data storage.</p>

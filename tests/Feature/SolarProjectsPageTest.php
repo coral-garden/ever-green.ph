@@ -26,8 +26,7 @@ class SolarProjectsPageTest extends TestCase
         $response->assertSee('Suba Resort');
         $response->assertSee('Casa Cahuenga');
         $response->assertSee('Roxy');
-        $response->assertSee('data-photos="/assets/projects/suba-resort-1.webp,/assets/projects/suba-resort-2.webp', false);
-        $response->assertSee('data-videos="/assets/projects/suba-resort-drone.mp4"', false);
+        $response->assertSee('href="/solar/projects/suba-resort"', false);
         $response->assertSee('Photos + video');
     }
 
@@ -54,10 +53,12 @@ class SolarProjectsPageTest extends TestCase
         $response->assertSee('tstars', false); // star row rendered
     }
 
-    public function test_cards_carry_photo_sets_for_the_lightbox(): void
+    public function test_every_project_links_to_its_detail_page(): void
     {
         $response = $this->get('/solar/projects');
-        $response->assertSee('data-photos="/assets/projects/dayo-siargao-1.webp', false);
-        $response->assertSee('data-photos="/assets/projects/sunlit-hostel-1.webp', false);
+
+        foreach (config('projects.projects') as $project) {
+            $response->assertSee('href="/solar/projects/'.$project['slug'].'"', false);
+        }
     }
 }

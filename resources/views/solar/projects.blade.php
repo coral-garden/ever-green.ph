@@ -12,8 +12,8 @@
     <img class="hero-watermark" src="/assets/logo.png" alt="" aria-hidden="true" />
     <div class="shell">
       <div class="tag tag-dot">Our work</div>
-      <h1>We build projects that last</h1>
-      <p class="hero-sub">A look at solar installs across the islands — homestays, villas, and hostels running cleaner, quieter, and through the brownouts. Tap any photo to view it full size.</p>
+      <h1>Solar installations across Siargao</h1>
+      <p class="hero-sub">Explore Evergreen Solar installations for homestays, villas, restaurants, and island homes. Select a project to see its system details and complete gallery.</p>
     </div>
   </section>
 
@@ -51,32 +51,29 @@
       <div class="proj-rows">
         @foreach ($specProjects as $p)
           @php
-            $all = collect($p['photos'])->map(fn ($f) => '/assets/projects/'.$f)->values();
             $roof = '/assets/projects/'.$p['photos'][0];
             $eq = '/assets/projects/'.$p['equipment'];
-            $roofList = $all->implode(',');
-            $eqList = collect([$eq])->merge($all->reject(fn ($u) => $u === $eq))->implode(',');
-            $videoList = collect($p['videos'] ?? [])->map(fn ($f) => '/assets/projects/'.$f)->implode(',');
           @endphp
           <article class="proj-row reveal">
             <div class="proj-row-head">
               <div class="ploc">{{ $p['location'] }}</div>
-              <h3 class="ptitle">{{ $p['title'] }}</h3>
+              <h3 class="ptitle"><a href="/solar/projects/{{ $p['slug'] }}">{{ $p['title'] }}</a></h3>
               <ul class="pspecs">
                 @foreach ($p['specs'] as $spec)
                   <li>{{ $spec }}</li>
                 @endforeach
               </ul>
+              <a class="project-detail-link" href="/solar/projects/{{ $p['slug'] }}">View project details →</a>
             </div>
             <div class="proj-pair">
-              <button class="pcard reveal" data-title="{{ $p['title'] }}" data-loc="{{ $p['location'] }}" data-photos="{{ $roofList }}" data-videos="{{ $videoList }}">
+              <a class="pcard reveal" href="/solar/projects/{{ $p['slug'] }}">
                 <img src="{{ $roof }}" alt="Rooftop solar array at {{ $p['title'] }}, {{ $p['location'] }}" loading="lazy" />
                 <span class="pcard-tag">Rooftop array</span>
-              </button>
-              <button class="pcard reveal" data-title="{{ $p['title'] }}" data-loc="{{ $p['location'] }}" data-photos="{{ $eqList }}" data-videos="{{ $videoList }}">
+              </a>
+              <a class="pcard reveal" href="/solar/projects/{{ $p['slug'] }}">
                 <img src="{{ $eq }}" alt="Inverter and battery system at {{ $p['title'] }}, {{ $p['location'] }}" loading="lazy" />
                 <span class="pcard-tag">Inverter &amp; battery</span>
-              </button>
+              </a>
             </div>
           </article>
         @endforeach
@@ -89,19 +86,18 @@
         <div class="proj-extras">
           @foreach ($extras as $p)
             @php
-              $photoUrls = collect($p['photos'])->map(fn ($f) => '/assets/projects/'.$f)->implode(',');
-              $videoUrls = collect($p['videos'] ?? [])->map(fn ($f) => '/assets/projects/'.$f)->implode(',');
+              $hasVideos = ! empty($p['videos']);
             @endphp
-            <button class="pcard reveal" data-title="{{ $p['title'] }}" data-loc="{{ $p['location'] }}" data-photos="{{ $photoUrls }}" data-videos="{{ $videoUrls }}">
+            <a class="pcard reveal" href="/solar/projects/{{ $p['slug'] }}">
               <img src="/assets/projects/{{ $p['photos'][0] }}" alt="Solar installation at {{ $p['title'] }}, {{ $p['location'] }}" loading="lazy" />
               <div class="pmeta">
                 <div class="ploc">{{ $p['location'] }}</div>
                 <div class="ptitle">{{ $p['title'] }}</div>
-                @if ($videoUrls !== '')
+                @if ($hasVideos)
                   <div class="pmedia">Photos + video</div>
                 @endif
               </div>
-            </button>
+            </a>
           @endforeach
         </div>
       @endif
@@ -170,26 +166,5 @@
   </section>
   </main>
 
-  <!-- lightbox -->
-  <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-label="Project photo">
-    <button class="lb-close" id="lbClose" aria-label="Close">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6L6 18"/></svg>
-    </button>
-    <button class="lb-nav lb-prev" id="lbPrev" aria-label="Previous photo">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 6l-6 6 6 6"/></svg>
-    </button>
-    <button class="lb-nav lb-next" id="lbNext" aria-label="Next photo">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg>
-    </button>
-    <img id="lbImg" src="" alt="" />
-    <video id="lbVideo" controls playsinline preload="metadata" hidden aria-label="Project video"></video>
-    <div class="lb-cap" id="lbCap"></div>
-  </div>
-
-  
 @endverbatim
 @endsection
-
-@push('scripts')
-<script src="{{ assetv('assets/page-projects.js') }}" defer></script>
-@endpush

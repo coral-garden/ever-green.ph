@@ -13,66 +13,139 @@
       "image": "https://www.ever-green.ph/assets/og-cover.png",
       "email": "simonphconsult@gmail.com",
       "telephone": ["+639663051461", "+639771275822"],
-      "areaServed": ["Siargao Island", "Surigao del Norte", "Davao City"],
+      "contactPoint": [
+        {
+          "@type": "ContactPoint",
+          "telephone": "+639663051461",
+          "contactType": "customer service",
+          "areaServed": "Siargao Island"
+        },
+        {
+          "@type": "ContactPoint",
+          "telephone": "+639771275822",
+          "contactType": "customer service",
+          "areaServed": "Siargao Island"
+        }
+      ],
+      "areaServed": { "@id": "https://www.ever-green.ph/#siargao" },
+      "location": { "@id": "https://www.ever-green.ph/#general-luna-office" },
       "sameAs": [
         "https://www.facebook.com/evergreen.solar.mindanao/",
         "https://www.instagram.com/evergreensolar.siargao/"
       ],
+      "subOrganization": [
+        { "@id": "https://www.ever-green.ph/#solar" },
+        { "@id": "https://www.ever-green.ph/#construction" },
+        { "@id": "https://www.ever-green.ph/#hardware" }
+      ],
       "department": [
-        {
-          "@type": "Organization",
-          "name": "Evergreen Solar",
-          "url": "https://www.ever-green.ph/solar",
-          "description": "Grid-tied, off-grid, and hybrid solar systems engineered for island living on Siargao."
-        },
-        {
-          "@type": "Organization",
-          "name": "Evergreen Frame Construction",
-          "url": "https://www.ever-green.ph/construction",
-          "description": "Light-gauge steel-frame construction for homes, resorts, and commercial projects across Siargao."
-        },
-        {
-          "@type": "Organization",
-          "name": "Evergreen Hardware Supply",
-          "url": "https://www.ever-green.ph/hardware",
-          "description": "Building materials for island builds — cement board, marine plywood, rockwool, SPC flooring and more."
-        }
+        { "@id": "https://www.ever-green.ph/#solar" },
+        { "@id": "https://www.ever-green.ph/#construction" },
+        { "@id": "https://www.ever-green.ph/#hardware" }
       ]
     },
     {
-      "@type": "LocalBusiness",
+      "@type": "AdministrativeArea",
       "@id": "https://www.ever-green.ph/#siargao",
-      "name": "Evergreen — Burgos, Siargao",
-      "parentOrganization": { "@id": "https://www.ever-green.ph/#org" },
-      "url": "https://www.ever-green.ph/",
-      "image": "https://www.ever-green.ph/assets/og-cover.png",
-      "telephone": ["+639663051461", "+639771275822"],
-      "email": "simonphconsult@gmail.com",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Burgos",
-        "addressRegion": "Surigao del Norte",
-        "addressCountry": "PH"
-      },
-      "geo": { "@type": "GeoCoordinates", "latitude": 10.0407276, "longitude": 126.0705929 },
-      "hasMap": "https://maps.app.goo.gl/td1LZpCJpKA7Vks69",
-      "areaServed": "Siargao Island"
+      "name": "Siargao Island",
+      "containedInPlace": {
+        "@type": "AdministrativeArea",
+        "name": "Surigao del Norte, Philippines"
+      }
     },
     {
-      "@type": "LocalBusiness",
-      "@id": "https://www.ever-green.ph/#davao",
-      "name": "Evergreen — Nova Tierra, Davao City",
-      "parentOrganization": { "@id": "https://www.ever-green.ph/#org" },
-      "url": "https://www.ever-green.ph/",
-      "image": "https://www.ever-green.ph/assets/og-cover.png",
-      "telephone": ["+639663051461", "+639771275822"],
-      "email": "simonphconsult@gmail.com",
+      "@type": "Place",
+      "@id": "https://www.ever-green.ph/#general-luna-office",
+      "name": "Evergreen office",
+      "description": "Non-public office in General Luna, Surigao del Norte",
+      "publicAccess": false,
       "address": {
         "@type": "PostalAddress",
-        "streetAddress": "Nova Tierra",
-        "addressLocality": "Davao City",
-        "addressRegion": "Davao del Sur",
+        "addressLocality": "General Luna",
+        "addressRegion": "Surigao del Norte",
         "addressCountry": "PH"
+      }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://www.ever-green.ph/#solar",
+      "name": "Evergreen Solar",
+      "url": "https://www.ever-green.ph/solar",
+      "description": "Grid-tied, off-grid, and hybrid solar installation, battery storage, and maintenance for Siargao homes and businesses.",
+      "logo": "https://www.ever-green.ph/assets/logo-full.png",
+      "telephone": "+639663051461",
+      "email": "simonphconsult@gmail.com",
+      "parentOrganization": { "@id": "https://www.ever-green.ph/#org" },
+      "areaServed": { "@id": "https://www.ever-green.ph/#siargao" },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Evergreen Solar services",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": { "@type": "Service", "name": "Solar panel installation" }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": { "@type": "Service", "name": "Hybrid and off-grid battery storage" }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": { "@type": "Service", "name": "Solar maintenance and monitoring" }
+          }
+        ]
+      }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://www.ever-green.ph/#construction",
+      "name": "Evergreen Frame Construction",
+      "url": "https://www.ever-green.ph/construction",
+      "description": "Light-gauge steel-frame construction for homes, resorts, and commercial projects across Siargao.",
+      "logo": "https://www.ever-green.ph/assets/logo-full.png",
+      "telephone": "+639663051461",
+      "email": "simonphconsult@gmail.com",
+      "parentOrganization": { "@id": "https://www.ever-green.ph/#org" },
+      "areaServed": { "@id": "https://www.ever-green.ph/#siargao" },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Evergreen Frame Construction services",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": { "@type": "Service", "name": "Light-gauge steel-frame construction" }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": { "@type": "Service", "name": "Steel-frame design and engineering" }
+          }
+        ]
+      }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://www.ever-green.ph/#hardware",
+      "name": "Evergreen Hardware Supply",
+      "url": "https://www.ever-green.ph/hardware",
+      "description": "Building materials for island construction, including cement board, marine plywood, phenolic board, rockwool, and SPC flooring, with Burgos warehouse pickup by arrangement.",
+      "logo": "https://www.ever-green.ph/assets/logo-full.png",
+      "telephone": "+639663051461",
+      "email": "simonphconsult@gmail.com",
+      "parentOrganization": { "@id": "https://www.ever-green.ph/#org" },
+      "areaServed": { "@id": "https://www.ever-green.ph/#siargao" },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Evergreen Hardware Supply products and services",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": { "@type": "Service", "name": "Building material supply and Burgos warehouse pickup by arrangement" }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": { "@type": "Service", "name": "Project and bulk material quotations" }
+          }
+        ]
       }
     }
   ]

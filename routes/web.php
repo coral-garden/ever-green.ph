@@ -9,14 +9,14 @@ use Illuminate\Support\Facades\Route;
 
 // --- Group-level pages ---
 $pages = [
-    'home'          => '/',
-    'about'         => '/about',
-    'contact'       => '/contact',
-    'terms'         => '/terms',
-    'privacy'       => '/privacy',
+    'home' => '/',
+    'about' => '/about',
+    'contact' => '/contact',
+    'terms' => '/terms',
+    'privacy' => '/privacy',
     'accessibility' => '/accessibility',
     // Solar division
-    'solar'          => '/solar',
+    'solar' => '/solar',
     'solar-services' => '/solar/services',
     'solar-estimate' => '/solar/estimate',
     'solar-projects' => '/solar/projects',
@@ -24,6 +24,8 @@ $pages = [
 foreach ($pages as $page => $path) {
     Route::get($path, [PageController::class, 'show'])->defaults('page', $page)->name($page);
 }
+
+Route::get('/solar/projects/{slug}', [PageController::class, 'project'])->name('solar-project');
 
 // --- Frame Construction & Hardware Supply divisions ---
 Route::get('/construction', [ConstructionController::class, 'index'])->name('construction');
@@ -38,18 +40,18 @@ Route::post('/estimate/parse-bill', [BillParserController::class, 'parse'])->nam
 // --- 301 redirects: old URLs -> new IA ---
 $redirects = [
     // pre-Laravel .html URLs
-    '/index.html'         => '/',
-    '/services.html'      => '/solar/services',
-    '/estimate.html'      => '/solar/estimate',
-    '/projects.html'      => '/solar/projects',
-    '/about.html'         => '/about',
-    '/terms.html'         => '/terms',
-    '/privacy.html'       => '/privacy',
+    '/index.html' => '/',
+    '/services.html' => '/solar/services',
+    '/estimate.html' => '/solar/estimate',
+    '/projects.html' => '/solar/projects',
+    '/about.html' => '/about',
+    '/terms.html' => '/terms',
+    '/privacy.html' => '/privacy',
     '/accessibility.html' => '/accessibility',
     // first-gen clean URLs (Solar at root) -> new /solar/* IA
-    '/services'              => '/solar/services',
-    '/estimate'              => '/solar/estimate',
-    '/projects'              => '/solar/projects',
+    '/services' => '/solar/services',
+    '/estimate' => '/solar/estimate',
+    '/projects' => '/solar/projects',
     '/construction/materials' => '/hardware',
 ];
 foreach ($redirects as $from => $to) {

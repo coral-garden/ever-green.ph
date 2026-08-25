@@ -21,7 +21,7 @@
     <div class="shell hero-grid">
       <div class="hero-copy">
         <div class="tag tag-dot hero-eyebrow reveal">Solar for island living</div>
-        <h1 class="reveal">Powering<span class="l2">Siargao</span></h1>
+        <h1 class="reveal">Solar installation for Siargao</h1>
         <p class="hero-sub reveal">High-performance solar systems engineered for reliability, long-term savings, and dependable energy — built for life on the island.</p>
         <div class="hero-actions reveal">
           <a class="btn btn-lime" href="/solar/estimate">Get a quote
@@ -44,7 +44,7 @@
     <div class="shell readout reveal">
       <div class="r"><div class="k">System types</div><div class="v">Grid-tied · Off-grid · Hybrid</div><div class="d">Sized to your load and roof</div></div>
       <div class="r"><div class="k">Built for</div><div class="v">Outage-prone islands</div><div class="d">Reliable power when the grid drops</div></div>
-      <div class="r"><div class="k">Coverage</div><div class="v">General Luna · Dapa · Burgos</div><div class="d">Island-wide, on-site Siargao crews</div></div>
+      <div class="r"><div class="k">Coverage</div><div class="v">Siargao Island</div><div class="d">Island-wide, on-site Siargao crews</div></div>
       <div class="r"><div class="k">What you get</div><div class="v">Top-tier panels + expert install</div><div class="d">Simple. Reliable. Sustainable.</div></div>
     </div>
   </section>
@@ -213,7 +213,7 @@
 
       <div class="proj-grid">
         @foreach ($featuredProjects as $i => $p)
-          <a class="proj {{ $i === 0 ? 'big' : 'small' }} reveal" href="/solar/projects">
+          <a class="proj {{ $i === 0 ? 'big' : 'small' }} reveal" href="/solar/projects/{{ $p['slug'] }}">
             <img src="/assets/projects/{{ $p['photos'][0] }}" alt="Rooftop solar array at {{ $p['title'] }}, {{ $p['location'] }}" />
             <div class="meta">
               <div class="loc">{{ $p['location'] }}</div>
@@ -306,7 +306,7 @@
         </a>
         <span>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-5.5-7-11a7 7 0 0 1 14 0c0 5.5-7 11-7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>
-          Burgos, Siargao · Nova Tierra, Davao City
+          Office: General Luna, Surigao del Norte · Not open to the public
         </span>
       </div>
     </div>

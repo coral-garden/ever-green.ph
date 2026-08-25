@@ -34,5 +34,5 @@
       <a href="{{ $href }}">{{ $text }}</a>
       @endforeach
     </nav>
-    <div class="mm-foot">Burgos, Siargao · 0966 305 1461</div>
+    <div class="mm-foot">Serving Siargao · 0966 305 1461</div>
   </div>
