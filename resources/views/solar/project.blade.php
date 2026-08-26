@@ -1,13 +1,41 @@
 @extends('layouts.app')
 
-@push('head')
-<link rel="stylesheet" href="{{ assetv('assets/page-projects.css') }}">
-@endpush
-
 @php
   $photoUrls = collect($project['photos'])->map(fn ($file) => '/assets/projects/'.$file)->values();
   $videoUrls = collect($project['videos'] ?? [])->map(fn ($file) => '/assets/projects/'.$file)->values();
+  $projectUrl = 'https://www.ever-green.ph/solar/projects/'.$project['slug'];
+  $breadcrumbJsonLd = [
+      '@context' => 'https://schema.org',
+      '@type' => 'BreadcrumbList',
+      'itemListElement' => [
+          [
+              '@type' => 'ListItem',
+              'position' => 1,
+              'name' => 'Solar',
+              'item' => 'https://www.ever-green.ph/solar',
+          ],
+          [
+              '@type' => 'ListItem',
+              'position' => 2,
+              'name' => 'Projects',
+              'item' => 'https://www.ever-green.ph/solar/projects',
+          ],
+          [
+              '@type' => 'ListItem',
+              'position' => 3,
+              'name' => $project['title'].' solar installation',
+              'item' => $projectUrl,
+          ],
+      ],
+  ];
 @endphp
+
+@push('head')
+<link rel="stylesheet" href="{{ assetv('assets/page-projects.css') }}">
+<script type="application/ld+json">
+{!! json_encode($breadcrumbJsonLd, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT) !!}
+</script>
+@endpush
 
 @section('content')
 <main id="top">
@@ -36,7 +64,12 @@
         data-start="0"
         aria-label="Open {{ $project['title'] }} project gallery"
       >
-        <img src="{{ $photoUrls->first() }}" alt="Solar installation at {{ $project['title'] }}, {{ $project['location'] }}" />
+        <x-project-image
+          :file="$project['photos'][0]"
+          :alt="'Solar installation at '.$project['title'].', '.$project['location']"
+          sizes="(max-width: 820px) calc(100vw - 40px), 48vw"
+          fetchpriority="high"
+        />
         <span class="pcard-tag">View gallery</span>
       </button>
     </div>
@@ -77,7 +110,7 @@
       </div>
 
       <div class="project-gallery-grid">
-        @foreach ($photoUrls as $index => $photoUrl)
+        @foreach ($project['photos'] as $index => $photoFile)
           <button
             class="pcard reveal"
             type="button"
@@ -88,7 +121,12 @@
             data-start="{{ $index }}"
             aria-label="Open photo {{ $index + 1 }} of {{ $project['title'] }}"
           >
-            <img src="{{ $photoUrl }}" alt="{{ $project['title'] }} solar installation in {{ $project['location'] }}, photo {{ $index + 1 }}" loading="lazy" />
+            <x-project-image
+              :file="$photoFile"
+              :alt="$project['title'].' solar installation in '.$project['location'].', photo '.($index + 1)"
+              sizes="(max-width: 720px) calc(100vw - 40px), (max-width: 1100px) 50vw, 33vw"
+              loading="lazy"
+            />
             <span class="pcard-tag">Photo {{ $index + 1 }}</span>
           </button>
         @endforeach

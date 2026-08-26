@@ -97,7 +97,7 @@
             <summary>Advanced assumptions</summary>
             <div class="adv-grid">
               <div class="af">
-                <label for="rate">Rate ₱/kWh</label>
+                <label for="rate">Editable planning rate ₱/kWh</label>
                 <input id="rate" type="number" min="5" max="30" step="0.01" value="13.47" inputmode="decimal" />
               </div>
               <div class="af">
@@ -131,20 +131,16 @@
               <div class="d"><span id="rSaveYr">₱96,000</span> per year</div>
             </div>
             <div class="res">
-              <div class="k">Simple payback</div>
+              <div class="k">Simple planning payback</div>
               <div class="v" id="rPayback">~4 yrs</div>
-              <div class="d">Before the system runs free for 25+ yrs.</div>
-            </div>
-            <div class="res">
-              <div class="k">CO₂ avoided</div>
-              <div class="v" id="rCo2">4.7 t</div>
-              <div class="d">Per year — like planting dozens of trees.</div>
+              <div class="d">Midpoint cost ÷ target savings; excludes financing, maintenance, component replacement, degradation, taxes, and changes in electricity pricing.</div>
             </div>
           </div>
           <p class="calc-note">
-            Estimates use a <b>₱<span id="nRate">13.47</span>/kWh</b> rate, <b><span id="nPsh">5.0</span> peak sun hours</b>,
-            and an 80% system efficiency for the Siargao region. Savings assume self-consumption; under net metering,
-            exported surplus is credited at a lower (generation-only) rate. Figures are indicative, not a formal quote.
+            The default <b>₱<span id="nRate">13.47</span>/kWh</b> value is an editable planning input, not a published current utility tariff;
+            replace it with the energy charge shown on your bill. The calculation also uses <b><span id="nPsh">5.0</span> peak sun hours</b>
+            and an 80% system-efficiency assumption. Savings assume self-consumption; exported surplus, changing tariffs, degradation,
+            maintenance, financing, taxes, and component replacement are not modeled. Figures are indicative, not a formal quote.
           </p>
         </div>
       </div>
@@ -219,7 +215,7 @@
             <div class="tag tag-dot">Transparent assumptions</div>
             <h2 id="methodology-title">How the Siargao solar estimate works</h2>
           </div>
-          <p class="estimate-updated">Methodology displayed as of <time datetime="2026-08-25">25 August 2026</time>.</p>
+          <p class="estimate-updated">Methodology displayed as of <time datetime="2026-08-26">26 August 2026</time>.</p>
         </div>
 
         <div class="method-grid">
@@ -231,7 +227,7 @@
               <li>The daily target is divided by peak sun hours and an 80% system-efficiency allowance to estimate array size in kWp.</li>
               <li>Panel count uses the selected panel wattage. Roof area allows 2.6 m² per panel.</li>
             </ol>
-            <p>The default inputs are ₱13.47/kWh, 5.0 peak sun hours, 550W panels, and an 80% bill-offset target. You can edit the rate, sun hours, panel wattage, and offset in the calculator.</p>
+            <p>The default inputs are an editable ₱13.47/kWh planning rate, 5.0 peak sun hours, 550W panels, and an 80% bill-offset target. The rate is not presented as a current utility tariff; replace it with the energy charge on your bill. You can also edit the sun hours, panel wattage, and offset.</p>
           </article>
 
           <article class="method-card reveal">
@@ -242,7 +238,7 @@
               <div><dt>Hybrid</dt><dd>₱60,000–₱90,000 per kWp</dd></div>
               <div><dt>Off-grid</dt><dd>₱75,000–₱115,000 per kWp</dd></div>
             </dl>
-            <p>These are broad market assumptions, not current Evergreen package prices or a formal quote. Battery capacity, equipment selection, the roof, cable runs, logistics, and site conditions can materially change the formal quote.</p>
+            <p>These are broad internal planning assumptions, not current Evergreen package prices, supplier quotations, or a formal quote. Battery capacity, equipment selection, the roof, cable runs, logistics, site conditions, taxes, and permitting can materially change the formal quote.</p>
           </article>
         </div>
 
@@ -329,6 +325,10 @@
             <details>
               <summary>Does the hybrid or off-grid estimate include a battery?</summary>
               <p>The system-type selection changes the indicative cost band, but it does not size a specific battery. Evergreen must confirm your essential loads, desired backup time, and operating pattern before specifying battery capacity and price.</p>
+            </details>
+            <details>
+              <summary>Does the estimate promise a particular equipment warranty?</summary>
+              <p>No. The calculator does not assign a warranty value. A formal quote must identify the exact manufacturer or provider, warranty term, exclusions, registration requirements, maintenance conditions, and responsible warranty party.</p>
             </details>
             <details>
               <summary>Does the savings figure include net-metering credits?</summary>

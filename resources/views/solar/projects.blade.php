@@ -50,10 +50,6 @@
 
       <div class="proj-rows">
         @foreach ($specProjects as $p)
-          @php
-            $roof = '/assets/projects/'.$p['photos'][0];
-            $eq = '/assets/projects/'.$p['equipment'];
-          @endphp
           <article class="proj-row reveal">
             <div class="proj-row-head">
               <div class="ploc">{{ $p['location'] }}</div>
@@ -67,11 +63,21 @@
             </div>
             <div class="proj-pair">
               <a class="pcard reveal" href="/solar/projects/{{ $p['slug'] }}">
-                <img src="{{ $roof }}" alt="Rooftop solar array at {{ $p['title'] }}, {{ $p['location'] }}" loading="lazy" />
+                <x-project-image
+                  :file="$p['photos'][0]"
+                  :alt="'Rooftop solar array at '.$p['title'].', '.$p['location']"
+                  sizes="(max-width: 760px) calc(100vw - 40px), 45vw"
+                  loading="lazy"
+                />
                 <span class="pcard-tag">Rooftop array</span>
               </a>
               <a class="pcard reveal" href="/solar/projects/{{ $p['slug'] }}">
-                <img src="{{ $eq }}" alt="Inverter and battery system at {{ $p['title'] }}, {{ $p['location'] }}" loading="lazy" />
+                <x-project-image
+                  :file="$p['equipment']"
+                  :alt="'Inverter and battery system at '.$p['title'].', '.$p['location']"
+                  sizes="(max-width: 760px) calc(100vw - 40px), 45vw"
+                  loading="lazy"
+                />
                 <span class="pcard-tag">Inverter &amp; battery</span>
               </a>
             </div>
@@ -89,7 +95,12 @@
               $hasVideos = ! empty($p['videos']);
             @endphp
             <a class="pcard reveal" href="/solar/projects/{{ $p['slug'] }}">
-              <img src="/assets/projects/{{ $p['photos'][0] }}" alt="Solar installation at {{ $p['title'] }}, {{ $p['location'] }}" loading="lazy" />
+              <x-project-image
+                :file="$p['photos'][0]"
+                :alt="'Solar installation at '.$p['title'].', '.$p['location']"
+                sizes="(max-width: 720px) calc(100vw - 40px), 33vw"
+                loading="lazy"
+              />
               <div class="pmeta">
                 <div class="ploc">{{ $p['location'] }}</div>
                 <div class="ptitle">{{ $p['title'] }}</div>

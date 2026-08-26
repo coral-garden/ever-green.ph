@@ -214,7 +214,13 @@
       <div class="proj-grid">
         @foreach ($featuredProjects as $i => $p)
           <a class="proj {{ $i === 0 ? 'big' : 'small' }} reveal" href="/solar/projects/{{ $p['slug'] }}">
-            <img src="/assets/projects/{{ $p['photos'][0] }}" alt="Rooftop solar array at {{ $p['title'] }}, {{ $p['location'] }}" />
+            <x-project-image
+              :file="$p['photos'][0]"
+              :alt="'Rooftop solar array at '.$p['title'].', '.$p['location']"
+              sizes="{{ $i === 0 ? '(max-width: 760px) calc(100vw - 40px), 66vw' : '(max-width: 760px) calc(100vw - 40px), 33vw' }}"
+              :loading="$i === 0 ? null : 'lazy'"
+              :fetchpriority="$i === 0 ? 'high' : null"
+            />
             <div class="meta">
               <div class="loc">{{ $p['location'] }}</div>
               <div class="ttl">{{ $p['title'] }}</div>

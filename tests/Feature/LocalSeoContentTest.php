@@ -43,7 +43,7 @@ class LocalSeoContentTest extends TestCase
         $this->get('/solar/estimate')
             ->assertOk()
             ->assertSee('How the Siargao solar estimate works')
-            ->assertSee('<time datetime="2026-08-25">25 August 2026</time>', false)
+            ->assertSee('<time datetime="2026-08-26">26 August 2026</time>', false)
             ->assertSee('Typical grid-tied scenarios')
             ->assertSee('₱45,000–₱62,000 per kWp')
             ->assertSee('What the online estimate considers')
@@ -51,6 +51,13 @@ class LocalSeoContentTest extends TestCase
             ->assertSee('Frequently asked questions')
             ->assertSee('href="/solar/projects/bamboo-surf"', false)
             ->assertSee('href="/solar/projects/filmegz-seaside"', false)
+            ->assertSee('Editable planning rate')
+            ->assertSee('Simple planning payback')
+            ->assertSee('excludes financing, maintenance, component replacement, degradation, taxes, and changes in electricity pricing')
+            ->assertSee('Does the estimate promise a particular equipment warranty?')
+            ->assertDontSee('Before the system runs free for 25+ yrs.')
+            ->assertDontSee('like planting dozens of trees')
+            ->assertDontSee('CO₂ avoided')
             ->assertSee('not a formal quote');
     }
 

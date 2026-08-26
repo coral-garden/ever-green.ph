@@ -4,10 +4,9 @@
   const CALC = {
     derate: 0.80,          // system efficiency
     panelArea: 2.6,        // m² per panel
-    co2: 0.65,             // kg CO2 avoided per kWh (PH grid average)
     // installed cost band (₱ per kW), customer retail, by system type.
-    // Derived from PH system-total norms (5kW ≈ ₱250–400k, 10kW ≈ ₱450–650k);
-    // larger systems trend cheaper per kW. TUNE THESE to Evergreen's real pricing.
+    // Internal planning inputs only; review against current Evergreen supplier
+    // and installation data before changing the methodology date shown on-page.
     costPerKw: { tied: [45000, 62000], hybrid: [60000, 90000], off: [75000, 115000] }
   };
 
@@ -48,8 +47,6 @@
     const monthlySave = targetKwh * rate;
     const annualSave  = monthlySave * 12;
     const payback     = annualSave > 0 ? costMid / annualSave : 0;
-    const annualKwh   = kWp * psh * 365 * CALC.derate;
-    const co2t        = (annualKwh * CALC.co2) / 1000;
 
     // paint results
     $('rKwp').textContent    = kWp.toFixed(kWp < 10 ? 1 : 0);
@@ -59,7 +56,6 @@
     $('rSaveMo').textContent = peso0.format(Math.round(monthlySave));
     $('rSaveYr').textContent = peso0.format(Math.round(annualSave));
     $('rPayback').textContent = payback >= 0.5 ? '~' + payback.toFixed(1) + ' yrs' : '< 1 yr';
-    $('rCo2').textContent    = co2t.toFixed(1) + ' t';
     $('nRate').textContent   = rate.toFixed(2);
     $('nPsh').textContent    = psh.toFixed(1);
 
