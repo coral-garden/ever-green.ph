@@ -87,6 +87,16 @@ return [
             'twitter_title' => 'Services — Evergreen Solar',
             'twitter_description' => 'From energy audit to lifetime support — every step of going solar, engineered for the salt air, sun, and storms of island living.',
         ],
+        'solar-packages' => [
+            'title' => 'Hybrid Solar Packages & Prices — Evergreen Solar',
+            'description' => 'Compare five Evergreen hybrid solar packages, from 3 to 12 kVA. See advertised prices, panels, battery storage, installation inclusions, and warranties.',
+            'canonical' => 'https://www.ever-green.ph/solar/packages',
+            'og_title' => 'Hybrid Solar Packages — Evergreen Solar',
+            'og_description' => 'Compare equipment, battery storage, and advertised prices for five hybrid solar packages. Request a free quote and site assessment.',
+            'og_url' => 'https://www.ever-green.ph/solar/packages',
+            'twitter_title' => 'Hybrid Solar Packages — Evergreen Solar',
+            'twitter_description' => 'Compare equipment, battery storage, and advertised prices for five hybrid solar packages. Request a free quote and site assessment.',
+        ],
         'solar-estimate' => [
             'title' => 'Solar Cost & Savings Estimate for Siargao | Evergreen Solar',
             'description' => 'Estimate your solar system size, cost, and savings in 30 seconds. Enter your monthly electricity bill and get an instant, tailored estimate for grid-tied, off-grid, or hybrid solar on Siargao Island.',

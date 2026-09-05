@@ -2,7 +2,7 @@
 @php($d = config('divisions.'.$division, config('divisions.group')))
 
   <!-- ===================== NAV ===================== -->
-  <header class="nav" id="nav">
+  <header class="nav{{ $division === 'solar' ? ' nav--solar' : '' }}" id="nav">
     <div class="shell nav-inner">
       @include('partials.brand', ['division' => $division])
       <nav class="nav-links" aria-label="Primary">

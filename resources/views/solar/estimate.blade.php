@@ -13,6 +13,7 @@
       <div class="tag tag-dot">Solar estimator</div>
       <h1>Solar cost &amp; savings estimate for Siargao</h1>
       <p class="est-sub">Tell us your average monthly electricity bill and we'll estimate the system size, roof space, indicative cost, and savings — tuned for Siargao sun. Then send it over for a precise, no-obligation quote.</p>
+      <p class="estimate-packages-link">Looking for a complete system? <a href="/solar/packages">Browse advertised packages →</a></p>
     </div>
   </section>
 
@@ -137,6 +138,7 @@
             </div>
           </div>
           <p class="calc-note">
+            <strong>Calculator figures use general planning assumptions. <a href="/solar/packages">See advertised package prices</a> for specific equipment bundles.</strong><br>
             The default <b>₱<span id="nRate">13.47</span>/kWh</b> value is an editable planning input, not a published current utility tariff;
             replace it with the energy charge shown on your bill. The calculation also uses <b><span id="nPsh">5.0</span> peak sun hours</b>
             and an 80% system-efficiency assumption. Savings assume self-consumption; exported surplus, changing tariffs, degradation,
@@ -154,8 +156,18 @@
           @endif
           <div class="lead-head">
             <div class="tag tag-dot">Get a quote</div>
-            <h2>Get my detailed quote</h2>
-            <p class="lead-intro">We'll review your roof and load, then send a precise system design and price. No obligation. Your estimate above is attached automatically.</p>
+            <h2>{{ $selectedPackage ? 'Enquire about this package' : 'Get my detailed quote' }}</h2>
+            @if($selectedPackage)
+              <div class="selected-package">
+                <strong>{{ $selectedPackage['name'] }} · {{ $selectedPackage['kva'] }} kVA hybrid</strong>
+                <span>Advertised price ₱{{ number_format($selectedPackage['price']) }}</span>
+                <a href="/solar/packages">Change package</a>
+              </div>
+              <p class="lead-intro">We'll review your roof, loads, and location, then confirm this package's fit and final price. Your enquiry includes the selected package. The calculator above is a separate planning tool.</p>
+              <input type="hidden" name="solar_package" value="{{ $selectedPackageSlug }}" />
+            @else
+              <p class="lead-intro">We'll review your roof and load, then send a precise system design and price. No obligation. Your estimate above is attached automatically.</p>
+            @endif
           </div>
 
           <div class="lead-grid">
@@ -186,6 +198,7 @@
           <!-- email subject + auto-filled estimate snapshot -->
           <input type="hidden" name="division" value="solar" />
           <input type="hidden" name="_subject" value="New solar estimate lead — Evergreen" />
+          <fieldset class="estimate-snapshot" id="estimateSnapshot" @disabled($selectedPackage !== null)>
           <input type="hidden" name="bill_php" id="hBill" />
           <input type="hidden" name="system_type" id="hType" />
           <input type="hidden" name="system_size_kwp" id="hKwp" />
@@ -193,9 +206,10 @@
           <input type="hidden" name="target_offset_pct" id="hOffset" />
           <input type="hidden" name="est_cost_php" id="hCost" />
           <input type="hidden" name="est_monthly_savings_php" id="hSave" />
+          </fieldset>
 
           <div class="lead-actions">
-            <button class="btn btn-lime" type="submit">Send my estimate
+            <button class="btn btn-lime" type="submit">{{ $selectedPackage ? 'Send my package enquiry' : 'Send my estimate' }}
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
             </button>
             <span class="lead-msg" id="leadMsg" role="status"></span>
@@ -204,7 +218,7 @@
 
         <div class="form-done" id="formDone"@if(session('lead_success')) style="display:block"@endif>
           <h3>Thanks — we've got it. 🌱</h3>
-          <p>Your estimate is on its way to the Evergreen team. We'll be in touch shortly to schedule a site assessment and send your detailed quote. For anything urgent, call <a href="tel:+639663051461" style="color:var(--foliage);font-weight:600;">0966 305 1461</a>.</p>
+          <p>Your enquiry is on its way to the Evergreen team. We'll be in touch shortly to schedule a site assessment and send your detailed quote. For anything urgent, call <a href="tel:+639663051461" style="color:var(--foliage);font-weight:600;">0966 305 1461</a>.</p>
         </div>
       </div>
 

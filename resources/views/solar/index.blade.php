@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@push('head')
+<link rel="stylesheet" href="{{ assetv('assets/page-packages.css') }}">
+@endpush
+
 @section('content')
 @verbatim
   <!-- ===================== HERO ===================== -->
@@ -139,6 +143,26 @@
           <div class="for">Best for</div>
           <p class="desc">Hospitals, data centers, and outage-prone areas that need battery backup the moment the grid blinks.</p>
         </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== PACKAGES ===================== -->
+  <section class="section packages-section" id="packages" aria-labelledby="packages-title">
+    <div class="shell">
+      <div class="section-head">
+        <div class="lead">
+          <div class="tag tag-dot">Solar packages</div>
+          <h2 id="packages-title">Solar packages<br>with battery storage</h2>
+        </div>
+        <p class="kicker">Five hybrid packages with panels, battery storage, and installation. Find a starting point for your home or business.</p>
+      </div>
+      @endverbatim
+      @include('partials.solar-package-cards')
+      @verbatim
+      <div class="package-section-foot">
+        <p class="package-note">Advertised package prices. Final scope and price are confirmed after a site assessment.</p>
+        <a class="btn btn-ghost" href="/solar/packages">Compare all packages</a>
       </div>
     </div>
   </section>

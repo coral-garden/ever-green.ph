@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://www.ever-green.ph/</loc><lastmod>2026-08-25</lastmod></url>
-  <url><loc>https://www.ever-green.ph/solar</loc><lastmod>2026-08-25</lastmod></url>
+  <url><loc>https://www.ever-green.ph/solar</loc><lastmod>2026-09-06</lastmod></url>
   <url><loc>https://www.ever-green.ph/construction</loc><lastmod>2026-08-25</lastmod></url>
   <url><loc>https://www.ever-green.ph/hardware</loc><lastmod>2026-08-25</lastmod></url>
   <url><loc>https://www.ever-green.ph/solar/services</loc><lastmod>2026-08-25</lastmod></url>
-  <url><loc>https://www.ever-green.ph/solar/estimate</loc><lastmod>2026-08-26</lastmod></url>
+  <url><loc>https://www.ever-green.ph/solar/estimate</loc><lastmod>2026-09-06</lastmod></url>
   <url><loc>https://www.ever-green.ph/solar/projects</loc><lastmod>2026-08-26</lastmod></url>
   <url><loc>https://www.ever-green.ph/solar/projects/martin-and-rain</loc><lastmod>2026-08-26</lastmod></url>
   <url><loc>https://www.ever-green.ph/solar/projects/dayo-siargao</loc><lastmod>2026-08-26</lastmod></url>
@@ -23,4 +23,5 @@
   <url><loc>https://www.ever-green.ph/terms</loc><lastmod>2026-08-25</lastmod></url>
   <url><loc>https://www.ever-green.ph/privacy</loc><lastmod>2026-08-25</lastmod></url>
   <url><loc>https://www.ever-green.ph/accessibility</loc><lastmod>2026-08-25</lastmod></url>
+  <url><loc>https://www.ever-green.ph/solar/packages</loc><lastmod>2026-09-06</lastmod></url>
 </urlset>

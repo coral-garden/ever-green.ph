@@ -18,6 +18,7 @@ $pages = [
     // Solar division
     'solar' => '/solar',
     'solar-services' => '/solar/services',
+    'solar-packages' => '/solar/packages',
     'solar-estimate' => '/solar/estimate',
     'solar-projects' => '/solar/projects',
 ];

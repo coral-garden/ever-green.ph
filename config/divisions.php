@@ -20,6 +20,7 @@ return [
         'label' => 'Solar',
         'links' => [
             ['Services', '/solar/services'],
+            ['Packages', '/solar/packages'],
             ['Estimate', '/solar/estimate'],
             ['Projects', '/solar/projects'],
             ['About', '/about'],

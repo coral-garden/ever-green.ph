@@ -12,6 +12,7 @@
         <div class="foot-col">
           <h3>Evergreen</h3>
           <a href="/solar">Solar</a>
+          <a href="/solar/packages">Solar packages</a>
           <a href="/construction">Frame Construction</a>
           <a href="/hardware">Hardware Supply</a>
           <a href="/about">About</a>

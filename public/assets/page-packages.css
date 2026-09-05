@@ -1,0 +1,50 @@
+/* Shared package cards on the solar landing and package comparison pages. */
+.packages-hero { padding-bottom: 72px; }
+.packages-hero .btn { margin-top: 30px; }
+.packages-section { background: var(--paper-2); }
+.packages-section, .package-comparison { scroll-margin-top: 90px; }
+.package-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 16px; }
+.package-card { display: flex; flex-direction: column; min-width: 0; padding: 24px 18px; background: #fff; border: 1px solid var(--line); border-top: 3px solid var(--lime); border-radius: var(--radius); }
+.package-name { color: var(--foliage); font-family: var(--font-mono); font-size: 12px; text-transform: uppercase; letter-spacing: .1em; }
+.package-card h3 { font-size: 42px; margin-top: 22px; }
+.package-card h3 span { display: block; font-family: var(--font-body); font-weight: 500; font-size: 16px; letter-spacing: 0; margin-top: 8px; }
+.package-price { font-family: var(--font-display); font-size: 28px; font-weight: 800; margin-top: 26px; white-space: nowrap; }
+.package-price-label { color: var(--mist); font-size: 12px; }
+.package-specs { padding: 20px 0; margin: 18px 0 24px; list-style: none; border-block: 1px solid var(--line); font-size: 14px; }
+.package-specs li + li { margin-top: 8px; }
+.package-quote { margin-top: auto; justify-content: center; padding: 12px 10px; font-size: 11px; letter-spacing: .06em; }
+.package-note { color: var(--mist); font-size: 14px; max-width: 65em; margin-top: 24px; }
+.package-section-foot { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 24px; margin-top: 28px; }
+.package-section-foot .package-note { margin: 0; max-width: 35em; }
+.package-inclusions { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-top: 48px; padding: 32px; background: var(--panel); color: #fff; border-radius: var(--radius); }
+.package-inclusions .tag { color: var(--lime); font-size: 11px; }
+.package-inclusions h3 { font-size: 28px; margin-top: 16px; line-height: 1.1; }
+.package-inclusions ul { margin: 0; padding-left: 20px; }
+.package-inclusions li + li { margin-top: 10px; }
+.package-inclusions li::marker { color: var(--lime); }
+.package-comparison .section-head { margin-bottom: 28px; }
+.package-scroll-hint { color: var(--mist); font-size: 13px; margin-bottom: 12px; }
+.package-table-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: var(--radius); }
+.package-table { width: 100%; min-width: 1080px; border-collapse: collapse; text-align: left; font-size: 14px; }
+.package-table th, .package-table td { padding: 20px 16px; vertical-align: top; border-bottom: 1px solid var(--line); width: 16.666%; }
+.package-table thead { background: var(--panel); color: #fff; }
+.package-table thead span { display: block; font-weight: 400; color: var(--sky); font-size: 12px; margin-top: 6px; }
+.package-table tbody th { background: var(--paper); font-weight: 600; }
+.package-table tbody td { background: var(--paper-2); }
+.package-table tr:last-child > * { border-bottom: 0; }
+.package-table-price { color: var(--foliage); font-weight: 700; font-size: 18px; }
+.package-text-link { color: var(--foliage); font-weight: 600; text-decoration: underline; text-underline-offset: 4px; }
+.package-warranty-notes { margin-top: 26px; max-width: 58em; font-size: 14px; color: var(--mist); }
+.package-warranty-notes h3 { color: var(--ink); font-size: 22px; margin-bottom: 12px; }
+.package-warranty-notes ul { padding-left: 20px; }
+.package-warranty-notes li + li { margin-top: 8px; }
+.package-help { margin-top: 64px; border-top: 1px solid var(--line); padding-top: 40px; text-align: center; }
+.package-help h3 { font-size: 32px; }
+.package-help p { margin: 18px auto 24px; color: var(--mist); max-width: 35em; }
+.package-sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; }
+@media (max-width: 600px) {
+  .package-grid { grid-template-columns: 1fr; }
+  .package-card { padding: 24px; }
+  .package-card h3 span { display: inline; margin-left: 6px; }
+  .package-inclusions { grid-template-columns: 1fr; padding: 24px; }
+}

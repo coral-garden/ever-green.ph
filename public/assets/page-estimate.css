@@ -170,3 +170,11 @@
     .method-grid, .estimate-scope-grid { grid-template-columns: 1fr; }
     .estimate-project-grid { grid-template-columns: 1fr; }
   }
+/* Package enquiries share the quote form while keeping calculator figures separate. */
+.estimate-packages-link { margin-top: 22px; color: var(--sky); font-size: 15px; }
+.estimate-packages-link a, .calc-note a { text-decoration: underline; text-underline-offset: 4px; }
+.selected-package { display: flex; flex-direction: column; gap: 6px; margin: 20px 0; padding: 20px; background: var(--paper); border-left: 3px solid var(--lime); border-radius: 8px; }
+.selected-package strong { color: var(--foliage); font-size: 20px; }
+.selected-package a { color: var(--foliage); text-decoration: underline; text-underline-offset: 4px; font-size: 14px; align-self: flex-start; }
+.estimate-snapshot { display: none; }
+#quote { scroll-margin-top: 96px; }

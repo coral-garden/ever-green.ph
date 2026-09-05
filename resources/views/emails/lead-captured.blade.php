@@ -7,6 +7,7 @@ City: {{ $lead['city'] ?? '—' }}
 Division: {{ $lead['division'] ?? '—' }}
 Message: {{ $lead['message'] ?? '—' }}
 
+@if (empty($lead['solar_package']))
 Estimate
 Bill: {{ $lead['bill_php'] ?? '—' }}
 System type: {{ $lead['system_type'] ?? '—' }}
@@ -15,6 +16,7 @@ Panels: {{ $lead['panels'] ?? '—' }}
 Target offset: {{ $lead['target_offset_pct'] ?? '—' }}
 Estimated cost: {{ $lead['est_cost_php'] ?? '—' }}
 Estimated monthly savings: {{ $lead['est_monthly_savings_php'] ?? '—' }}
+@endif
 
 Submitted: {{ $lead['submitted_at'] ?? '—' }}
 IP: {{ $lead['ip'] ?? '—' }}

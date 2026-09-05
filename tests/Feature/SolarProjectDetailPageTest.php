@@ -104,7 +104,10 @@ class SolarProjectDetailPageTest extends TestCase
         $this->assertStringNotContainsString('<priority>', $sitemap);
 
         foreach ($xml->url as $url) {
-            $this->assertMatchesRegularExpression('/^2026-08-(24|25|26)$/', (string) $url->lastmod);
+            $lastModified = (string) $url->lastmod;
+            $date = \DateTimeImmutable::createFromFormat('!Y-m-d', $lastModified);
+            $this->assertNotFalse($date);
+            $this->assertSame($lastModified, $date->format('Y-m-d'));
         }
     }
 }

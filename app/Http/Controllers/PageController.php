@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
 use Illuminate\View\View;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
@@ -19,11 +20,12 @@ class PageController extends Controller
         // Solar division
         'solar' => ['solar.index', 'solar'],
         'solar-services' => ['solar.services', 'solar'],
+        'solar-packages' => ['solar.packages', 'solar'],
         'solar-estimate' => ['solar.estimate', 'solar'],
         'solar-projects' => ['solar.projects', 'solar'],
     ];
 
-    public function show(string $page): View
+    public function show(Request $request, string $page): View
     {
         if (! isset(self::PAGES[$page])) {
             throw new NotFoundHttpException;
@@ -32,6 +34,16 @@ class PageController extends Controller
         [$view, $division] = self::PAGES[$page];
 
         $data = ['meta' => config("site.meta.$page"), 'division' => $division];
+
+        if (in_array($page, ['solar', 'solar-packages', 'solar-estimate'], true)) {
+            $data['packages'] = config('catalog.solar.packages');
+        }
+
+        if ($page === 'solar-estimate') {
+            $slug = $request->old('solar_package', $request->query('package'));
+            $data['selectedPackageSlug'] = is_string($slug) && isset($data['packages'][$slug]) ? $slug : null;
+            $data['selectedPackage'] = $data['packages'][$data['selectedPackageSlug']] ?? null;
+        }
 
         if ($page === 'solar-projects') {
             $data['projects'] = config('projects.projects');

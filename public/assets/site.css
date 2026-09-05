@@ -134,6 +134,12 @@
     .nav-toggle { display: inline-flex; }
   }
 
+  @media (max-width: 1100px) {
+    .nav--solar .nav-links, .nav--solar .nav-cta .btn { display: none; }
+    .nav--solar .nav-toggle { display: inline-flex; }
+    .nav--solar .nav-cta { margin-left: auto; }
+  }
+
   /* mobile menu */
   .mobile-menu {
     position: fixed; inset: 0; z-index: 60;
