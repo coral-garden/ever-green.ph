@@ -16,7 +16,7 @@ class SolarPackagesTest extends TestCase
             '₱455,000', '₱525,000', '₱765,000', 'id="about"',
         ], false);
 
-        $this->get('/solar/packages')->assertOk()
+        $packagesPage = $this->get('/solar/packages')->assertOk()
             ->assertSee('<link rel="canonical" href="https://www.ever-green.ph/solar/packages"', false)
             ->assertSee('2 × Growatt 16.1 kWh')
             ->assertSee('SRNE 100 Ah, 25.6 V')
@@ -24,6 +24,8 @@ class SolarPackagesTest extends TestCase
             ->assertSee('/solar/estimate?package=mini#quote', false)
             ->assertDontSee('/assets/packages/', false)
             ->assertDontSee('View the original offers');
+
+        $this->assertSame(5, substr_count($packagesPage->getContent(), '12-year panel warranty'));
 
         $this->get('/solar/estimate')->assertOk()->assertSee('Browse advertised packages');
         $this->assertStringContainsString('/solar/packages</loc>', file_get_contents(public_path('sitemap.xml')));

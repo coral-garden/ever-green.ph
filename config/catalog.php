@@ -6,6 +6,7 @@ return [
 
     'solar' => [
         // Transcribed from Evergreen's package flyers supplied on 6 September 2026.
+        // All panel warranty durations set to 12 years per owner guidance.
         'inclusions' => [
             'Mounting / racking system',
             'AC/DC breakers and wiring',
@@ -41,10 +42,10 @@ return [
                 'inverter' => '1 × Growatt 8 kVA hybrid',
                 'battery' => '1 × Growatt 14.3 kWh',
                 'battery_capacity' => '14.3 kWh',
-                'panel_warranty' => 'Panel warranty: confirm with quote',
+                'panel_warranty' => '12-year panel warranty',
                 'inverter_warranty' => '5-year inverter warranty',
                 'battery_warranty' => '10-year / 6,000-cycle battery warranty',
-                'warranty_note' => 'Confirm the panel warranty duration with your quote.',
+                'warranty_note' => null,
             ],
             'package-3' => [
                 'name' => 'Package 3', 'kva' => 10, 'price' => 525000,
@@ -52,10 +53,10 @@ return [
                 'inverter' => '1 × Growatt 10 kVA hybrid',
                 'battery' => '1 × Growatt 16.1 kWh',
                 'battery_capacity' => '16.1 kWh',
-                'panel_warranty' => 'Panel warranty: confirm with quote',
+                'panel_warranty' => '12-year panel warranty',
                 'inverter_warranty' => '5-year inverter warranty',
                 'battery_warranty' => '10-year / 6,000-cycle battery warranty',
-                'warranty_note' => 'Confirm the panel warranty duration with your quote.',
+                'warranty_note' => null,
             ],
             'package-4' => [
                 'name' => 'Package 4', 'kva' => 12, 'price' => 765000,
