@@ -4,6 +4,13 @@
   "@context": "https://schema.org",
   "@graph": [
     {
+      "@type": "WebSite",
+      "@id": "https://www.ever-green.ph/#website",
+      "name": "Evergreen",
+      "url": "https://www.ever-green.ph/",
+      "publisher": { "@id": "https://www.ever-green.ph/#org" }
+    },
+    {
       "@type": "Organization",
       "@id": "https://www.ever-green.ph/#org",
       "name": "Evergreen",
